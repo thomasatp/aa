@@ -1,5 +1,4 @@
 import Hero from "@/app/ui/hero";
-import Nav from "@/app/ui/nav";
 import Tile from "@/app/ui/tile";
 import Grid from "@/app/ui/grid";
 import { projects, skills, brandImages } from "./lib/data";
@@ -9,36 +8,35 @@ import Image from "next/image";
 export default function Page() {
   return (
     <main>
-      <Nav />
       <Grid />
-      <Hero />
-      <div className="relative grid grid-cols-12 gap-6 px-6 mt-20">
-        {projects.map(({ title, tags, img, position }, i) => (
-          <Tile
-            key={i}
-            title={title}
-            tags={tags}
-            img={img}
-            position={position}
-          />
+      <Hero
+        title="strat design dev"
+        description=" Non enim tempor posuere senectus. Sapien gravida ullamcorper sit accumsan rhoncus fermentum. At nisl euismod fringilla enim. A et sed est sed venenatis a in velit ut. Urna adipiscing nunc aenean donec pharetra volutpat adipiscing non."
+      />
+      <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-20 mt-20 2xl:[&>*:nth-child(1)]:col-start-2 2xl:[&>*:nth-child(4)]:col-start-3 2xl:[&>*:nth-child(7)]:col-start-2">
+        {projects.slice(0,9).map(({ title, tags, img, slug }, i) => (
+          <Tile key={i} title={title} tags={tags} img={img} slug={slug} homepage/>
         ))}
       </div>
       <Skills skills={skills} projects={projects} />
-      <div className="relative grid grid-cols-12 gap-6 px-6 mt-20">
-        <p className="col-span-12 col-start-1 text-2xl font-semibold xl:col-span-5 xl:col-start-2 xl:text-5xl">
-          Proin tristique morbi et consectetur dictum sit. Mauris turpis amet
-          tellus ipsum vitae massa. Nisl mattis placerat neque ut a ornare sem
-          volutpat scelerisque.{" "}
+      <div className="relative grid grid-cols-12 gap-6 px-6 mt-20 lg:px-20">
+        <p className="col-span-12 col-start-1 font-semibold text-l 2xl:col-span-2 2xl:col-start-2">
+          our tools
         </p>
-        <div className="flex flex-wrap items-baseline col-span-12 col-start-1 gap-6 scale-50 xl:scale-100 xl:gap-12 xl:col-span-4 xl:col-start-8 opacity-40">
+        <div className="grid flex-wrap grid-cols-2 col-span-12 col-start-1 gap-2 lg:gap-6 xl:grid-cols-4 lg:grid-cols-3 2xl:col-span-7 2xl:col-start-4 opacity-40">
           {brandImages.map((image, i) => (
-            <Image
+            <div
+              className="flex items-center justify-center col-span-1 bg-neutral-800 aspect-square"
               key={i}
-              src={image.url}
-              alt={image.url}
-              width={image.width}
-              height={image.height}
-            />
+            >
+              <Image
+                src={image.url}
+                alt={image.url}
+                width={image.width}
+                height={image.height}
+                className={`${image.mWidth} max-lg:h-auto`}
+              />
+            </div>
           ))}
         </div>
       </div>

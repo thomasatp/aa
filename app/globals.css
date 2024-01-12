@@ -21,7 +21,20 @@
 }
 
 body {
-  background: #0c0a09;
-  color: #ffffff;
+  @apply dark:bg-neutral-950 dark:text-white text-neutral-950 bg-white transition-all duration-300;
+  -webkit-font-smoothing: antialiased;
 }
 
+.after-tile:nth-of-type(7),
+.after-tile:nth-of-type(8),
+.after-tile:nth-of-type(9) {
+  @apply after:content-[''] after:absolute after:w-full after:h-full after:top-0 after:bg-gradient-to-t after:from-white dark:after:from-neutral-950 after:from-15% opacity-20 transition duration-300;
+}
+
+.after-tile:nth-of-type(8) {
+  @apply max-sm:hidden;
+}
+
+.after-tile:nth-of-type(9) {
+  @apply max-xl:hidden;
+}

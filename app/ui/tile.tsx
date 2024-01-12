@@ -1,26 +1,31 @@
 "use client";
-
 import { useGrid } from "../lib/gridProvider";
+import Link from "next/link";
+import { SkillsType } from "../lib/data";
+
+type TileProps = {
+  slug: string;
+  title: string;
+  tags: SkillsType;
+  img?: string;
+  homepage?: boolean
+};
 
 import clsx from "clsx";
 import Image from "next/image";
 
-type TileProps = {
-  title: string;
-  tags: string[];
-  img?: string;
-  position?: string;
-};
-
-export default function Tile({ title, tags, img, position }: TileProps) {
+export default function Tile({ title, tags, img, slug, homepage }: TileProps ) {
   const { visible } = useGrid();
   return (
-    <div
-      className={clsx(`col-span-12 sm:col-span-6 xl:col-span-4 2xl:col-span-3`, {
-        "2xl:col-start-7": position === "middle",
-        "2xl:col-start-10": position === "end",
-        "border border-stone-800": visible,
-      })}
+    <Link
+      href={`/projects/${slug}`}
+      className={clsx(
+        `relative col-span-12 sm:col-span-6 xl:col-span-4 2xl:col-span-3`,
+        {
+          "border border-stone-800": visible,
+          "after-tile": homepage
+        }
+      )}
     >
       <div
         className={clsx(
@@ -34,17 +39,25 @@ export default function Tile({ title, tags, img, position }: TileProps) {
           src={`${img}`}
           alt={title}
           fill
+          sizes="800"
           className={clsx("w-full object-cover")}
         />
       </div>
-      <div className="flex items-baseline mt-4">
-        <h3 className="flex flex-1 text-xl font-semibold">{title}</h3>
-        {tags.map((tag, index) => (
-          <p className="gap-2 text-xs uppercase" key={index}>
-            <span className="ml-2">{tag}</span>
-          </p>
-        ))}
+      <div className="flex flex-col items-baseline mt-4">
+        <h3 className="flex flex-1 text-base font-semibold uppercase">
+          {title}
+        </h3>
+        <div className="flex flex-wrap gap-1 mt-3">
+          {tags.map((tag, index) => (
+            <p
+              className="px-3 py-1 text-sm border rounded-full border-neutral-700 text-neutral-600"
+              key={index}
+            >
+              {tag}
+            </p>
+          ))}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

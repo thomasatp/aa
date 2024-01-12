@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { GridProvider } from "./lib/gridProvider";
+import { Providers } from "./lib/providers";
+import Nav from "./ui/nav";
+import Footer from "./ui/footer";
 
 const inter = Inter_Tight({ subsets: ["latin"] });
 
@@ -18,7 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <GridProvider>{children}</GridProvider>
+        <Providers attribute="class">
+          <Nav />
+          <GridProvider>{children}</GridProvider>
+          <Footer/>
+        </Providers>
       </body>
     </html>
   );
