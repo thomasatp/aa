@@ -2,14 +2,15 @@ export type SkillsList =
   | "UX/UI design"
   | "Branding"
   | "Motion"
-  | "Dévelopement";
+  | "Developement";
 
 type TileProps = {
   slug: string;
   title: string;
   tags: SkillsType;
-  img?: string;
+  img: string;
   mainImg?: string;
+  description?: string
 };
 
 type ImagesProps = {
@@ -27,16 +28,17 @@ export const projects: DataPropsType = [
   {
     slug: "ricaud",
     title: "Dr Pierre Ricaud",
-    tags: ["Branding", "UX/UI design", "Dévelopement"],
+    tags: ["Branding", "UX/UI design", "Developement"],
     img: "/medias/ricaud.jpg",
   },
 
   {
     slug: "matere",
     title: "Matère",
-    tags: ["Branding", "UX/UI design", "Motion", "Dévelopement"],
+    tags: ["Branding", "UX/UI design", "Motion", "Developement"],
     img: "/medias/matere.jpg",
     mainImg: "/medias/main.jpg",
+    description: "dbajdnakzndzna"
   },
   {
     slug: "speakdating",
@@ -98,7 +100,7 @@ export const skills: SkillsType = [
   "UX/UI design",
   "Branding",
   "Motion",
-  "Dévelopement",
+  "Developement",
 ];
 
 export const brandImages: ImagesProps[] = [

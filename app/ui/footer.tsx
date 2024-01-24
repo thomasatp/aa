@@ -3,12 +3,12 @@ import Arrow from "./arrow";
 
 export default function Footer() {
   return (
-    <footer className="grid items-end grid-cols-12 pt-48 pb-6 lg:px-20">
-      <p className="col-span-4 font-semibold text-[28vw] lg:text-[20vw] xl:text-[13vw] leading-[0.8] select-none">
+    <footer className="grid items-end grid-cols-12 px-6 pt-48 pb-6 lg:px-20">
+      <p className="xl:col-span-4 col-span-12 mb-12 xl:mb-0 font-semibold text-[28vw] lg:text-[20vw] xl:text-[13vw] leading-[0.8] select-none">
         and after
       </p>
-      <div className="flex col-span-6 col-start-6 gap-6">
-        <div className="flex flex-col w-full">
+      <div className="grid grid-cols-8 col-span-12 col-start-1 gap-6 xl:col-start-6 xl:col-span-7">
+        <div className="flex flex-col col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
           <div className="mb-6 text-lg font-normal leading-normal text-neutral-600">
             menu
           </div>
@@ -33,7 +33,7 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
           <div className="mb-6 text-lg font-normal leading-normal text-neutral-600">
             address
           </div>
@@ -43,7 +43,7 @@ export default function Footer() {
             <p>France</p>
           </div>
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
           <div className="mb-6 text-lg font-normal leading-normal text-neutral-600">
             contact
           </div>
@@ -82,8 +82,9 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-
-      <Arrow/>
+        <div className="flex flex-col items-end col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
+          <Arrow />
+        </div>
       </div>
     </footer>
   );

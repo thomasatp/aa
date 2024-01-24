@@ -1,6 +1,6 @@
+"use-client"
 import Hero from "@/app/ui/hero";
 import Tile from "@/app/ui/tile";
-import Grid from "@/app/ui/grid";
 import { projects, skills, brandImages } from "./lib/data";
 import Skills from "./ui/skills";
 import Image from "next/image";
@@ -8,7 +8,6 @@ import Image from "next/image";
 export default function Page() {
   return (
     <main>
-      <Grid />
       <Hero
         title="strat design dev"
         description=" Non enim tempor posuere senectus. Sapien gravida ullamcorper sit accumsan rhoncus fermentum. At nisl euismod fringilla enim. A et sed est sed venenatis a in velit ut. Urna adipiscing nunc aenean donec pharetra volutpat adipiscing non."

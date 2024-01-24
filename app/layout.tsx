@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
-import { GridProvider } from "./lib/gridProvider";
 import { Providers } from "./lib/providers";
 import Nav from "./ui/nav";
 import Footer from "./ui/footer";
-
-const inter = Inter_Tight({ subsets: ["latin"] });
+const inter = Inter_Tight({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,11 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers attribute="class">
-          <Nav />
-          <GridProvider>{children}</GridProvider>
+          <Nav/>
+          {children}
           <Footer/>
         </Providers>
       </body>
