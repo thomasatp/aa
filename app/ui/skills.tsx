@@ -1,5 +1,5 @@
 "use client";
-import { DataPropsType, SkillsList, SkillsType } from "../lib/data";
+import { DataPropsType,  SkillsList, SkillsType } from "../lib/notion";
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,7 +18,7 @@ export default function Skills({
   const allTags = concatTags.flat();
 
   function filteredProjects(skill: SkillsList | undefined) {
-    if (skill === "UX/UI design") {
+    if (skill === "UX/UI Design") {
       return projects.find((p) => p.slug === "ricaud");
     }
     if (skill === "Branding") {
@@ -27,7 +27,7 @@ export default function Skills({
     if (skill === "Motion") {
       return projects.find((p) => p.slug === "revol");
     }
-    if (skill === "Developement") {
+    if (skill === "Development") {
       return projects.find((p) => p.slug === "matere");
     }
     return projects.filter((p) => p.tags.find((tag) => tag === skill))[0];
@@ -43,7 +43,7 @@ export default function Skills({
         {skills.map((skill, i) => (
           <div className="relative flex items-baseline group" key={i}>
             <Link href={`/work?filter=${skill}`}>
-              <h2 className="relative text-[12vw] 2xl:text-[8vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-semibold leading-[0.8] z-10">
+              <h2 className="relative text-[12vw] 2xl:text-[8vw] text-nowrap translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-semibold leading-[0.8] z-10">
                 {skill}
               </h2>
             </Link>

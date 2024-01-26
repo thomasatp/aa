@@ -1,5 +1,3 @@
-import { RefObject } from "react";
-
 type HeroProps = {
   title: string;
   description: string

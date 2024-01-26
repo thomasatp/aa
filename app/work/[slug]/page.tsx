@@ -1,18 +1,19 @@
-import { projects } from "../../lib/data";
+import { getProjects } from "../../lib/notion";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 import MovingText from "@/app/ui/movingText";
 
 export async function generateStaticParams() {
-  const posts = projects;
+  const posts = await getProjects();
 
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: { slug: string } }) {
+  const projects =  await getProjects();
   const { slug } = params;
   const { title, mainImg } = projects.filter((p) => p.slug === slug)[0];
 

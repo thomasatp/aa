@@ -1,8 +1,8 @@
 export type SkillsList =
-  | "UX/UI design"
+  | "UX/UI Design"
   | "Branding"
   | "Motion"
-  | "Developement";
+  | "Development";
 
 type TileProps = {
   slug: string;
@@ -28,14 +28,14 @@ export const projects: DataPropsType = [
   {
     slug: "ricaud",
     title: "Dr Pierre Ricaud",
-    tags: ["Branding", "UX/UI design", "Developement"],
+    tags: ["Branding", "UX/UI Design", "Development"],
     img: "/medias/ricaud.jpg",
   },
 
   {
     slug: "matere",
     title: "Matère",
-    tags: ["Branding", "UX/UI design", "Motion", "Developement"],
+    tags: ["Branding", "UX/UI Design", "Motion", "Development"],
     img: "/medias/matere.jpg",
     mainImg: "/medias/main.jpg",
     description: "dbajdnakzndzna"
@@ -43,64 +43,64 @@ export const projects: DataPropsType = [
   {
     slug: "speakdating",
     title: "Speakdating",
-    tags: ["Branding", "UX/UI design"],
+    tags: ["Branding", "UX/UI Design"],
     img: "/medias/speakdating.jpg",
   },
   {
     slug: "yooji",
     title: "Yooji",
-    tags: ["Branding", "UX/UI design"],
+    tags: ["Branding", "UX/UI Design"],
     img: "/medias/yooji.jpg",
   },
   {
     slug: "vy-resort",
     title: "Vy Resort Thermal & Spa",
-    tags: ["Branding", "UX/UI design"],
+    tags: ["Branding", "UX/UI Design"],
     img: "/medias/francethermes.jpg",
   },
   {
     slug: "revol",
     title: "Revol",
-    tags: ["Branding", "UX/UI design", "Motion"],
+    tags: ["Branding", "UX/UI Design", "Motion"],
     img: "/medias/revol.jpg",
   },
   {
     slug: "happyvore",
     title: "Happyvore",
-    tags: ["Branding", "UX/UI design"],
+    tags: ["Branding", "UX/UI Design"],
     img: "/medias/happyvore.jpg",
   },
   {
     slug: "ocean-kiss",
     title: "Ocean Kiss",
-    tags: ["Branding", "UX/UI design"],
+    tags: ["Branding", "UX/UI Design"],
     img: "/medias/oceankiss.jpg",
   },
   {
     slug: "le-bourget",
     title: "Le Bourget",
-    tags: ["Branding", "UX/UI design"],
+    tags: ["Branding", "UX/UI Design"],
     img: "/medias/lebourget.jpg",
   },
   {
     slug: "paramat",
     title: "Paramat",
-    tags: ["Branding", "UX/UI design"],
+    tags: ["Branding", "UX/UI Design"],
     img: "/medias/paramat.jpg",
   },
   {
     slug: "balanz",
     title: "Balanz",
-    tags: ["Branding", "UX/UI design"],
+    tags: ["Branding", "UX/UI Design"],
     img: "/medias/balanz.jpg",
   },
 ];
 
 export const skills: SkillsType = [
-  "UX/UI design",
+  "UX/UI Design",
   "Branding",
   "Motion",
-  "Developement",
+  "Development",
 ];
 
 export const brandImages: ImagesProps[] = [

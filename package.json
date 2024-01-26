@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.14",
     "@react-three/fiber": "^8.15.13",
     "clsx": "^2.0.0",
     "framer-motion": "^10.18.0",

@@ -1,11 +1,14 @@
-"use-client"
+
 import Hero from "@/app/ui/hero";
 import Tile from "@/app/ui/tile";
-import { projects, skills, brandImages } from "./lib/data";
+import { skills, brandImages } from "./lib/data";
 import Skills from "./ui/skills";
 import Image from "next/image";
+import { getProjects } from "./lib/notion";
 
-export default function Page() {
+export default async function Page() {
+
+  const projects = await getProjects()
   return (
     <main>
       <Hero
@@ -13,7 +16,7 @@ export default function Page() {
         description=" Non enim tempor posuere senectus. Sapien gravida ullamcorper sit accumsan rhoncus fermentum. At nisl euismod fringilla enim. A et sed est sed venenatis a in velit ut. Urna adipiscing nunc aenean donec pharetra volutpat adipiscing non."
       />
       <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-20 mt-20 2xl:[&>*:nth-child(1)]:col-start-2 2xl:[&>*:nth-child(4)]:col-start-3 2xl:[&>*:nth-child(7)]:col-start-2">
-        {projects.slice(0,9).map(({ title, tags, img, slug }, i) => (
+        {projects.slice(0,9).map(({ title, tags, img, slug }: any, i: any) => (
           <Tile key={i} title={title} tags={tags} img={img} slug={slug} homepage/>
         ))}
       </div>
