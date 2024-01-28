@@ -4,11 +4,7 @@ const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
 import { cache } from "react";
 
-export type SkillsList =
-  | "UX/UI Design"
-  | "Branding"
-  | "Motion"
-  | "Development";
+export type SkillsList = "UX/UI Design" | "Branding" | "Motion" | "Development";
 
 type TileProps = {
   slug: string;
@@ -16,7 +12,7 @@ type TileProps = {
   tags: SkillsType;
   img: string;
   mainImg?: string;
-  description?: string
+  description?: string;
 };
 
 type ImagesProps = {
@@ -36,16 +32,18 @@ export const skills: SkillsType = [
   "Development",
 ];
 
-
 export const getProjects = cache(async () => {
   const data: DataPropsType = [];
-  const databaseId = process.env.NOTION_DATABASE_ID;
-  const response = await notion.databases.query({ database_id: databaseId, sorts: [
+  const databaseId = process.env.PROJECTS_DATABASE_ID;
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    sorts: [
       {
-        timestamp: 'created_time',
-        direction: 'ascending',
+        timestamp: "created_time",
+        direction: "ascending",
       },
-    ] });
+    ],
+  });
   // response.results.forEach((res: any) => {
   //   console.log(res?.properties.mainImage.files[0].file.url);
   // });
@@ -58,5 +56,23 @@ export const getProjects = cache(async () => {
       description: res?.properties.description.rich_text[0].text.content,
     })
   );
+  return data;
+});
+
+export const getHomepage = cache(async () => {
+  const databaseId = process.env.HOMEPAGE_DATABASE_ID;
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    sorts: [
+      {
+        timestamp: "created_time",
+        direction: "ascending",
+      },
+    ],
+  });
+  const data = {
+    title: response.results[0].properties.intro,
+    intro: response.results[0].properties.title.title,
+  };
   return data;
 });

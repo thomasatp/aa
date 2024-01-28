@@ -4,11 +4,13 @@ import Tile from "@/app/ui/tile";
 import { skills, brandImages } from "./lib/data";
 import Skills from "./ui/skills";
 import Image from "next/image";
-import { getProjects } from "./lib/notion";
+import { getProjects,getHomepage } from "./lib/notion";
 
 export default async function Page() {
 
   const projects = await getProjects()
+  const homepage = await getHomepage()
+  console.log("coucou", homepage)
   return (
     <main>
       <Hero

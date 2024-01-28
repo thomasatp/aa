@@ -4,6 +4,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import MovingText from "@/app/ui/movingText";
 
+
 export async function generateStaticParams() {
   const posts = await getProjects();
 
@@ -15,7 +16,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: { slug: string } }) {
   const projects =  await getProjects();
   const { slug } = params;
-  const { title, mainImg } = projects.filter((p) => p.slug === slug)[0];
+  const { title, img } = projects.filter((p) => p.slug === slug)[0];
 
   const projectPosition = projects.findIndex((p) => p.slug === slug);
   const nextProjectIndex =
@@ -35,15 +36,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {title}
         </h1>
         <div className="relative col-span-12 col-start-1 lg:col-span-8 lg:col-start-3 aspect-square lg:aspect-video">
-          {mainImg && (
+         
             <Image
-              src={`${mainImg}`}
+              src={`${img}`}
               alt={title}
               fill
+              loading="lazy"
               sizes="800"
               className={clsx(" w-full object-cover")}
             />
-          )}
+          
         </div>
         <p className="grid items-end col-span-12 col-start-1 mb-6 text-xl text-white leading-1 xl:col-start-7 2xl:col-start-8 xl:col-span-4 2xl:col-span-3 max-lg:order-5 max-lg:text-xl ">
           Blablabla
