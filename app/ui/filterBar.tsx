@@ -13,7 +13,7 @@ export default function FilterBar({allTags, filter}: any) {
         className={clsx(
           "sticky top-[88px] lg:top-[120px] z-10 flex justify-start gap-1 px-6 py-3 transition-all duration-300 overflow-scroll bg-white snap-x snap-mandatory scroll-px-6 tags lg:justify-center flex-nowrap lg:flex-wrap dark:bg-neutral-950 ",
           {
-            "-translate-y-[88px] lg:-translate-y-[120px]  ": !isVisible && filterTop < 121,
+            "-translate-y-[88px] lg:-translate-y-[120px]  ": !isVisible && filterTop < 125,
             "translate-y-0 ": isVisible ,
           }
         )}

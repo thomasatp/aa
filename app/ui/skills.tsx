@@ -39,11 +39,11 @@ export default function Skills({
       <p className="col-span-12 col-start-1 font-semibold text-l 2xl:col-span-2 2xl:col-start-2 ">
         our expertise
       </p>
-      <div className="relative grid col-span-3 gap-1 2xl:col-start-4">
+      <div className="relative grid col-span-3 gap-1 2xl:col-start-4 2xl:col-span-7">
         {skills.map((skill, i) => (
-          <div className="relative flex items-baseline group" key={i}>
+          <div className="relative flex items-baseline w-full group" key={i}>
             <Link href={`/work?filter=${skill}`}>
-              <h2 className="relative text-[12vw] 2xl:text-[8vw] text-nowrap translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-semibold leading-[0.8] z-10">
+              <h2 className=" whitespace-nowrap relative text-[12vw] 2xl:text-[8vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-semibold leading-[0.8] z-10">
                 {skill}
               </h2>
             </Link>

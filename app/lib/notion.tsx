@@ -13,6 +13,7 @@ type TileProps = {
   img: string;
   mainImg?: string;
   description?: string;
+  firstMedias?: any
 };
 
 type ImagesProps = {
@@ -54,6 +55,7 @@ export const getProjects = cache(async () => {
       tags: res?.properties.tags.multi_select.map((tag: any) => tag.name),
       img: res?.properties.mainImage.files[0].file.url,
       description: res?.properties.description.rich_text[0].text.content,
+      firstMedias: res.properties.firstMedias.files.map((file: any) => file.file.url),
     })
   );
   return data;
@@ -71,8 +73,8 @@ export const getHomepage = cache(async () => {
     ],
   });
   const data = {
-    title: response.results[0].properties.intro,
-    intro: response.results[0].properties.title.title,
+    title: response.results[0].properties.title.title[0].plain_text,
+    intro: response.results[0].properties.intro.rich_text[0].plain_text,
   };
   return data;
 });

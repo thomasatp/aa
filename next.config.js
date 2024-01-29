@@ -5,5 +5,16 @@ const nextConfig = {
     domains: ["prod-files-secure.s3.us-west-2.amazonaws.com"],
   },
 };
-
-module.exports = nextConfig;
+const withVideos = require("next-videos");
+module.exports = withVideos({
+  transpilePackages: ["three"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "prod-files-secure.s3.us-west-2.amazonaws.com",
+        port: "",
+      },
+    ],
+  },
+});
