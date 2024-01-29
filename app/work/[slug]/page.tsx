@@ -5,18 +5,18 @@ import clsx from "clsx";
 import MovingText from "@/app/ui/movingText";
 
 
-export async function generateStaticParams() {
-  const posts = await getProjects();
+// export async function generateStaticParams() {
+//   const posts = await getProjects();
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+//   return posts.map((post) => ({
+//     slug: post.slug,
+//   }));
+// }
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const projects =  await getProjects();
   const { slug } = params;
-  const { title, img } = projects.filter((p) => p.slug === slug)[0];
+  const { title, img, description } = projects.filter((p) => p.slug === slug)[0];
 
   const projectPosition = projects.findIndex((p) => p.slug === slug);
   const nextProjectIndex =
@@ -47,8 +47,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             />
           
         </div>
-        <p className="grid items-end col-span-12 col-start-1 mb-6 text-xl text-white leading-1 xl:col-start-7 2xl:col-start-8 xl:col-span-4 2xl:col-span-3 max-lg:order-5 max-lg:text-xl ">
-          Blablabla
+        <p className="grid items-end col-span-12 col-start-1 mb-6 text-xl leading-1 xl:col-start-7 2xl:col-start-8 xl:col-span-4 2xl:col-span-3 max-lg:order-5 max-lg:text-xl ">
+          {description}
         </p>
       </section>
       <Link href={`/work/${nextProject.url}`}>
