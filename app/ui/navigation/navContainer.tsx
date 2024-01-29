@@ -1,6 +1,6 @@
 "use client";
 import { motion, } from "framer-motion";
-import { useScrollDirection } from "../hooks/useScrollDirection";
+import { useScrollDirection } from "../../hooks/useScrollDirection";
 import clsx from "clsx";
 export default function NavContainer({
   children,

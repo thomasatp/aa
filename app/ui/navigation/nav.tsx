@@ -1,4 +1,4 @@
-import Logo from "./logo";
+import Logo from "../logo";
 import Link from "next/link";
 import ToggleTheme from "./toggleTheme";
 import NavContainer from "./navContainer";

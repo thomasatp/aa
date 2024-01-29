@@ -1,8 +1,8 @@
 
-import Hero from "@/app/ui/hero";
+import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
 import { skills, brandImages } from "./lib/data";
-import Skills from "./ui/skills";
+import Skills from "./ui/homepage/skills";
 import Image from "next/image";
 import { getProjects,getHomepage } from "./lib/notion";
 

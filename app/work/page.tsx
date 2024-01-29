@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import Hero from "@/app/ui/hero";
+import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
 import { getProjects, SkillsType } from "../lib/notion";
 import FilterBar from "../ui/filterBar";
