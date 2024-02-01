@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { SkillsType } from "../lib/data";
+import { SkillsType } from "../lib/notion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 

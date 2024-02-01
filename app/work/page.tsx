@@ -2,14 +2,14 @@
 
 import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
-import { getProjects, SkillsType } from "../lib/notion";
+import { getAllProjects, SkillsType } from "../lib/notion";
 import FilterBar from "../ui/filterBar";
 
 export default async function Page({searchParams}: {searchParams: any}) {
   
   const filter = searchParams.filter;
   const concatTags: SkillsType[] = [];
-  const projects = await getProjects()
+  const projects = await getAllProjects("Published")
   projects.forEach((project) => concatTags.push(project.tags));
   const allTags = Array.from(new Set(concatTags.flat()));
 

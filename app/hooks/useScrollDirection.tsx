@@ -6,12 +6,15 @@ export function useScrollDirection() {
   const [scrollLevel, setScrollLevel] = useState(0);
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [filterTop, setFilterTop] = useState(0)
+  const [filterTop, setFilterTop] = useState(0);
+  const [navOnTop, setNavOnTop] = useState(true)
+
   const { scrollY } = useScroll();
   const contentRef = useRef<HTMLElement | null>(null);
 
   useMotionValueEvent(scrollY, "change", (prev) => {
     setCurrentScroll(prev);
+    prev > 120 ? setNavOnTop(false) : setNavOnTop(true);
     contentRef.current && setFilterTop(contentRef.current?.offsetTop - prev)
     if (prev > 120 ) {
       prev < currentScroll ? setIsScrollDown(false) : setIsScrollDown(true);
@@ -32,5 +35,5 @@ export function useScrollDirection() {
     return () => clearTimeout(stopScroll());
   });
 
-  return [isVisible, contentRef as RefObject<HTMLDivElement>, filterTop] as const;
+  return [isVisible, contentRef as RefObject<HTMLDivElement>, filterTop, scrollY] as const;
 }
