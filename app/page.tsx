@@ -6,6 +6,8 @@ import Skills from "./ui/homepage/skills";
 import Image from "next/image";
 import { getAllProjects, getHomepage } from "./lib/notion";
 
+export const revalidate = 3600
+
 export default async function Page() {
 
   const projects = await getAllProjects("Published")

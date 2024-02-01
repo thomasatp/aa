@@ -8,6 +8,8 @@ import FirstPart from "@/app/ui/project/firstPart";
 import SecondPart from "@/app/ui/project/secondPart";
 import { TileProps } from "../../lib/notion";
 
+export const revalidate = 3600
+
 
 export default async function Page({ params }: { params: { slug: TileProps["slug"] } }) {
   const { slug } = params;
