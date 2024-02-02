@@ -3,6 +3,7 @@ import { DataPropsType, SkillsList, SkillsType, TileProps  } from "../../lib/not
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export default function Skills({
   skills,
@@ -65,7 +66,7 @@ export default function Skills({
             <div className="absolute items-center justify-center opacity-0 transition-all duration-300 w-[10vw] will-change-auto max-lg:hidden -translate-y-1/2 translate-x-full p-8 top-1/2 right-0 group-hover:opacity-100 flex bg-stone-900 aspect-4/5">
               {skill && (
                 <Image
-                  src={filteredProjects(skill)}
+                  src={`${filteredProjects(skill)}`}
                   alt={projects[0].title}
                   fill
                   sizes="800"
