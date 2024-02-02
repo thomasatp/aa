@@ -47,7 +47,6 @@ export default function Skills({
     )[0]?.img;
   }
 
- console.log(filteredProjects("Webmastering"))
 
   return (
     <div className="grid grid-cols-12 gap-6 px-6 mb-0 lg:px-20 -mt-96 md:mb-48 lg:mb-96">

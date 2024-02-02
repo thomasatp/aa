@@ -20,7 +20,7 @@ export default function SecondPart( {secondMedias, secondPartTitle, secondPartDe
         {secondMedias?.length !== 0 &&
           secondMedias?.map(({url, name}, i: number) => (
             <div key={i} className="medias second-medias">
-              {name.includes(".mp4") ? (
+              {url.includes(".mp4") ? (
                 <video
                   className="object-cover w-full h-full"
                   preload="auto"
@@ -34,7 +34,7 @@ export default function SecondPart( {secondMedias, secondPartTitle, secondPartDe
               ) : (
                 <Image
                   src={`${url}`}
-                  alt={name.slice(0, name.length - 4)}
+                  alt={name}
                   fill
                   loading="lazy"
                   sizes="800"

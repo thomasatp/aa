@@ -8,7 +8,7 @@ type TileProps = {
   slug: string;
   title: string;
   tags: SkillsType;
-  img?: string;
+  img: { url: string; name: string };
   homepage?: boolean;
 };
 
@@ -33,8 +33,8 @@ export default function Tile({ title, tags, img, slug, homepage }: TileProps) {
     >
       <div className="relative flex items-center justify-center p-8 aspect-4/5">
         <Image
-          src={`${img}`}
-          alt={title}
+          src={`${img.url}`}
+          alt={img.name}
           fill
           sizes="800"
           className={clsx("w-full object-cover transition-all duration-300")}

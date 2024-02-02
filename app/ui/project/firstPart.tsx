@@ -16,7 +16,7 @@ export default function FirstPart({
             key={i}
             className="transition-all duration-700 medias first-medias"
           >
-            {name.includes(".mp4") ? (
+            {url.includes(".mp4") ? (
               <video
                 className="object-cover w-full h-full"
                 preload="auto"
@@ -30,7 +30,7 @@ export default function FirstPart({
             ) : (
               <Image
                 src={`${url}`}
-                alt={name.slice(0, name.length - 4)}
+                alt={name}
                 fill
                 loading="lazy"
                 sizes="800"

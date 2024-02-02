@@ -5,7 +5,12 @@ const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
 import { cache } from "react";
 
-export type SkillsList = "UX/UI Design" | "Branding" | "Motion" | "Development" | "Webmastering";
+export type SkillsList =
+  | "UX/UI Design"
+  | "Branding"
+  | "Motion"
+  | "Development"
+  | "Webmastering";
 
 export type MediaTypes = {
   url: string;
@@ -17,14 +22,14 @@ export type TileProps = {
   slug: string;
   title: string;
   tags: SkillsType;
-  img: string;
+  img: {url: string; name: string};
   mainImg?: string;
   description?: string;
   firstMedias?: MediaTypes[];
   secondPartTitle?: string;
   secondPartDescription?: string;
   secondMedias?: MediaTypes[];
-  fullMedia?: MediaTypes;
+  wideMedia?: MediaTypes[];
 };
 
 type ImagesProps = {
@@ -43,15 +48,18 @@ export const skills: SkillsType = [
   "Branding",
   "Motion",
   "Development",
-  "Webmastering"
+  "Webmastering",
 ];
 export const getAllProjects = cache(async (status?: TileProps["status"]) => {
+  
+  const regex: RegExp = /\/([^\/]+)%2F([^\/]+)\.(jpg|png|mp4)\?/;
+
   const data: DataPropsType = [];
   const databaseId = process.env.PROJECTS_DATABASE_ID;
   const response = await notion.databases.query({
     database_id: databaseId,
     filter: {
-      property: 'status',
+      property: "status",
       status: {
         equals: status,
       },
@@ -69,20 +77,27 @@ export const getAllProjects = cache(async (status?: TileProps["status"]) => {
       slug: res.properties.slug.rich_text[0].text.content,
       title: res.properties.title.title[0].text.content,
       tags: res.properties.tags.multi_select.map((tag: any) => tag.name),
-      img: res.properties.mainImage.files[0].file.url,
+      img: {
+        name: res.properties.mainImage.files[0].name
+          .match(regex)[2],
+        url: res.properties.mainImage.files[0].external.url,
+      },
       description: res.properties.description.rich_text[0].text.content,
       firstMedias: res.properties.firstMedias.files.map((file: any) => ({
-        url: file.file.url,
-        name: file.name,
+        name: file.name.match(regex)[2],
+        url: file.external.url,
       })),
       secondPartTitle: res.properties.secondPartTitle.rich_text[0].text.content,
       secondPartDescription:
         res.properties.secondPartDescription.rich_text[0].text.content,
       secondMedias: res.properties.secondMedias.files.map((file: any) => ({
-        url: file.file.url,
-        name: file.name,
+        name: file.name.match(regex)[2],
+        url: file.external.url,
       })),
-      fullMedia: res.properties.fullMedia.files.map((file: any) => ({url: file.file.url, name: file.name}))[0],
+      wideMedia: res.properties.wideMedia.files.map((file: any) => ({
+        name: file.name.match(regex)[2],
+        url: file.external.url
+      }))
       
     })
   );

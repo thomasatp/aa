@@ -23,10 +23,9 @@ export default async function Page({ params }: { params: { slug: TileProps["slug
     secondPartTitle,
     secondPartDescription,
     secondMedias,
-    fullMedia,
+    wideMedia,
   } = projects.filter((p) => p.slug === slug)[0];
 
-  console.log(projects[0].fullMedia);
 
   const projectPosition = projects.findIndex((p) => p.slug === slug);
   const nextProjectIndex =
@@ -47,9 +46,9 @@ export default async function Page({ params }: { params: { slug: TileProps["slug
         secondPartDescription={secondPartDescription}
         secondMedias={secondMedias}
       />
-      {fullMedia && (
+      {wideMedia && (
         <section className="relative w-full aspect-video">
-          {fullMedia.name.includes(".mp4") ? (
+          {wideMedia[0].url.includes(".mp4") ? (
             <video
               className="object-cover w-full h-full"
               preload="auto"
@@ -58,12 +57,12 @@ export default async function Page({ params }: { params: { slug: TileProps["slug
               loop
               muted
             >
-              <source src={fullMedia.url} type="video/mp4" />
+              <source src={wideMedia[0].url} type="video/mp4" />
             </video>
           ) : (
             <Image
-              src={`${fullMedia.url}`}
-              alt={fullMedia.name.slice(0, fullMedia.name.length - 4)}
+              src={`${wideMedia[0].url}`}
+              alt={wideMedia[0].name}
               fill
               loading="lazy"
               sizes="800"
@@ -79,7 +78,7 @@ export default async function Page({ params }: { params: { slug: TileProps["slug
               Next
             </p>
             <Image
-              src={`${nextProject.img}`}
+              src={`${nextProject.img.url}`}
               alt={nextProject.title}
               fill
               sizes="800"
