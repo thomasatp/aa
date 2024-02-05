@@ -45,15 +45,15 @@ body {
 }
 
 .first-medias:nth-of-type(1) {
-  @apply col-start-1 col-span-12 xl:col-start-2 xl:col-span-3 aspect-square
+  @apply col-start-1 col-span-12 xl:col-start-2 xl:col-span-3
 }
 
 .first-medias:nth-of-type(2) {
-  @apply col-start-1 col-span-12 xl:col-start-6 xl:col-span-6 aspect-square
+  @apply col-start-1 col-span-12 xl:col-start-6 xl:col-span-6
 }
 
 .first-medias:nth-of-type(3) {
-  @apply col-start-1 col-span-12 xl:col-start-3 xl:col-span-8 aspect-4/3
+  @apply col-start-1 col-span-12 xl:col-start-3 xl:col-span-8
 }
 
 .second-medias:nth-of-type(1) {

@@ -8,8 +8,6 @@ import FirstPart from "@/app/ui/project/firstPart";
 import SecondPart from "@/app/ui/project/secondPart";
 import { TileProps } from "../../lib/notion";
 
-export const revalidate = 3600
-
 
 export default async function Page({ params }: { params: { slug: TileProps["slug"] } }) {
   const { slug } = params;
@@ -46,7 +44,7 @@ export default async function Page({ params }: { params: { slug: TileProps["slug
         secondPartDescription={secondPartDescription}
         secondMedias={secondMedias}
       />
-      {wideMedia && (
+      {wideMedia && wideMedia?.length !== 0 && (
         <section className="relative w-full aspect-video">
           {wideMedia[0].url.includes(".mp4") ? (
             <video

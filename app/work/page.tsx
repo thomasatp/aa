@@ -5,7 +5,6 @@ import Tile from "@/app/ui/tile";
 import { getAllProjects, SkillsType } from "../lib/notion";
 import FilterBar from "../ui/filterBar";
 
-export const revalidate = 3600
 
 export default async function Page({searchParams}: {searchParams: any}) {
   

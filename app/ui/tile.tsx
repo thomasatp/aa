@@ -35,6 +35,7 @@ export default function Tile({ title, tags, img, slug, homepage }: TileProps) {
         <Image
           src={`${img.url}`}
           alt={img.name}
+          priority
           fill
           sizes="800"
           className={clsx("w-full object-cover transition-all duration-300")}

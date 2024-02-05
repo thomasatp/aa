@@ -18,7 +18,7 @@ export default function FirstPart({
           >
             {url.includes(".mp4") ? (
               <video
-                className="object-cover w-full h-full"
+                className=" w-full h-auto"
                 preload="auto"
                 autoPlay
                 playsInline
@@ -31,10 +31,10 @@ export default function FirstPart({
               <Image
                 src={`${url}`}
                 alt={name}
-                fill
+                width={1000}
+                height={1000}
                 loading="lazy"
-                sizes="800"
-                className={clsx("absolute w-full object-cover")}
+                className={clsx(" w-full h-auto")}
               />
             )}
           </div>
