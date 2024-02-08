@@ -10,7 +10,7 @@ export default async function Page() {
   const homepage = await getHomepage();
   return (
     <main>
-      <Hero title={homepage.title} description={homepage.intro} />
+      <Hero title={homepage.title} description={homepage.description} />
       <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-20 mt-20 2xl:[&>*:nth-child(1)]:col-start-2 2xl:[&>*:nth-child(4)]:col-start-3 2xl:[&>*:nth-child(7)]:col-start-2">
         {projects.slice(0, 9).map(({ title, tags, img, slug }, i) => (
           <Tile

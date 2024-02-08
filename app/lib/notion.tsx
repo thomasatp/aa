@@ -17,6 +17,11 @@ export type MediaTypes = {
   name: string;
 };
 
+export type HeroProps = {
+  title: string;
+  description: string
+}
+
 export type TileProps = {
   status: string;
   slug: string;
@@ -109,9 +114,9 @@ export const getHomepage = cache(async () => {
   const response = await notion.databases.query({
     database_id: databaseId,
   });
-  const data = {
+  const data: HeroProps = {
     title: response.results[0].properties.title.title[0].plain_text,
-    intro: response.results[0].properties.intro.rich_text[0].plain_text,
+    description: response.results[0].properties.intro.rich_text[0].plain_text,
   };
   return data;
 });
