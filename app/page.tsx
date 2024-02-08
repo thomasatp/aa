@@ -4,8 +4,10 @@ import { skills, brandImages, getAllProjects } from "./lib/notion";
 import Skills from "./ui/homepage/skills";
 import Image from "next/image";
 
+export const dynamic="force-dynamic"
+
 export default async function Page() {
-  const projects = await getAllProjects("Published");
+  const projects = await getAllProjects("Published")
   return (
     <main>
       <Hero  />
