@@ -57,17 +57,17 @@ body {
 }
 
 .second-medias:nth-of-type(1) {
-  @apply col-start-1 col-span-12 xl:col-start-2 xl:col-span-5 aspect-4/5
+  @apply col-start-1 col-span-12 xl:col-start-2 xl:col-span-5 
 }
 
 .second-medias:nth-of-type(2) {
-  @apply col-start-1 col-span-12 xl:col-start-8 xl:col-span-4 aspect-video
+  @apply col-start-1 col-span-12 xl:col-start-8 xl:col-span-4
 }
 
 .second-medias:nth-of-type(3) {
-  @apply col-start-1 col-span-12 xl:col-start-2 xl:col-span-5 aspect-video
+  @apply col-start-1 col-span-12 xl:col-start-2 xl:col-span-5
 }
 
 .second-medias:nth-of-type(4) {
-  @apply col-start-1 col-span-12 xl:col-start-8 xl:col-span-4 aspect-4/5
+  @apply col-start-1 col-span-12 xl:col-start-8 xl:col-span-4 
 }

@@ -34,7 +34,7 @@ export default function FirstPart({
                 width={1000}
                 height={1000}
                 loading="lazy"
-                className={clsx(" w-full h-auto")}
+                className="w-full h-auto"
               />
             )}
           </div>

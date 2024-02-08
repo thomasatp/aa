@@ -87,9 +87,9 @@ export const getAllProjects = cache(async (status?: TileProps["status"]) => {
         name: file.name.match(regex)[2],
         url: file.external.url,
       })),
-      secondPartTitle: res.properties.secondPartTitle.rich_text[0].text.content,
+      secondPartTitle: res.properties.secondPartTitle.rich_text[0]?.text.content,
       secondPartDescription:
-        res.properties.secondPartDescription.rich_text[0].text.content,
+        res.properties.secondPartDescription.rich_text[0]?.text.content,
       secondMedias: res.properties.secondMedias.files.map((file: any) => ({
         name: file.name.match(regex)[2],
         url: file.external.url,
