@@ -3,14 +3,13 @@ import Tile from "@/app/ui/tile";
 import { skills, brandImages } from "./lib/notion";
 import Skills from "./ui/homepage/skills";
 import Image from "next/image";
-import { getAllProjects, getHomepage } from "./lib/notion";
+import { getAllProjects  } from "./lib/notion";
 
 export default async function Page() {
   const projects = await getAllProjects("Published");
-  const homepage = await getHomepage();
   return (
     <main>
-      <Hero title={homepage.title} description={homepage.description} />
+      <Hero  />
       <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-20 mt-20 2xl:[&>*:nth-child(1)]:col-start-2 2xl:[&>*:nth-child(4)]:col-start-3 2xl:[&>*:nth-child(7)]:col-start-2">
         {projects.slice(0, 9).map(({ title, tags, img, slug }, i) => (
           <Tile
