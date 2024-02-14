@@ -1,9 +1,11 @@
 import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
-import { skills, brandImages, getAllProjects, getHomepage } from "./lib/notion";
+import { skills, brandImages } from "./lib/notion";
 import Skills from "./ui/homepage/skills";
 import Image from "next/image";
 import { getProjects, getHomePage } from "./lib/airtable";
+
+export const dynamic = "force-dynamic"
 
 
 export default async function Page() {
