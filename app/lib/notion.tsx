@@ -22,13 +22,12 @@ export type HeroProps = {
   description?: string
 }
 
-export type TileProps = {
+export type ProjectProps = {
   status: string;
   slug: string;
   title: string;
   tags: SkillsType;
   img: {url: string; name: string};
-  mainImg?: string;
   description?: string;
   firstMedias?: MediaTypes[];
   secondPartTitle?: string;
@@ -46,7 +45,7 @@ type ImagesProps = {
 
 export type SkillsType = SkillsList[];
 
-export type DataPropsType = TileProps[];
+export type DataPropsType = ProjectProps[];
 
 export const skills: SkillsType = [
   "UX/UI Design",
@@ -55,7 +54,7 @@ export const skills: SkillsType = [
   "Development",
   "Webmastering",
 ];
-export const getAllProjects = cache(async (status?: TileProps["status"]) => {
+export const getAllProjects = cache(async (status?: ProjectProps["status"]) => {
   
   const regex: RegExp = /\/([^\/]+)%2F([^\/]+)\.(jpg|png|mp4)\?/;
 

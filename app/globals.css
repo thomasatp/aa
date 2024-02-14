@@ -11,23 +11,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.after-tile:nth-of-type(7),
-.after-tile:nth-of-type(8),
-.after-tile:nth-of-type(9) {
+.after-tile:nth-last-child(-n+3) {
   @apply after:content-[''] after:absolute after:w-full after:h-full after:top-0 after:bg-gradient-to-t after:from-white dark:after:from-neutral-950 after:from-15% transition duration-300 pointer-events-none;
 }
 
-.after-tile:nth-of-type(7) img,
-.after-tile:nth-of-type(8) img,
-.after-tile:nth-of-type(9) img {
+.after-tile:nth-last-child(-n+3) img {
   @apply opacity-20;
 }
 
-.after-tile:nth-of-type(8) {
+.after-tile:nth-last-child(-n+2) {
   @apply max-sm:hidden;
 }
 
-.after-tile:nth-of-type(9) {
+.after-tile:nth-last-child(-n+1) {
   @apply max-xl:hidden;
 }
 

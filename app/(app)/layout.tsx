@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
-import "./globals.css";
-import { Providers } from "./lib/providers";
-import Nav from "./ui/navigation/nav";
-import Footer from "./ui/footer";
+import "../globals.css";
+import { Providers } from "../lib/providers";
+import Nav from "../ui/navigation/nav";
+import Footer from "../ui/footer";
 const inter = Inter_Tight({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {

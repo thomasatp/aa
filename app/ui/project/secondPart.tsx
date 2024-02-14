@@ -1,11 +1,11 @@
 import Image from "next/image";
 import clsx from "clsx";
-import { TileProps } from "@/app/lib/notion";
+import { ProjectProps } from "@/app/lib/airtable";
 
 type secondPartProps = {
-  secondMedias: TileProps["secondMedias"];
-  secondPartTitle: TileProps["secondPartTitle"];
-  secondPartDescription: TileProps["secondPartDescription"];
+  secondMedias: ProjectProps["secondMedias"];
+  secondPartTitle: ProjectProps["secondPartTitle"];
+  secondPartDescription: ProjectProps["secondPartDescription"];
 };
 
 export default function SecondPart({
@@ -29,9 +29,9 @@ export default function SecondPart({
       </div>
       <div className="relative grid items-center grid-cols-12 px-6 gap-y-6 xl:gap-y-40 lg:px-20">
         {secondMedias?.length !== 0 &&
-          secondMedias?.map(({ url, name }, i: number) => (
+          secondMedias?.map(({ url, name, type }, i: number) => (
             <div key={i} className="medias second-medias">
-              {url.includes(".mp4") ? (
+              {type === "video/mp4" ? (
                 <video
                   className="w-full h-auto"
                   preload="auto"

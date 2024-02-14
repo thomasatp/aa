@@ -14,6 +14,11 @@ module.exports = withVideos({
         hostname: "firebasestorage.googleapis.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "v5.airtableusercontent.com",
+        port: "",
+      },
     ],
   },
 });

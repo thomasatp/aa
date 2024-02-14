@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
-import { SkillsType } from "../lib/notion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { ProjectProps } from "../lib/airtable";
 
 type TileProps = {
-  slug: string;
-  title: string;
-  tags: SkillsType;
-  img: { url: string; name: string };
+  slug: ProjectProps["slug"];
+  title: ProjectProps["title"];
+  tags: ProjectProps["tags"];
+  img: ProjectProps["img"];
   homepage?: boolean;
 };
 

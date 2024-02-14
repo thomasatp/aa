@@ -1,6 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
-import { MediaTypes } from "@/app/lib/notion";
+// import { MediaTypes } from "@/app/lib/notion";
+import { MediaTypes } from "@/app/lib/airtable";
 
 export default function FirstPart({
   firstMedias,
@@ -11,12 +12,12 @@ export default function FirstPart({
   return (
     <section className="relative grid items-center grid-cols-12 px-6 mt-20 gap-y-6 xl:gap-y-40 lg:px-20">
       {firstMedias?.length !== 0 &&
-        firstMedias?.map(({ url, name }, i: number) => (
+        firstMedias?.map(({ url, name, type }, i: number) => (
           <div
             key={i}
             className="transition-all duration-700 medias first-medias"
           >
-            {url.includes(".mp4") ? (
+            {type === "video/mp4" ? (
               <video
                 className=" w-full h-auto"
                 preload="auto"

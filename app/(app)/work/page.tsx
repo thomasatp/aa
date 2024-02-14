@@ -2,15 +2,19 @@
 
 import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
-import { getAllProjects, SkillsType } from "../lib/notion";
-import FilterBar from "../ui/filterBar";
+import { getAllProjects, SkillsType } from "../../lib/notion";
+import FilterBar from "../../ui/filterBar";
+import { getProjects, getWorkPage } from "../../lib/airtable";
 
-
-export default async function Page({searchParams}: {searchParams: any}) {
-  
+export default async function Page({ searchParams }: { searchParams: any }) {
   const filter = searchParams.filter;
   const concatTags: SkillsType[] = [];
-  const projects = await getAllProjects("Published")
+  // Appel des projets : tous les paramètres sont optionnels
+  // 1 - status : rien, Draft, Staging ou Published
+  // 2 - preview: preview ou rien pour charger toutes les données
+  // 3 - maxRecords : rien ou nombre de projets à afficher
+  const projects = await getProjects("Published", "preview");
+  const workPage = await getWorkPage();
   projects.forEach((project) => concatTags.push(project.tags));
   const allTags = Array.from(new Set(concatTags.flat()));
 
@@ -21,12 +25,9 @@ export default async function Page({searchParams}: {searchParams: any}) {
 
   return (
     <main>
-      <Hero
-        title="work"
-        description=" Non enim tempor posuere senectus. Sapien gravida ullamcorper sit accumsan rhoncus fermentum. At nisl euismod fringilla enim. A et sed est sed venenatis a in velit ut. Urna adipiscing nunc aenean donec pharetra volutpat adipiscing non."
-      />
-      <FilterBar allTags={allTags} filter={filter}/>
-      
+      <Hero title={workPage.title} description={workPage.description}  />
+      <FilterBar allTags={allTags} filter={filter} />
+
       <div className="relative grid grid-cols-12 px-6 mt-20 lg:px-20">
         <div className="grid grid-cols-12 col-span-12 col-start-1 gap-6 2xl:col-span-10 2xl:col-start-2 gap-y-16">
           {!filter && (
@@ -43,9 +44,15 @@ export default async function Page({searchParams}: {searchParams: any}) {
               .
             </p>
           )}
-          {displayedProjects.map(({ title, tags, img, slug }, i) => (
-            <Tile key={i} title={title} tags={tags} img={img} slug={slug} />
-          ))}
+          {displayedProjects.map(
+            ({ title, tags, img, slug }, i) =>
+              title &&
+              tags &&
+              img &&
+              slug && (
+                <Tile key={i} title={title} tags={tags} img={img} slug={slug} />
+              )
+          )}
         </div>
       </div>
     </main>

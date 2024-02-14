@@ -1,4 +1,4 @@
-import { getAllProjects } from "../../lib/notion";
+import { getAllProjects } from "../../../lib/notion";
 import Image from "next/image";
 import Link from "next/link";
 import MovingText from "@/app/ui/project/movingText";
@@ -6,12 +6,18 @@ import Header from "@/app/ui/project/header";
 import Intro from "@/app/ui/project/intro";
 import FirstPart from "@/app/ui/project/firstPart";
 import SecondPart from "@/app/ui/project/secondPart";
-import { TileProps } from "../../lib/notion";
+import { ProjectProps } from "../../../lib/airtable";
+import { getProjects } from "@/app/lib/airtable";
 
 
-export default async function Page({ params }: { params: { slug: TileProps["slug"] } }) {
+export default async function Page({ params }: { params: { slug: ProjectProps["slug"] } }) {
   const { slug } = params;
-  const projects = await getAllProjects("Published");
+  console.log(slug)
+  // Appel des projets : tous les paramètres sont optionnels
+  // 1 - status : rien, Draft, Staging ou Published
+  // 2 - preview: preview ou rien pour charger toutes les données
+  // 3 - maxRecords : rien ou nombre de projets à afficher
+  const projects = await getProjects("Published")
   const {
     title,
     img,
@@ -46,7 +52,7 @@ export default async function Page({ params }: { params: { slug: TileProps["slug
       />
       {wideMedia && wideMedia?.length !== 0 && (
         <section className="relative w-full aspect-video">
-          {wideMedia[0].url.includes(".mp4") ? (
+          {wideMedia[0].type === "video/mp4" ? (
             <video
               className="object-cover w-full h-full"
               preload="auto"
