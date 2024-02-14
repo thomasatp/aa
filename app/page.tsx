@@ -14,12 +14,12 @@ export default async function Page() {
   // 2 - preview: preview ou rien pour charger toutes les données
   // 3 - maxRecords : rien ou nombre de projets à afficher
   // const projects = await getProjects("Published", "preview", 9);
-  const homePage = await getHomePage();
+  // const homePage = await getHomePage();
 
-  console.log("coucou", homePage)
+  // console.log("coucou", homePage)
   return (
     <main>
-      <Hero title={homePage.title} description={homePage.description}  />
+      {/* <Hero title={homePage.title} description={homePage.description}  /> */}
       <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-20 mt-20 2xl:[&>*:nth-child(1)]:col-start-2 2xl:[&>*:nth-child(4)]:col-start-3 2xl:[&>*:nth-child(7)]:col-start-2">
         {/* {projects.map(({ title, tags, img, slug }, i) => (
           <Tile
