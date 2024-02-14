@@ -94,7 +94,7 @@ export const getProjects = cache(async (
       .firstPage();
 
     records.forEach(({ fields }) => {
-      const list: ProjectProps = {
+      data = [...data, {
         status: fields.status as ProjectProps["status"],
         tags: Array.isArray(fields.tags)
           ? (fields.tags.map((tag: string) => tag) as ProjectProps["tags"])
@@ -139,8 +139,8 @@ export const getProjects = cache(async (
               type: img.type,
             })) as ProjectProps["wideMedia"])
           : [],
-      };
-      data.push(list);
+      }];
+      
     });
   } catch (error) {
     console.error(error);
