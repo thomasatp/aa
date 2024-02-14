@@ -65,7 +65,6 @@ export const getProjects = async (
   // Exclusion de l'extension des médias pour générer le  texte alternatif
   const regex: RegExp = /^(.*?)\.[^\.]*$/;
 
-  try {
     const records: DataPropsType = await new Promise((resolve, reject) => {
       const allRecords: DataPropsType = [];
 
@@ -172,18 +171,11 @@ export const getProjects = async (
         );
     });
     return records;
-  } catch (error) {
-    // Gérer l'erreur ici
-    console.error(
-      "Une erreur est survenue lors de la récupération des données :",
-      error
-    );
-    throw error; // Rejeter l'erreur pour la traiter dans la partie appelante si nécessaire
-  }
+  
 };
 
 export const getHomePage = async (): Promise<HeroProps> => {
-  try {
+  
     const records: HeroProps = await new Promise((resolve, reject) => {
       let homeRecords: HeroProps = {};
       base("Homepage")
@@ -201,27 +193,20 @@ export const getHomePage = async (): Promise<HeroProps> => {
             fetchNextPage();
           },
           function done(err) {
-            if (err) {
-              reject(err);
-            } else {
-              resolve(homeRecords);
-            }
+          if (err) {
+            reject(err);
+          } else {
+            resolve(homeRecords);
           }
+        }
         );
     });
     return records;
-  } catch (error) {
-    // Gérer l'erreur ici
-    console.error(
-      "Une erreur est survenue lors de la récupération des données :",
-      error
-    );
-    throw error; // Rejeter l'erreur pour la traiter dans la partie appelante si nécessaire
-  }
+  
 };
 
 export const getWorkPage = async (): Promise<HeroProps> => {
-  try {
+  
     const records: HeroProps = await new Promise((resolve, reject) => {
       let homeRecords: HeroProps = {};
       base("Workpage")
@@ -248,12 +233,5 @@ export const getWorkPage = async (): Promise<HeroProps> => {
         );
     });
     return records;
-  } catch (error) {
-    // Gérer l'erreur ici
-    console.error(
-      "Une erreur est survenue lors de la récupération des données :",
-      error
-    );
-    throw error; // Rejeter l'erreur pour la traiter dans la partie appelante si nécessaire
-  }
 };
+
