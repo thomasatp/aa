@@ -62,121 +62,120 @@ export const getProjects = async (
   preview?: string,
   maxRecords?: number
 ): Promise<DataPropsType> => {
-  // Exclusion de l'extension des médias pour générer le  texte alternatif
+  // Exclusion de l'extension des médias pour générer le texte alternatif
   const regex: RegExp = /^(.*?)\.[^\.]*$/;
 
-    const records: DataPropsType = await new Promise((resolve, reject) => {
-      const allRecords: DataPropsType = [];
+  return new Promise((resolve, reject) => {
+    const allRecords: DataPropsType = [];
 
-      // Filtrer par status
-      const filterFormula = status ? `IF({status} = '${status}', 1, 0)` : "";
+    // Filtrer par status
+    const filterFormula = status ? `IF({status} = '${status}', 1, 0)` : "";
 
-      // Liste des champs à charger
-      const fields =
-        preview === "preview"
-          ? ["title", "status", "slug", "image", "tags"]
-          : [
-              "title",
-              "status",
-              "slug",
-              "image",
-              "tags",
-              "description",
-              "firstMedias",
-              "secondPartTitle",
-              "secondPartDescription",
-              "secondMedias",
-              "wideMedia",
-            ];
+    // Liste des champs à charger
+    const fields =
+      preview === "preview"
+        ? ["title", "status", "slug", "image", "tags"]
+        : [
+            "title",
+            "status",
+            "slug",
+            "image",
+            "tags",
+            "description",
+            "firstMedias",
+            "secondPartTitle",
+            "secondPartDescription",
+            "secondMedias",
+            "wideMedia",
+          ];
 
-      // Nombre de résultats max
-      const resultsNumber = maxRecords ? maxRecords : 100;
+    // Nombre de résultats max
+    const resultsNumber = maxRecords ? maxRecords : 100;
 
-      base("Projets")
-        .select({
-          view: "Grid view",
-          filterByFormula: filterFormula,
-          maxRecords: resultsNumber,
-          fields: fields,
-        })
-        .eachPage(
-          function page(records, fetchNextPage) {
-            records.forEach(function ({ fields }) {
-              const data: ProjectProps = {
-                status: fields.status as ProjectProps["status"],
-                tags: Array.isArray(fields.tags)
-                  ? (fields.tags.map(
-                      (tag: string) => tag
-                    ) as ProjectProps["tags"])
-                  : [],
-                title: fields.title as ProjectProps["title"],
-                slug: fields.slug as ProjectProps["slug"],
-                img:
-                  Array.isArray(fields.image) && fields.image.length > 0
-                    ? ({
-                        url: fields.image[0].url,
-                        name: fields.image[0].filename.match(regex)[1],
-                        type: fields.image[0].type,
-                      } as ProjectProps["img"])
-                    : ({
-                        url: "",
-                        name: "",
-                        type: "",
-                      } as ProjectProps["img"]),
-                description: fields.description as ProjectProps["description"],
-                firstMedias: Array.isArray(fields.firstMedias)
-                  ? (fields.firstMedias.map((img: Attachment) => ({
-                      url: img.url,
-                      name:
-                        img.filename.match(regex) &&
-                        img.filename.match(regex)![1],
-                      type: img.type,
-                    })) as ProjectProps["firstMedias"])
-                  : [],
-                secondPartTitle:
-                  fields.secondPartTitle as ProjectProps["secondPartTitle"],
-                secondPartDescription:
-                  fields.secondPartDescription as ProjectProps["secondPartDescription"],
-                secondMedias: Array.isArray(fields.secondMedias)
-                  ? (fields.secondMedias.map((img: Attachment) => ({
-                      url: img.url,
-                      name:
-                        img.filename.match(regex) &&
-                        img.filename.match(regex)![1],
-                      type: img.type,
-                    })) as ProjectProps["secondMedias"])
-                  : [],
-                wideMedia: Array.isArray(fields.wideMedia)
-                  ? (fields.wideMedia.map((img: Attachment) => ({
-                      url: img.url,
-                      name:
-                        img.filename.match(regex) &&
-                        img.filename.match(regex)![1],
-                      type: img.type,
-                    })) as ProjectProps["wideMedia"])
-                  : [],
-              };
+    base("Projets")
+      .select({
+        view: "Grid view",
+        filterByFormula: filterFormula,
+        maxRecords: resultsNumber,
+        fields: fields,
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function ({ fields }) {
+            const data: ProjectProps = {
+              status: fields.status as ProjectProps["status"],
+              tags: Array.isArray(fields.tags)
+                ? (fields.tags.map(
+                    (tag: string) => tag
+                  ) as ProjectProps["tags"])
+                : [],
+              title: fields.title as ProjectProps["title"],
+              slug: fields.slug as ProjectProps["slug"],
+              img:
+                Array.isArray(fields.image) && fields.image.length > 0
+                  ? ({
+                      url: fields.image[0].url,
+                      name: fields.image[0].filename.match(regex)[1],
+                      type: fields.image[0].type,
+                    } as ProjectProps["img"])
+                  : ({
+                      url: "",
+                      name: "",
+                      type: "",
+                    } as ProjectProps["img"]),
+              description: fields.description as ProjectProps["description"],
+              firstMedias: Array.isArray(fields.firstMedias)
+                ? (fields.firstMedias.map((img: Attachment) => ({
+                    url: img.url,
+                    name:
+                      img.filename.match(regex) &&
+                      img.filename.match(regex)![1],
+                    type: img.type,
+                  })) as ProjectProps["firstMedias"])
+                : [],
+              secondPartTitle:
+                fields.secondPartTitle as ProjectProps["secondPartTitle"],
+              secondPartDescription:
+                fields.secondPartDescription as ProjectProps["secondPartDescription"],
+              secondMedias: Array.isArray(fields.secondMedias)
+                ? (fields.secondMedias.map((img: Attachment) => ({
+                    url: img.url,
+                    name:
+                      img.filename.match(regex) &&
+                      img.filename.match(regex)![1],
+                    type: img.type,
+                  })) as ProjectProps["secondMedias"])
+                : [],
+              wideMedia: Array.isArray(fields.wideMedia)
+                ? (fields.wideMedia.map((img: Attachment) => ({
+                    url: img.url,
+                    name:
+                      img.filename.match(regex) &&
+                      img.filename.match(regex)![1],
+                    type: img.type,
+                  })) as ProjectProps["wideMedia"])
+                : [],
+            };
 
-              allRecords.push(data);
-            });
-            fetchNextPage();
-          },
-          function done(err) {
-            if (err) {
-              reject(err);
-            } else {
-              resolve(allRecords);
-            }
+            allRecords.push(data);
+          });
+          fetchNextPage();
+        },
+        function done(err) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(allRecords);
           }
-        );
-    });
-    return records;
-  
+        }
+      );
+  });
 };
+
 
 export const getHomePage = async (): Promise<HeroProps> => {
   
-    const records: HeroProps = await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       let homeRecords: HeroProps = {};
       base("Homepage")
         .select({
@@ -201,13 +200,12 @@ export const getHomePage = async (): Promise<HeroProps> => {
         }
         );
     });
-    return records;
   
 };
 
 export const getWorkPage = async (): Promise<HeroProps> => {
   
-    const records: HeroProps = await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       let homeRecords: HeroProps = {};
       base("Workpage")
         .select({
@@ -232,6 +230,5 @@ export const getWorkPage = async (): Promise<HeroProps> => {
           }
         );
     });
-    return records;
 };
 
