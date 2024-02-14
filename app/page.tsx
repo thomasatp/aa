@@ -3,7 +3,7 @@ import Tile from "@/app/ui/tile";
 import { skills, brandImages, getAllProjects, getHomepage } from "./lib/notion";
 import Skills from "./ui/homepage/skills";
 import Image from "next/image";
-import { getProjects, getHomePage, getWorkPage } from "./lib/airtable";
+import { getProjects, getHomePage } from "./lib/airtable";
 
 
 export default async function Page() {

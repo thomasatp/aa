@@ -58,7 +58,7 @@ const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
   `${process.env.AIRTABLE_BASE_ID}`
 );
 
-export const getProjects = async (
+export const getProjects = cache(async (
   status?: ProjectProps["status"],
   preview?: string,
   maxRecords?: number
@@ -146,12 +146,11 @@ export const getProjects = async (
     console.error(error);
   }
   return data;
-};
-
+});
 
 // Données de la page d'accueil
 
-export const getHomePage = async () => {
+export const getHomePage = cache(async () => {
   let data: HeroProps = {};
   try {
     const records = await base("Homepage").select().firstPage();
@@ -165,11 +164,11 @@ export const getHomePage = async () => {
     console.error(error);
   }
   return data;
-};
+});
 
 // Données de la page projets
 
-export const getWorkPage = async () => {
+export const getWorkPage = cache(async () => {
   let data: HeroProps = {};
   try {
     const records = await base("Workpage").select().firstPage();
@@ -183,5 +182,4 @@ export const getWorkPage = async () => {
     console.error(error);
   }
   return data;
-};
-
+});
