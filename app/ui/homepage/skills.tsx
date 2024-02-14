@@ -1,5 +1,5 @@
 "use client";
-import { DataPropsType, SkillsList, SkillsType, TileProps  } from "../../lib/notion";
+import { DataPropsType, SkillsList, SkillsType  } from "../../lib/airtable";
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
