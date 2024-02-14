@@ -12,7 +12,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   // 1 - status : rien, Draft, Staging ou Published
   // 2 - preview: preview ou rien pour charger toutes les données
   // 3 - maxRecords : rien ou nombre de projets à afficher
-  const projects = await getProjects("Published", "preview");
+  const projects = await getProjects("Published");
   // const workPage = await getWorkPage();
   projects.forEach((project) => concatTags.push(project.tags));
   const allTags = Array.from(new Set(concatTags.flat()));

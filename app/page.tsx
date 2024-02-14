@@ -13,7 +13,7 @@ export default async function Page() {
   // 1 - status : rien, Draft, Staging ou Published
   // 2 - preview: preview ou rien pour charger toutes les données
   // 3 - maxRecords : rien ou nombre de projets à afficher
-  const projects = await getProjects("Published", "preview", 9);
+  const projects = await getProjects("Published");
   // const homePage = await getHomePage();
 
   console.log("coucou", projects)
