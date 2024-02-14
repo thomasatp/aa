@@ -53,8 +53,8 @@ export const skills: SkillsType = [
   "Webmastering",
 ];
 
-const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
-  `${process.env.AIRTABLE_BASE_ID}`
+const base = new Airtable({ apiKey: "pataY3p8rFOafDONz.63c5e830a39f41c6d9a0dcb2d513e6e424e261e95acc54004229e4ca1397ad42" }).base(
+  `appkvWJlfn3N8qQ8g`
 );
 
 export const getProjects = async (
