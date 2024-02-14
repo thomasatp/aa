@@ -2,6 +2,7 @@
 const nextConfig = {};
 const withVideos = require("next-videos");
 module.exports = withVideos({
+  experimental: { serverMinification: false },
   images: {
     remotePatterns: [
       {
