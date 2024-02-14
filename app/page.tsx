@@ -16,7 +16,7 @@ export default async function Page() {
   const projects = await getProjects("Published", "preview", 9);
   // const homePage = await getHomePage();
 
-  // console.log("coucou", homePage)
+  console.log("coucou", projects)
   return (
     <main>
       {/* <Hero title={homePage.title} description={homePage.description}  /> */}
