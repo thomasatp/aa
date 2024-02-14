@@ -1,4 +1,4 @@
-import { getAllProjects } from "../../../lib/notion";
+import { getAllProjects } from "../../lib/notion";
 import Image from "next/image";
 import Link from "next/link";
 import MovingText from "@/app/ui/project/movingText";
@@ -6,7 +6,7 @@ import Header from "@/app/ui/project/header";
 import Intro from "@/app/ui/project/intro";
 import FirstPart from "@/app/ui/project/firstPart";
 import SecondPart from "@/app/ui/project/secondPart";
-import { ProjectProps } from "../../../lib/airtable";
+import { ProjectProps } from "../../lib/airtable";
 import { getProjects } from "@/app/lib/airtable";
 
 

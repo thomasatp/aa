@@ -2,9 +2,9 @@
 
 import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
-import { getAllProjects, SkillsType } from "../../lib/notion";
-import FilterBar from "../../ui/filterBar";
-import { getProjects, getWorkPage } from "../../lib/airtable";
+import { getAllProjects, SkillsType } from "../lib/notion";
+import FilterBar from "../ui/filterBar";
+import { getProjects, getWorkPage } from "../lib/airtable";
 
 export default async function Page({ searchParams }: { searchParams: any }) {
   const filter = searchParams.filter;
