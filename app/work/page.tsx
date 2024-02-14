@@ -12,15 +12,15 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   // 1 - status : rien, Draft, Staging ou Published
   // 2 - preview: preview ou rien pour charger toutes les données
   // 3 - maxRecords : rien ou nombre de projets à afficher
-  const projects = await getProjects("Published", "preview");
+  // const projects = await getProjects("Published", "preview");
   const workPage = await getWorkPage();
-  projects.forEach((project) => concatTags.push(project.tags));
+  // projects.forEach((project) => concatTags.push(project.tags));
   const allTags = Array.from(new Set(concatTags.flat()));
 
-  function filteredProjects(skill: string) {
-    return projects.filter((p) => p.tags.find((tag) => tag === skill));
-  }
-  const displayedProjects = filter ? filteredProjects(filter) : projects;
+  // function filteredProjects(skill: string) {
+  //   return projects.filter((p) => p.tags.find((tag) => tag === skill));
+  // }
+  // const displayedProjects = filter ? filteredProjects(filter) : projects;
 
   return (
     <main>
@@ -43,7 +43,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
               .
             </p>
           )}
-          {displayedProjects.map(
+          {/* {displayedProjects.map(
             ({ title, tags, img, slug }, i) =>
               title &&
               tags &&
@@ -51,7 +51,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
               slug && (
                 <Tile key={i} title={title} tags={tags} img={img} slug={slug} />
               )
-          )}
+          )} */}
         </div>
       </div>
     </main>
