@@ -23,7 +23,7 @@ export default function Tile({ title, tags, img, slug, homepage }: TileProps) {
       ref={ref}
       href={`/work/${slug}`}
       className={clsx(
-        `relative col-span-12 sm:col-span-6 xl:col-span-4 2xl:col-span-3 transition-all duration-300`,
+        `relative col-span-12 sm:col-span-6 xl:col-span-4 2xl:col-span-3`,
         {
           "after-tile": homepage,
           "opacity-100 translate-y-0": isInView,
@@ -48,7 +48,7 @@ export default function Tile({ title, tags, img, slug, homepage }: TileProps) {
         <div className="flex flex-wrap gap-1 mt-3">
           {tags.map((tag, index) => (
             <p
-              className="px-3 py-1 text-sm transition-all duration-300 border rounded-full border-neutral-700 text-neutral-600"
+              className="px-3 py-1 text-sm transition-all duration-300 border rounded-full dark:border-neutral-600 dark:text-neutral-500 border-neutral-400 text-neutral-500"
               key={index}
             >
               {tag}
