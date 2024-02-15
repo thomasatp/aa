@@ -7,6 +7,8 @@ import { SkillsType } from "../lib/types";
 import { useProjects } from "../lib/useProjects";
 import { useWorkPage } from "../lib/useWorkPage";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page({ searchParams }: { searchParams: any }) {
   const filter = searchParams.filter;
   const concatTags: SkillsType[] = [];
