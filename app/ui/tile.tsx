@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ProjectProps } from "../lib/airtable";
+import { ProjectProps } from "../lib/types";
 
 type TileProps = {
   slug: ProjectProps["slug"];

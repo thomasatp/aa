@@ -3,7 +3,9 @@
 import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
 import FilterBar from "../ui/filterBar";
-import { getProjects, getWorkPage, SkillsType } from "../lib/airtable";
+import { SkillsType } from "../lib/types";
+import { useProjects } from "../lib/useProjects";
+import { useWorkPage } from "../lib/useWorkPage";
 
 export default async function Page({ searchParams }: { searchParams: any }) {
   const filter = searchParams.filter;
@@ -12,8 +14,8 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   // 1 - status : rien, Draft, Staging ou Published
   // 2 - preview: preview ou rien pour charger toutes les données
   // 3 - maxRecords : rien ou nombre de projets à afficher
-  const projects = await getProjects("Published");
-  const workPage = await getWorkPage();
+  const projects = await useProjects("Published");
+  const workPage = await useWorkPage();
   projects.forEach((project) => concatTags.push(project.tags));
   const allTags = Array.from(new Set(concatTags.flat()));
 

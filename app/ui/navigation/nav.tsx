@@ -4,20 +4,23 @@ import ToggleTheme from "./toggleTheme";
 import NavContainer from "./navContainer";
 
 export default function Nav() {
-
   return (
     <NavContainer>
-      <Link href="/" className="col-span-1">
+      <Link href="/" className="flex items-center col-span-1 ">
         <Logo />
       </Link>
       <div className="flex justify-center col-span-1 gap-4 font-semibold text-md ">
-        <Link href="/work">
+        <Link className="px-2 py-2" href="/work">
           <p>work</p>
         </Link>
-        <p>about</p>
-        <p>contact</p>
+        <Link className="px-2 py-2" href="/about">
+          <p>about</p>
+        </Link>
+        <a className="px-2 py-2" href="mailto:hello@andafter.fr">
+          contact
+        </a>
       </div>
-      <div className="flex justify-end col-span-1 gap-4 cursor-pointer">
+      <div className="flex items-center justify-end col-span-1 gap-4 cursor-pointer">
         <ToggleTheme />
       </div>
     </NavContainer>

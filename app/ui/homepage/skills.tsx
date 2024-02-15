@@ -1,19 +1,19 @@
 "use client";
-import { DataPropsType, SkillsList, SkillsType  } from "../../lib/airtable";
+import { DataPropsType, SkillsList, SkillsType  } from "../../lib/types";
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Skills({
-  skills,
+
   projects,
 }: {
-  skills: SkillsType;
   projects: DataPropsType;
 }) {
   const concatTags: SkillsType[] = [];
   projects.forEach((project) => concatTags.push(project.tags));
   const allTags = concatTags.flat();
+  const skills = Array.from(new Set(concatTags.flat()));
 
  
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
 // import { MediaTypes } from "@/app/lib/notion";
-import { MediaTypes } from "@/app/lib/airtable";
+import { MediaTypes } from "@/app/lib/types";
 
 export default function FirstPart({
   firstMedias,

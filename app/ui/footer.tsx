@@ -25,12 +25,7 @@ export default function Footer() {
             >
               about
             </Link>
-            <Link
-              className="transition-all duration-300 hover:underline underline-offset-2"
-              href="/contact"
-            >
-              contact
-            </Link>
+            
           </div>
         </div>
         <div className="flex flex-col col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
@@ -74,12 +69,6 @@ export default function Footer() {
             >
               Linkedin
             </a>
-            <Link
-              className="transition-all duration-300 hover:underline underline-offset-2"
-              href="/contact"
-            >
-              contact
-            </Link>
           </div>
         </div>
         <div className="flex flex-col items-end col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">

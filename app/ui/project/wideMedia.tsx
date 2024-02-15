@@ -1,4 +1,4 @@
-import { ProjectProps, MediaTypes } from "@/app/lib/airtable";
+import { ProjectProps } from "@/app/lib/types";
 import Image from "next/image";
 
 export default function WideMedia({ media }: {media: ProjectProps["wideMedia"]}) {

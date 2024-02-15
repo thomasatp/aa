@@ -1,5 +1,5 @@
 
-import { HeroProps } from "@/app/lib/airtable";
+import { HeroProps } from "@/app/lib/types";
 
 
 
