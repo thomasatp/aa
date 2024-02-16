@@ -8,7 +8,7 @@ import SecondPart from "@/app/ui/project/secondPart";
 import WideMedia from "@/app/ui/project/wideMedia";
 import ThirdPart from "@/app/ui/project/thirdPart";
 import { ProjectProps } from "@/app/lib/types";
-import { useProjects } from "@/app/lib/useProjects";
+import { getProjects } from "@/app/lib/getProjects";
 
 export const dynamic = "force-dynamic";
 
@@ -22,7 +22,7 @@ export default async function Page({
   // 1 - status : rien, Draft, Staging ou Published
   // 2 - preview: preview ou rien pour charger toutes les données
   // 3 - maxRecords : rien ou nombre de projets à afficher
-  const projects = await useProjects("Published");
+  const projects = await getProjects("Published");
   const {
     title,
     img,

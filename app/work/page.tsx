@@ -4,8 +4,8 @@ import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
 import FilterBar from "../ui/filterBar";
 import { SkillsType } from "../lib/types";
-import { useProjects } from "../lib/useProjects";
-import { useWorkPage } from "../lib/useWorkPage";
+import { getProjects } from "../lib/getProjects";
+import { getWorkPage } from "../lib/getWorkPage";
 
 export const dynamic = "force-dynamic";
 
@@ -16,8 +16,8 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   // 1 - status : rien, Draft, Staging ou Published
   // 2 - preview: preview ou rien pour charger toutes les données
   // 3 - maxRecords : rien ou nombre de projets à afficher
-  const projects = await useProjects("Published");
-  const workPage = await useWorkPage();
+  const projects = await getProjects("Published");
+  const workPage = await getWorkPage();
   projects.forEach((project) => concatTags.push(project.tags));
   const allTags = Array.from(new Set(concatTags.flat()));
 

@@ -4,7 +4,7 @@ import { cache } from "react";
 import { ProjectProps, DataPropsType } from "./types";
 
 
-export const useProjects = cache(
+export const getProjects = cache(
   async (
     status?: ProjectProps["status"],
     preview?: string,

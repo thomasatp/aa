@@ -3,7 +3,7 @@ import { cache } from "react";
 import { HeroProps } from "./types";
 
 
-export const useWorkPage = cache(async () => {
+export const getWorkPage = cache(async () => {
   let data: HeroProps = {};
   try {
     const records = await base("Workpage").select().firstPage();

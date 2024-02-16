@@ -1,10 +1,10 @@
-import { useAboutPage } from "../lib/useAboutPage";
+import { getAboutPage } from "../lib/getAboutPage";
 import Hero from "../ui/homepage/hero";
 
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-  const aboutPage = await useAboutPage();
+  const aboutPage = await getAboutPage();
   console.log(aboutPage);
   return (
     <main>

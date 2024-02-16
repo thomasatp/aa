@@ -3,7 +3,7 @@ import { cache } from "react";
 import { HeroAboutProps } from "./types";
 
 
-export const useAboutPage = cache(async () => {
+export const getAboutPage = cache(async () => {
   let data: HeroAboutProps = {};
   const regex: RegExp = /^(.*?)\.[^\.]*$/;
   try {
