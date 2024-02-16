@@ -11,7 +11,7 @@ export default async function Page() {
       <Hero title={aboutPage.title} description={aboutPage.description} />
       <div className="relative grid grid-cols-12 px-6 mt-20 lg:px-20">
           {aboutPage.media && (
-            <section className="relative col-span-12 aspect-video">
+            <section className="relative col-span-12 aspect-square xl:aspect-video">
               <video
                 className="object-cover w-full h-full"
                 preload="auto"
