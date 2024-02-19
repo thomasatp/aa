@@ -12,12 +12,12 @@ export default function Intro({tags, description}: {tags: string[], description?
           </div>
         </div>
         <div className="col-span-12 col-start-1 xl:col-start-6 xl:col-span-6">
-          <p className="mb-6 text-base font-normal uppercase xl:mb-12 text-neutral-400">
+          <h3 className="mb-6 text-base font-normal uppercase xl:mb-12 text-neutral-400">
             Services
-          </p>
-          <div className="text-xl font-semibold sm:text-4xl">
+          </h3>
+          <p className="text-xl font-semibold sm:text-4xl">
             {description}
-          </div>
+          </p>
         </div>
       </section>
     )

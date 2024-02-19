@@ -10,7 +10,7 @@ export default function FirstPart({
 }) {
 
   return (
-    <section className="relative grid items-center grid-cols-12 px-6 mt-20 gap-y-6 xl:gap-y-40 lg:px-20">
+    <section className="relative grid items-center grid-cols-12 px-6 mt-20 gap-y-6 xl:gap-y-40 lg:px-20 lg:mb-48 mb-32">
       {firstMedias?.length !== 0 &&
         firstMedias?.map(({ url, name, type }, i: number) => (
           <div

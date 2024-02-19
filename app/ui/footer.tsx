@@ -25,6 +25,12 @@ export default function Footer() {
             >
               about
             </Link>
+             <Link
+              className="transition-all duration-300 hover:underline underline-offset-2"
+              href="/legals-notices"
+            >
+              legal notices
+            </Link>
             
           </div>
         </div>

@@ -23,6 +23,11 @@ export type HeroWorkProps = {
   rupture?: string;
 };
 
+export type NoticesProps = {
+  title?: string;
+  description?: string;
+};
+
 export type ProjectProps = {
   status: string;
   slug: string;
