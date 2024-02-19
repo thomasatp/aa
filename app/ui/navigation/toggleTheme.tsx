@@ -23,7 +23,7 @@ export default function ToggleTheme() {
     <button
       onClick={handleTheme}
       className={clsx(
-        "relative transition-all flex w-10 h-6 p-1 rounded-full bg-gradient-to-tr from-slate-800 via-rose-600 to-cyan-400"
+        "relative transition-all flex w-10 h-6 p-1 rounded-full shade"
       )}
     >
       <span

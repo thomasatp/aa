@@ -67,3 +67,13 @@ body {
 .second-medias:nth-of-type(4) {
   @apply col-start-1 col-span-12 xl:col-start-8 xl:col-span-4 
 }
+
+.shade {
+  background: linear-gradient(64deg, #1D1E3D 8.51%, #FF015D 38.4%, #543A9D 63.24%, #00E0F1 89.34%);
+}
+
+.shade-text {
+  background: linear-gradient(64deg, #1D1E3D 8.51%, #FF015D 38.4%, #543A9D 63.24%, #00E0F1 89.34%);
+  background-clip: text;
+  color: transparent;
+}

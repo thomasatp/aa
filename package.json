@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@notionhq/client": "^2.2.14",
     "airtable": "^0.12.2",
     "clsx": "^2.0.0",

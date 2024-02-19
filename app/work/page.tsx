@@ -49,11 +49,11 @@ export default async function Page({ searchParams }: { searchParams: any }) {
             <p className="block row-start-2 col-start-1 col-end-13 xl:col-start-5 xl:col-end-9 2xl:col-start-4 2xl:col-end-7 text-3xl 2xl:text-[1.9vw] xl:text-[2.9vw] leading-tight font-semibold text-nowrap ">
               Un long chemin parcouru nous permettant aujourd'hui d'avoir une
               vision large sur les{" "}
-              <span className="inline-block text-transparent bg-gradient-to-br from-slate-800 via-rose-600 to-cyan-400 bg-clip-text">
+              <span className="inline-block shade-text">
                 enjeux digitaux
               </span>
               , ses problématiques mais surtout sur ses{" "}
-              <span className="inline-block text-transparent bg-gradient-to-br from-slate-800 via-rose-600 to-cyan-400 bg-clip-text">
+              <span className="inline-block shade-text">
                 solutions
               </span>
               .
