@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import { Metadata } from "next";
 import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
 import FilterBar from "../ui/filterBar";
@@ -7,7 +8,18 @@ import { SkillsType } from "../lib/types";
 import { getProjects } from "../lib/getProjects";
 import { getWorkPage } from "../lib/getWorkPage";
 
+
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  
+  const workPage = await getWorkPage();
+
+  return {
+    title: `And After | ${workPage.title}`,
+    description: workPage.description,
+  };
+}
 
 export default async function Page({ searchParams }: { searchParams: any }) {
   const filter = searchParams.filter;
@@ -28,7 +40,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
 
   return (
     <main>
-      <Hero title={workPage.title} description={workPage.description}  />
+      <Hero title={workPage.title} description={workPage.description} />
       <FilterBar allTags={allTags} filter={filter} />
 
       <div className="relative grid grid-cols-12 px-6 mt-20 lg:px-20">

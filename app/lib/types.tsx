@@ -17,6 +17,12 @@ export type HeroAboutProps = {
   media?: MediaTypes | null;
 };
 
+export type HeroWorkProps = {
+  title?: string;
+  description?: string;
+  rupture?: string;
+};
+
 export type ProjectProps = {
   status: string;
   slug: string;

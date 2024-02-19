@@ -1,3 +1,4 @@
+import { Metadata, ResolvingMetadata } from 'next'
 import Image from "next/image";
 import Link from "next/link";
 import MovingText from "@/app/ui/project/movingText";
@@ -10,7 +11,22 @@ import ThirdPart from "@/app/ui/project/thirdPart";
 import { ProjectProps } from "@/app/lib/types";
 import { getProjects } from "@/app/lib/getProjects";
 
+type Props = {
+  params: { slug: string }
+}
+
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const slug = params.slug;
+  const projects = await getProjects("Published")
+  const singleProject = projects.filter((p) => p.slug === slug)[0];
+
+  return {
+    title: `And After | ${singleProject.title}`,
+    description: singleProject.description,
+  };
+}
 
 export default async function Page({
   params,
@@ -37,7 +53,6 @@ export default async function Page({
     thirdPartDescription,
     thirdMedia,
   } = projects.filter((p) => p.slug === slug)[0];
-  console.log(thirdMedia, thirdPartDescription, thirdPartTitle);
 
   const projectPosition = projects.findIndex((p) => p.slug === slug);
   const nextProjectIndex =

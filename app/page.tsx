@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Hero from "@/app/ui/homepage/hero";
 import Tile from "@/app/ui/tile";
 import { brandImages } from "./lib/notion";
@@ -6,7 +7,17 @@ import Image from "next/image";
 import { getHomePage } from "./lib/getHomePage";
 import { getProjects } from "./lib/getProjects";
 
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  
+ const homePage = await getHomePage();
+
+  return {
+    title: `And After | ${homePage.title}`,
+    description: homePage.description,
+  };
+}
 
 
 export default async function Page() {
