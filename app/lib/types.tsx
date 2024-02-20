@@ -28,6 +28,12 @@ export type NoticesProps = {
   description?: string;
 };
 
+export type AboutSkillProps = {
+  title: string;
+  description: string;
+  skill: string;
+};
+
 export type ProjectProps = {
   status: string;
   slug: string;
