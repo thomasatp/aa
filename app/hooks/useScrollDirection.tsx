@@ -35,5 +35,5 @@ export function useScrollDirection() {
     return () => clearTimeout(stopScroll());
   });
 
-  return [isVisible, contentRef as RefObject<HTMLDivElement>, filterTop, scrollY] as const;
+  return [isVisible, contentRef as RefObject<HTMLDivElement>, filterTop, isScrollDown, scrollY] as const;
 }

@@ -6,7 +6,7 @@ import NavContainer from "./navContainer";
 export default function Nav() {
   return (
     <NavContainer>
-      <Link href="/" className="flex items-center col-span-1 ">
+      <Link href="/" aria-label="Homepage" className="flex items-center col-span-1 ">
         <Logo />
       </Link>
       <div className="flex justify-center col-span-1 gap-4 font-semibold text-md ">

@@ -17,6 +17,13 @@ export type HeroAboutProps = {
   media?: MediaTypes | null;
 };
 
+export type PeopleProps = {
+  name: string;
+  job: string;
+  media: MediaTypes | null;
+  order?: number
+};
+
 export type HeroWorkProps = {
   title?: string;
   description?: string;

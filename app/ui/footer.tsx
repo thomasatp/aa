@@ -9,10 +9,10 @@ export default function Footer() {
       </p>
       <div className="grid grid-cols-8 col-span-12 col-start-1 gap-6 xl:col-start-6 xl:col-span-7">
         <div className="flex flex-col col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
-          <div className="mb-6 text-lg font-normal leading-normal text-neutral-600">
+          <div className="mb-6 text-lg font-normal leading-normal text-neutral-500">
             menu
           </div>
-          <div className="flex flex-col gap-1 text-base font-normal leading-snug uppercase">
+          <div className="flex flex-col gap-2 text-base font-normal leading-snug uppercase">
             <Link
               className="transition-all duration-300 hover:underline underline-offset-2"
               href="/work"
@@ -35,20 +35,20 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
-          <div className="mb-6 text-lg font-normal leading-normal text-neutral-600">
+          <div className="mb-6 text-lg font-normal leading-normal text-neutral-500">
             address
           </div>
-          <div className="flex flex-col gap-1 text-base font-normal leading-snug uppercase">
+          <div className="flex flex-col gap-2 text-base font-normal leading-snug uppercase">
             <p>5 bis rue Fays</p>
             <p>94160 Saint-Mandé</p>
             <p>France</p>
           </div>
         </div>
         <div className="flex flex-col col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
-          <div className="mb-6 text-lg font-normal leading-normal text-neutral-600">
+          <div className="mb-6 text-lg font-normal leading-normal text-neutral-500">
             contact
           </div>
-          <div className="flex flex-col gap-1 text-base font-normal leading-snug uppercase">
+          <div className="flex flex-col gap-2 text-base font-normal leading-snug uppercase">
             <a
               className="transition-all duration-300 hover:underline underline-offset-2"
               href="mailto:hello@andafter.fr"

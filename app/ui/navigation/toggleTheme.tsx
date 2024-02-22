@@ -14,14 +14,16 @@ export default function ToggleTheme() {
 
   useLayoutEffect(() => {
     setMounted(true);
-  }, []);
+  }, [theme]);
 
   if (!mounted) {
     return null;
   }
+
   return (
     <button
       onClick={handleTheme}
+      aria-label="Change Theme"
       className={clsx(
         "relative transition-all flex w-10 h-6 p-1 rounded-full shade"
       )}

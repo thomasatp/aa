@@ -3,7 +3,6 @@ import { Attachment } from "airtable";
 import { cache } from "react";
 import { ProjectProps, DataPropsType } from "./types";
 
-
 export const getProjects = cache(
   async (
     status?: ProjectProps["status"],

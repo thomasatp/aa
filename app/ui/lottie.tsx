@@ -1,7 +1,7 @@
 "use client";
 import { Player } from "@lottiefiles/react-lottie-player";
 import services from "./services.json";
-import { ReactNode, useRef } from "react";
+import { useRef } from "react";
 
 
 import { useInView, motion } from "framer-motion";
@@ -9,7 +9,6 @@ import { useInView, motion } from "framer-motion";
 export default function LottieBlock() {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-20px 0px -20px 0px" });
-  console.log(isInView)
 
   return (
     <motion.div>
