@@ -23,6 +23,8 @@ export const getAboutPage = cache(async () => {
                     name: "",
                     type: "",
                   } as HeroAboutProps["media"]),
+        metatitle: fields.metatitle as HeroAboutProps["metatitle"],
+        metadescription: fields.metadescription as HeroAboutProps["metadescription"],
       };
     });
   } catch (error) {

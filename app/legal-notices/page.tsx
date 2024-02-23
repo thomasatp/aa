@@ -6,11 +6,11 @@ import Hero from "../ui/homepage/hero";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const aboutPage = await getLegalPage();
+  const legalPage = await getLegalPage();
 
   return {
-    title: `And After | ${aboutPage.title}`,
-    description: aboutPage.description,
+    title: `And After | ${legalPage.metatitle}`,
+    description: legalPage.metadescription,
   };
 }
 export default async function Page() {

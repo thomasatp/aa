@@ -21,6 +21,7 @@ export const getProjects = cache(
             "slug",
             "image",
             "tags",
+            "link",
             "description",
             "firstMedias",
             "secondPartTitle",
@@ -64,6 +65,7 @@ export const getProjects = cache(
                     name: "",
                     type: "",
                   } as ProjectProps["img"]),
+            link: fields.link as ProjectProps["link"],
             description: fields.description as ProjectProps["description"],
             firstMedias: Array.isArray(fields.firstMedias)
               ? (fields.firstMedias.map((img: Attachment) => ({

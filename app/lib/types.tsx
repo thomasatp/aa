@@ -9,12 +9,23 @@ export type MediaTypes = {
 export type HeroProps = {
   title?: string;
   description?: string;
+  metatitle?: string;
+  metadescription?: string
+};
+
+export type LegalHeroProps = {
+  title?: string;
+  description?: string;
+  metatitle?: string;
+  metadescription?: string
 };
 
 export type HeroAboutProps = {
   title?: string;
   description?: string;
   media?: MediaTypes | null;
+  metatitle?: string;
+  metadescription?: string
 };
 
 export type PeopleProps = {
@@ -28,11 +39,15 @@ export type HeroWorkProps = {
   title?: string;
   description?: string;
   rupture?: string;
+  metatitle?: string;
+  metadescription?: string
 };
 
 export type NoticesProps = {
   title?: string;
   description?: string;
+  metatitle?: string;
+  metadescription?: string
 };
 
 export type AboutSkillProps = {
@@ -46,6 +61,7 @@ export type ProjectProps = {
   slug: string;
   title: string;
   tags: SkillsType;
+  link?: string;
   img: MediaTypes;
   description?: string;
   firstMedias?: MediaTypes[];

@@ -8,7 +8,7 @@ export default function Header({
   img: { url: string; name: string };
 }) {
   return (
-    <section className="relative z-10 grid grid-cols-12 gap-8 px-0 py-0 mt-0 lg:mt-48 lg:px-20">
+    <section className="relative z-10 grid grid-cols-12 gap-12 px-0 py-0 mt-0 lg:gap-0 lg:mt-48 lg:px-20">
       <div className="relative col-span-12 col-start-1 lg:col-span-10 lg:col-start-3 2xl:col-span-7 2xl:col-start-4 aspect-square lg:aspect-4/3 xl:aspect-video max-lg:after:content-[''] max-lg:after:absolute max-lg:after:w-full max-lg:after:h-full max-lg:after:top-0 max-lg:after:bg-gradient-to-b max-lg:after:from-white dark:max-lg:after:from-neutral-500 max-lg:after:mix-blend-multiply transition duration-300 pointer-events-none;">
         <Image
           src={`${img.url}`}

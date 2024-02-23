@@ -8,16 +8,16 @@ export default function FirstPart({
 }: {
   firstMedias: MediaTypes[] | undefined;
 }) {
-
   return (
-    <section className="relative grid items-center grid-cols-12 px-6 mt-20 mb-32 gap-y-6 xl:gap-y-40 lg:px-20 lg:mb-48">
-      {firstMedias?.length !== 0 &&
-        firstMedias?.map(({ url, name, type }, i: number) => (
+    firstMedias?.length !== 0 && (
+      <section className="relative grid items-center grid-cols-12 px-6 mb-24 lg:mb-32 xl:mb-48 gap-y-6 xl:gap-y-40">
+        {firstMedias?.map(({ url, name, type }, i: number) => (
           <div
             key={i}
             className={clsx("transition-all duration-700 medias", {
               "first-medias": firstMedias.length > 1,
-              "col-start-1 col-span-12 xl:col-start-3 xl:col-span-8": firstMedias.length < 2
+              "col-start-1 col-span-12 xl:col-start-3 xl:col-span-8":
+                firstMedias.length < 2,
             })}
           >
             {type === "video/mp4" ? (
@@ -43,6 +43,7 @@ export default function FirstPart({
             )}
           </div>
         ))}
-    </section>
+      </section>
+    )
   );
 }

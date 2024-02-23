@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
  const homePage = await getHomePage();
 
   return {
-    title: `And After | ${homePage.title}`,
-    description: homePage.description,
+    title: `And After | ${homePage.metatitle}`,
+    description: homePage.metadescription,
   };
 }
 

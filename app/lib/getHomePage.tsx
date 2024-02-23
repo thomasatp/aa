@@ -11,6 +11,8 @@ export const getHomePage = cache(async () => {
       data = {
         title: fields.title as HeroProps["title"],
         description: fields.description as HeroProps["description"],
+        metatitle: fields.metatitle as HeroProps["metatitle"],
+        metadescription: fields.metadescription as HeroProps["metadescription"],
       };
     });
   } catch (error) {

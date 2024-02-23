@@ -16,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const workPage = await getWorkPage();
 
   return {
-    title: `And After | ${workPage.title}`,
-    description: workPage.description,
+    title: `And After | ${workPage.metatitle}`,
+    description: workPage.metadescription,
   };
 }
 
