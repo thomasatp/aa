@@ -12,7 +12,7 @@ export default async function Nav() {
       <Link href="/" aria-label="Homepage" className="flex items-center col-span-1 ">
         <Logo />
       </Link>
-      <div className="flex justify-center col-span-1 gap-4 font-semibold text-md ">
+      <div className="flex justify-center col-span-1 gap-3 font-semibold lg:gap-4 text-md ">
         <Link className="px-2 py-2 lowercase" href={`/${nav[0].url}`}>
           {nav[0].category}
         </Link>

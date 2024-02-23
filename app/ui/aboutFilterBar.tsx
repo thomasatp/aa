@@ -20,7 +20,7 @@ export default function AboutFilterBar({ skills, filter }: any) {
       )}
     >
       <Link
-        href={`/about?filter=${skills[0]}`}
+        href={`/agence?filter=${skills[0]}`}
         scroll={false}
         className={clsx(
           "px-4 snap-start flex flex-none py-2 text-sm border rounded-full cursor-pointer border-neutral-800 dark:border-neutral-400 ",
@@ -35,7 +35,7 @@ export default function AboutFilterBar({ skills, filter }: any) {
         {skills[0]}
       </Link>
       <Link
-        href={`/about?filter=${skills[1]}`}
+        href={`/agence?filter=${skills[1]}`}
         scroll={false}
         className={clsx(
           "px-4 snap-start flex flex-none py-2 text-sm border rounded-full cursor-pointer border-neutral-800 dark:border-neutral-400 ",

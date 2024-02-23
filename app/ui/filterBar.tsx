@@ -19,7 +19,7 @@ export default function FilterBar({ allTags, filter }: any) {
       )}
     >
       <Link
-        href={`/work`}
+        href={`/projets`}
         scroll={false}
         className={clsx(
           "px-4 snap-start flex flex-none py-2 text-sm border transition-all will-change-auto duration-300 rounded-full cursor-pointer border-neutral-800 text-neutral-600 dark:border-neutral-400 dark:text-neutral-400",
@@ -36,7 +36,7 @@ export default function FilterBar({ allTags, filter }: any) {
       {allTags.map((skill: any, index: any) => (
         <Link
           key={index}
-          href={`/work?filter=${skill}`}
+          href={`/projets?filter=${skill}`}
           scroll={false}
           className={clsx(
             "px-4 snap-start flex flex-none py-2 text-sm border transition-all will-change-auto duration-300 rounded-full cursor-pointer border-neutral-800  dark:border-neutral-400 ",

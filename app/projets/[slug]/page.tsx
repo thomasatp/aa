@@ -1,4 +1,4 @@
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import MovingText from "@/app/ui/project/movingText";
 import Header from "@/app/ui/project/header";
@@ -9,18 +9,17 @@ import WideMedia from "@/app/ui/project/wideMedia";
 import ThirdPart from "@/app/ui/project/thirdPart";
 import { ProjectProps } from "@/app/lib/types";
 import { getProjects } from "@/app/lib/getProjects";
-import Media from '@/app/ui/project/media';
+import Media from "@/app/ui/project/media";
 
 type Props = {
-  params: { slug: string }
-}
+  params: { slug: string };
+};
 
 export const dynamic = "force-dynamic";
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
-  const projects = await getProjects("Published")
-  console.log(projects)
+  const projects = await getProjects("Published");
   const singleProject = projects.filter((p) => p.slug === slug)[0];
 
   return {
@@ -70,7 +69,7 @@ export default async function Page({
     <main>
       <Header title={title} img={img} />
       <Intro tags={tags} description={description} link={link} />
-      <FirstPart firstMedias={firstMedias}/>
+      <FirstPart firstMedias={firstMedias} />
       <SecondPart
         secondPartTitle={secondPartTitle}
         secondPartDescription={secondPartDescription}
@@ -83,13 +82,18 @@ export default async function Page({
         thirdPartDescription={thirdPartDescription}
         thirdMedia={thirdMedia}
       />
-      <Link href={`/work/${nextProject.url}`}>
+      <Link href={`/projets/${nextProject.url}`}>
         <section className="relative flex justify-center gap-6 px-6 py-24 pointer-events-none lg:py-32 xl:py-48 bg-zinc-300 text-neutral-950">
           <div className="relative w-full lg:w-1/2 lg:z-10 aspect-square lg:aspect-4/3">
             <p className="absolute text-lg uppercase -translate-x-1/2 lg:text-2xl -top-16 left-1/2">
               Next
             </p>
-            <Media type={nextProject.img.type} url={nextProject.img.url} name={nextProject.title} cover/>
+            <Media
+              type={nextProject.img.type}
+              url={nextProject.img.url}
+              name={nextProject.title}
+              cover
+            />
           </div>
           <MovingText>{nextProject.title}</MovingText>
         </section>
