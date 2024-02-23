@@ -68,6 +68,7 @@ export const getProjects = cache(
                   } as ProjectProps["img"]),
             link: fields.link as ProjectProps["link"],
             description: fields.description as ProjectProps["description"],
+            templateB: fields.templateB as ProjectProps["templateB"],
             firstMedias: Array.isArray(fields.firstMedias)
               ? (fields.firstMedias.map((img: Attachment) => ({
                   url: img.url,

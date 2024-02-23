@@ -7,7 +7,6 @@ import { getNavigation } from "@/app/lib/getNavigation";
 export default async function Nav() {
 
   const nav = await getNavigation()
-  console.log(nav)
   return (
     <NavContainer>
       <Link href="/" aria-label="Homepage" className="flex items-center col-span-1 ">

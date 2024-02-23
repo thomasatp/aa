@@ -77,7 +77,7 @@ export type ProjectProps = {
   link?: string;
   img: MediaTypes;
   description?: string;
-  templateB?: any;
+  templateB?: boolean | undefined;
   firstMedias?: MediaTypes[];
   secondPartTitle?: string;
   secondPartDescription?: string;

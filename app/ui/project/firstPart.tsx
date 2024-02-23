@@ -3,7 +3,7 @@ import { MediaTypes } from "@/app/lib/types";
 import Media from "./media";
 
 export default function FirstPart({
-  firstMedias,
+  firstMedias
 }: {
   firstMedias: MediaTypes[] | undefined;
 }) {

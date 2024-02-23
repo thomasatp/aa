@@ -1,5 +1,4 @@
 import { Metadata, ResolvingMetadata } from 'next'
-import Image from "next/image";
 import Link from "next/link";
 import MovingText from "@/app/ui/project/movingText";
 import Header from "@/app/ui/project/header";
@@ -21,6 +20,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const slug = params.slug;
   const projects = await getProjects("Published")
+  console.log(projects)
   const singleProject = projects.filter((p) => p.slug === slug)[0];
 
   return {
@@ -47,6 +47,7 @@ export default async function Page({
     tags,
     link,
     firstMedias,
+    templateB,
     secondPartTitle,
     secondPartDescription,
     secondMedias,
@@ -69,11 +70,12 @@ export default async function Page({
     <main>
       <Header title={title} img={img} />
       <Intro tags={tags} description={description} link={link} />
-      <FirstPart firstMedias={firstMedias} />
+      <FirstPart firstMedias={firstMedias}/>
       <SecondPart
         secondPartTitle={secondPartTitle}
         secondPartDescription={secondPartDescription}
         secondMedias={secondMedias}
+        templateB={templateB}
       />
       <WideMedia media={wideMedia} />
       <ThirdPart
