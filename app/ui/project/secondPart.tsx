@@ -1,6 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
 import { ProjectProps } from "@/app/lib/types";
+import Media from "./media";
 
 type secondPartProps = {
   secondMedias: ProjectProps["secondMedias"];
@@ -39,30 +40,10 @@ export default function SecondPart({
           )}
         </div>
         {secondMedias?.length !== 0 && (
-          <div className="relative grid items-center grid-cols-12 px-6 gap-y-6 xl:gap-y-40 lg:px-20">
+          <div className="relative grid items-center grid-cols-12 px-6 pb-24 gap-y-6 xl:gap-y-40 lg:px-20 lg:pb-32 xl:pb-48">
             {secondMedias?.map(({ url, name, type }, i: number) => (
               <div key={i} className="medias second-medias">
-                {type === "video/mp4" ? (
-                  <video
-                    className="w-full h-auto"
-                    preload="auto"
-                    autoPlay
-                    playsInline
-                    loop
-                    muted
-                  >
-                    <source src={url} type="video/mp4" />
-                  </video>
-                ) : (
-                  <Image
-                    src={`${url}`}
-                    alt={name}
-                    width={1000}
-                    height={1000}
-                    loading="lazy"
-                    className="w-full h-auto"
-                  />
-                )}
+                <Media type={type} url={url} name={name} />
               </div>
             ))}
           </div>

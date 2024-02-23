@@ -28,7 +28,6 @@ export default async function Page() {
   // 3 - maxRecords : rien ou nombre de projets à afficher
   const projects = await getProjects("Published", "preview", 9);
   const homePage = await getHomePage();
-  console.log(projects[0])
 
   return (
     <main>

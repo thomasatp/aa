@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { PeopleProps } from "../lib/types";
-import placeholder from "@/public/medias/placeholder.png"
+import Media from "./project/media";
 
 
 import clsx from "clsx";
@@ -23,14 +23,8 @@ export default function PeopleTile({ name, job, media }: PeopleProps) {
         }
       )}
     >
-      <div className="relative flex items-center justify-center p-8 aspect-4/5">
-        <Image
-          src={media && media.url !== "" ? `${ media.url }` : placeholder}
-          alt={media ? media.name : name}
-          fill
-          sizes="800"
-          className={clsx("w-full object-cover transition-all duration-300")}
-        />
+      <div className="relative flex items-center justify-center aspect-4/5">
+        <Media type={media ? media.type : ""} url={media ? media.url : null} name={media ? media.name : name} cover/>
       </div>
       <div className="flex flex-col items-baseline mt-4">
         <h2 className="flex flex-1 text-base font-semibold uppercase">

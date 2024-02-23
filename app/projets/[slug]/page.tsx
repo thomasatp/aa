@@ -10,6 +10,7 @@ import WideMedia from "@/app/ui/project/wideMedia";
 import ThirdPart from "@/app/ui/project/thirdPart";
 import { ProjectProps } from "@/app/lib/types";
 import { getProjects } from "@/app/lib/getProjects";
+import Media from '@/app/ui/project/media';
 
 type Props = {
   params: { slug: string }
@@ -86,13 +87,7 @@ export default async function Page({
             <p className="absolute text-lg uppercase -translate-x-1/2 lg:text-2xl -top-16 left-1/2">
               Next
             </p>
-            <Image
-              src={`${nextProject.img.url}`}
-              alt={nextProject.title}
-              fill
-              sizes="800"
-              className="object-cover w-full"
-            />
+            <Media type={nextProject.img.type} url={nextProject.img.url} name={nextProject.title} cover/>
           </div>
           <MovingText>{nextProject.title}</MovingText>
         </section>

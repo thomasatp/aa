@@ -11,6 +11,7 @@ export const getWorkPage = cache(async () => {
       data = {
         title: fields.title as HeroWorkProps["title"],
         description: fields.description as HeroWorkProps["description"],
+        rupture : fields.rupture as HeroWorkProps["rupture"],
         metatitle: fields.metatitle as HeroWorkProps["metatitle"],
         metadescription: fields.metadescription as HeroWorkProps["metadescription"],
       };

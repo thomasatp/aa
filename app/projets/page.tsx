@@ -30,8 +30,11 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   // 3 - maxRecords : rien ou nombre de projets à afficher
   const projects = await getProjects("Published");
   const workPage = await getWorkPage();
+  const rupture = workPage.rupture;
+  rupture?.split(" ")
   projects.forEach((project) => concatTags.push(project.tags));
   const allTags = Array.from(new Set(concatTags.flat()));
+  console.log(rupture?.length)
 
   function filteredProjects(skill: string) {
     return projects.filter((p) => p.tags.find((tag) => tag === skill));
@@ -46,8 +49,9 @@ export default async function Page({ searchParams }: { searchParams: any }) {
       <div className="relative grid grid-cols-12 px-6 mt-20 lg:px-20">
         <div className="grid grid-cols-12 col-span-12 col-start-1 gap-6 2xl:col-span-10 2xl:col-start-2 gap-y-16">
           {!filter && (
-            <p className="block row-start-2 col-start-1 col-end-13 xl:col-start-5 xl:col-end-9 2xl:col-start-4 2xl:col-end-7 text-3xl 2xl:text-[1.9vw] xl:text-[2.9vw] leading-tight font-semibold text-nowrap ">
-              Un long chemin parcouru nous permettant aujourd'hui d'avoir une
+            <p className={`block row-start-2 col-start-1 col-end-13 xl:col-start-5 xl:col-end-9 2xl:col-start-4 2xl:col-end-7 text-3xl xl:text-[2.9vw] 2xl:text-[1.9vw] leading-tight font-semibold text-nowrap`}>
+              {rupture}
+              {/* Un long chemin parcouru nous permettant aujourd'hui d'avoir une
               vision large sur les{" "}
               <span className="inline-block shade-text">
                 enjeux digitaux
@@ -56,7 +60,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
               <span className="inline-block shade-text">
                 solutions
               </span>
-              .
+              . */}
             </p>
           )}
           {displayedProjects.map(

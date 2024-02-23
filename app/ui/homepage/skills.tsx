@@ -3,6 +3,7 @@ import { DataPropsType, SkillsList, SkillsType  } from "../../lib/types";
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
+import Media from "../project/media";
 
 export default function Skills({
 
@@ -30,13 +31,13 @@ export default function Skills({
         projects.filter((p) => p.tags.find((tag) => tag === "Branding"))[0]?.img
       );
     }
-    if (skill === "Motion") {
+    if (skill === "Motion Design") {
       return (
         projects.find((p) => p.slug === "revol")?.img ||
         projects.filter((p) => p.tags.find((tag) => tag === "Motion"))[0]?.img
       );
     }
-    if (skill === "Development") {
+    if (skill === "Développement") {
       return (
         projects.find((p) => p.slug === "matere")?.img ||
         projects.filter((p) => p.tags.find((tag) => tag === "Development"))[0]?.img
@@ -53,24 +54,19 @@ export default function Skills({
       <p className="col-span-12 col-start-1 font-semibold text-l 2xl:col-span-2 2xl:col-start-2 ">
         our expertise
       </p>
-      <div className="relative grid col-span-3 gap-1 2xl:col-start-4 2xl:col-span-7">
+      <div className="relative grid col-span-3 gap-3 2xl:col-start-4 2xl:col-span-7">
         {skills.map((skill, i) => (
           filteredProjects(skill) !== undefined &&
           <div className="relative flex items-baseline w-full group" key={i}>
             <Link href={`/work?filter=${skill}`}>
-              <h2 className=" whitespace-nowrap relative text-[12vw] 2xl:text-[8vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-semibold leading-[0.8] z-10">
+              <h2 className=" whitespace-nowrap relative text-[12vw] 2xl:text-[7vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-semibold leading-[0.8] z-10">
                 {skill}
               </h2>
             </Link>
-            <div className="absolute items-center justify-center opacity-0 transition-all duration-300 w-[10vw] will-change-auto max-lg:hidden -translate-y-1/2 translate-x-full p-8 top-1/2 right-0 group-hover:opacity-100 flex bg-stone-900 aspect-4/5">
+            <div className="absolute items-center justify-center opacity-0 transition-all duration-300 w-[10vw] will-change-auto max-lg:hidden -translate-y-1/2 translate-x-full top-1/2 right-0 group-hover:opacity-100 flex aspect-4/5">
               {skill && (
-                <Image
-                  src={`${filteredProjects(skill).url}`}
-                  alt={projects[0].title}
-                  fill
-                  sizes="800"
-                  className={clsx("w-full object-cover")}
-                />
+                
+                <Media type={filteredProjects(skill).type} url={filteredProjects(skill).url} name={filteredProjects(skill).name} cover/>
               )}
             </div>
 

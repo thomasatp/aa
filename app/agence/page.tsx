@@ -60,9 +60,9 @@ export default async function Page({ searchParams }: { searchParams: any }) {
             .filter((item) => item.skill === concatSkills[0])
             .map((item, key) => (
               <div className="grid w-full grid-cols-6" key={key}>
-                <h3 className="col-span-12 col-start-1 mb-6 text-base font-normal uppercase xl:mb-12 text-neutral-400 xl:col-start-1 xl:col-span-2">
+                <h2 className="col-span-12 col-start-1 mb-6 text-base font-normal uppercase xl:mb-12 dark:text-neutral-400 text-neutral-600 xl:col-start-1 xl:col-span-2">
                   {item.title}
-                </h3>
+                </h2>
                 <p className="col-span-12 mb-6 font-semibold text-l sm:text-3xl xl:col-start-3 xl:col-span-4">
                   {item.description}
                 </p>
@@ -78,9 +78,9 @@ export default async function Page({ searchParams }: { searchParams: any }) {
             .filter((item) => item.skill === concatSkills[1])
             .map((item, key) => (
               <div className="grid w-full grid-cols-6" key={key}>
-                <h3 className="col-span-12 col-start-1 mb-6 text-base font-normal uppercase xl:mb-12 text-neutral-400 xl:col-start-1 xl:col-span-2">
+                <h2 className="col-span-12 col-start-1 mb-6 text-base font-normal uppercase xl:mb-12 dark:text-neutral-400 text-neutral-600 xl:col-start-1 xl:col-span-2">
                   {item.title}
-                </h3>
+                </h2>
                 <p className="col-span-12 mb-6 font-semibold text-l sm:text-3xl xl:col-start-3 xl:col-span-4">
                   {item.description}
                 </p>

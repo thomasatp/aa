@@ -1,6 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
 import { ProjectProps } from "@/app/lib/types";
+import Media from "./media";
 
 type thirdPartProps = {
   thirdMedia: ProjectProps["thirdMedia"];
@@ -35,27 +36,7 @@ export default function ThirdPart({
           )}
           {thirdMedia && (
             <div className="relative col-span-12 col-start-1 xl:col-start-6 xl:col-span-6">
-              {thirdMedia.type === "video/mp4" ? (
-                <video
-                  className="w-full h-auto"
-                  preload="auto"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                >
-                  <source src={thirdMedia.url} type="video/mp4" />
-                </video>
-              ) : (
-                <Image
-                  src={`${thirdMedia.url}`}
-                  alt={thirdMedia.name}
-                  width={1000}
-                  height={1000}
-                  loading="lazy"
-                  className="w-full h-auto"
-                />
-              )}
+              <Media type={thirdMedia.type} url={thirdMedia.url} name={thirdMedia.name} />
             </div>
           )}
         </div>

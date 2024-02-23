@@ -25,9 +25,9 @@ export default async function Page() {
           key={key}
           className="relative grid grid-cols-12 px-6 mt-20 lg:px-20"
         >
-          <h3 className="col-span-12 col-start-1 mb-6 text-base font-normal uppercase xl:mb-12 text-neutral-400 xl:col-start-2 xl:col-span-3">
+          <h2 className="col-span-12 col-start-1 mb-6 text-base font-normal uppercase xl:mb-12 dark:text-neutral-400 text-neutral-600 xl:col-start-2 xl:col-span-3">
             {title}
-          </h3>
+          </h2>
           <p className="col-span-12 text-xl font-semibold sm:text-4xl xl:col-span-7">{description?.split("\n").map((not, key) => <span className="block" key={key}>{not}</span>)}</p>
         </div>
       ))}

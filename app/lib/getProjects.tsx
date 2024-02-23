@@ -23,6 +23,7 @@ export const getProjects = cache(
             "tags",
             "link",
             "description",
+            "templateB",
             "firstMedias",
             "secondPartTitle",
             "secondPartDescription",
@@ -35,7 +36,7 @@ export const getProjects = cache(
     const resultsNumber = maxRecords ? maxRecords : 100;
 
     try {
-      const records = await base("Projets")
+      const records = await base("Projects")
         .select({
           filterByFormula: filterFormula,
           maxRecords: resultsNumber,

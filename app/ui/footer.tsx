@@ -15,28 +15,28 @@ export default function Footer() {
           <div className="flex flex-col gap-2 text-base font-normal leading-snug uppercase">
             <Link
               className="transition-all duration-300 hover:underline underline-offset-2"
-              href="/work"
+              href="/projets"
             >
-              work
+              projets
             </Link>
             <Link
               className="transition-all duration-300 hover:underline underline-offset-2"
-              href="/about"
+              href="/agence"
             >
-              about
+              agence
             </Link>
              <Link
               className="transition-all duration-300 hover:underline underline-offset-2"
-              href="/legal-notices"
+              href="/mentions-legales"
             >
-              legal notices
+              Mentions légales
             </Link>
             
           </div>
         </div>
         <div className="flex flex-col col-span-8 mb-8 md:mb-0 sm:col-span-4 md:col-span-2">
           <div className="mb-6 text-lg font-normal leading-normal text-neutral-500">
-            address
+            adresse
           </div>
           <div className="flex flex-col gap-2 text-base font-normal leading-snug uppercase">
             <p>5 bis rue Fays</p>

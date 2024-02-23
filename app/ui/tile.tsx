@@ -1,8 +1,6 @@
-"use client";
 import Link from "next/link";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { ProjectProps } from "../lib/types";
+import Media from "./project/media";
 
 type TileProps = {
   slug: ProjectProps["slug"];
@@ -13,33 +11,20 @@ type TileProps = {
 };
 
 import clsx from "clsx";
-import Image from "next/image";
 
 export default function Tile({ title, tags, img, slug, homepage }: TileProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-20px 0px -20px 0px" });
   return (
     <Link
-      ref={ref}
-      href={`/work/${slug}`}
+      href={`/projets/${slug}`}
       className={clsx(
         `relative col-span-12 sm:col-span-6 xl:col-span-4 2xl:col-span-3`,
         {
           "after-tile": homepage,
-          "opacity-100 translate-y-0": isInView,
-          "opacity-0 translate-y-5": !isInView,
         }
       )}
     >
-      <div className="relative flex items-center justify-center p-8 aspect-4/5">
-        <Image
-          src={`${img.url}`}
-          alt={img.name}
-          priority
-          fill
-          sizes="800"
-          className={clsx("w-full object-cover transition-all duration-300")}
-        />
+      <div className="relative flex items-center justify-center transition-all duration-700 aspect-4/5">
+        <Media type={img.type} url={img.url} name={img.name} cover/>
       </div>
       <div className="flex flex-col items-baseline mt-4">
         <h2 className="flex flex-1 text-base font-semibold uppercase">

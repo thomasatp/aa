@@ -6,11 +6,24 @@ export type MediaTypes = {
   type: string;
 };
 
+export type MediaProps = {
+  url: string | any;
+  name: string;
+  type?: string;
+  cover?: boolean
+};
+
 export type HeroProps = {
   title?: string;
   description?: string;
   metatitle?: string;
   metadescription?: string
+};
+
+export type NavProps = {
+  category?: string;
+  url?: string;
+  order?: number
 };
 
 export type LegalHeroProps = {
@@ -64,6 +77,7 @@ export type ProjectProps = {
   link?: string;
   img: MediaTypes;
   description?: string;
+  templateB?: any;
   firstMedias?: MediaTypes[];
   secondPartTitle?: string;
   secondPartDescription?: string;
