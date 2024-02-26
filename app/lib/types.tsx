@@ -41,6 +41,15 @@ export type HeroAboutProps = {
   metadescription?: string
 };
 
+export type HeroError = {
+  title?: string;
+  description?: string;
+  button?: string;
+  media?: MediaTypes | null;
+  metatitle?: string;
+  metadescription?: string
+};
+
 export type PeopleProps = {
   name: string;
   job: string;

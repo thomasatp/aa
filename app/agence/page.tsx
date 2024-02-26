@@ -8,6 +8,7 @@ import LottieBlock from "../ui/lottie";
 import clsx from "clsx";
 import AboutFilterBar from "../ui/aboutFilterBar";
 export const dynamic = "force-dynamic";
+import Media from "../ui/project/media";
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -36,16 +37,8 @@ export default async function Page({ searchParams }: { searchParams: any }) {
       <div className="relative grid grid-cols-12 px-6 mt-20 mb-20 lg:px-20">
         {aboutPage.media && (
           <section className="relative col-span-12 aspect-square xl:aspect-video">
-            <video
-              className="object-cover w-full h-full"
-              preload="auto"
-              autoPlay
-              playsInline
-              loop
-              muted
-            >
-              <source src={aboutPage.media.url} type="video/mp4" />
-            </video>
+            <Media type={aboutPage.media.type} url={aboutPage.media.url} name={aboutPage.media.name} cover />
+            
           </section>
         )}
       </div>
