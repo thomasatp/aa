@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function NotFoundPage() {
+export default async function NotFound() {
     const error = await getError()
   return (
     <main className="h-screen">
