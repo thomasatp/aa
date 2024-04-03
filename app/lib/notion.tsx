@@ -27,7 +27,7 @@ export type ProjectProps = {
   slug: string;
   title: string;
   tags: SkillsType;
-  img: {url: string; name: string};
+  img: {url: string; name: string, type: string};
   description?: string;
   firstMedias?: MediaTypes[];
   secondPartTitle?: string;
@@ -56,7 +56,7 @@ export const skills: SkillsType = [
 ];
 export const getAllProjects = cache(async (status?: ProjectProps["status"]) => {
   
-  const regex: RegExp = /\/([^\/]+)%2F([^\/]+)\.(jpg|png|mp4)\?/;
+  const regex: RegExp = /\/([^\/]+)%2F([^\/]+)\.(jpg|png|gif|mp4)\?/;
 
   const data: DataPropsType = [];
   const databaseId = process.env.PROJECTS_DATABASE_ID;
@@ -85,6 +85,8 @@ export const getAllProjects = cache(async (status?: ProjectProps["status"]) => {
         name: res.properties.mainImage.files[0].name
           .match(regex)[2],
         url: res.properties.mainImage.files[0].external.url,
+        type: res.properties.mainImage.files[0].name
+          .match(regex)[3] === "mp4" ? "video/mp4" : "image",
       },
       description: res.properties.description.rich_text[0].text.content,
       firstMedias: res.properties.firstMedias.files.map((file: any) => ({
@@ -97,10 +99,14 @@ export const getAllProjects = cache(async (status?: ProjectProps["status"]) => {
       secondMedias: res.properties.secondMedias.files.map((file: any) => ({
         name: file.name.match(regex)[2],
         url: file.external.url,
+        type: file.name
+          .match(regex)[3] === "mp4" ? "video/mp4" : "image",
       })),
       wideMedia: res.properties.wideMedia.files.map((file: any) => ({
         name: file.name.match(regex)[2],
-        url: file.external.url
+        url: file.external.url,
+        type: file.name
+          .match(regex)[3] === "mp4" ? "video/mp4" : "image",
       }))
       
     })
@@ -118,6 +124,13 @@ export const getHomepage = cache(async () => {
     description: response.results[0].properties.intro.rich_text[0].plain_text,
   };
   return data;
+});
+
+export const getBase = cache(async () => {
+  const databaseId = process.env.DATABASE_ID;
+  const response = await notion.pages.retrieve({ page_id: databaseId })
+  
+  return response;
 });
 
 export const brandImages: ImagesProps[] = [

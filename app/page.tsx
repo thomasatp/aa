@@ -6,6 +6,7 @@ import Skills from "./ui/homepage/skills";
 import Image from "next/image";
 import { getHomePage } from "./lib/getHomePage";
 import { getProjects } from "./lib/getProjects";
+import { getAllProjects } from "./lib/notion/getProjects";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +29,8 @@ export default async function Page() {
   // 3 - maxRecords : rien ou nombre de projets à afficher
   const projects = await getProjects("Published", "preview", 9);
   const homePage = await getHomePage();
+  const base = await getAllProjects("Published");
+  console.log(base[6])
 
   return (
     <main>

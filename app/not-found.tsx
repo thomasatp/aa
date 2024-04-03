@@ -16,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function NotFound() {
   const error = await getError();
+  
   return (
     <main className="h-screen">
       <Hero title={error.title} description={error.description} />
@@ -24,7 +25,7 @@ export default async function NotFound() {
           <button className="flex items-center h-16 px-8 text-lg transition-all duration-300 border rounded-full cursor-pointer dark:border-neutral-600 dark:hover:border-white dark:hover:bg-white dark:hover:text-neutral-950 hover:border-neutral-950 hover:bg-neutral-950 hover:text-white dark:text-white border-neutral-400 text-neutral-950">
             {error.button}
           </button>
-        </Link>{" "}
+        </Link>
       </div>
     </main>
   );
