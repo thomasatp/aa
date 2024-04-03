@@ -58,7 +58,7 @@ export default function Skills({
         {skills.map((skill, i) => (
           filteredProjects(skill) !== undefined &&
           <div className="relative flex items-baseline w-full group" key={i}>
-            <Link href={`/work?filter=${skill}`}>
+            <Link href={`/projets?filter=${skill}`}>
               <h2 className=" whitespace-nowrap relative text-[12vw] 2xl:text-[7vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-semibold leading-[0.8] z-10">
                 {skill}
               </h2>

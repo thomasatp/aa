@@ -27,7 +27,7 @@ export default function Media({ type, url, name, cover }: MediaProps) {
       playsInline
       loop
       muted
-      style={{clipPath: isInView ? loaded : unloaded}}
+      // style={{clipPath: isInView ? loaded : unloaded}}
     >
       <source src={url} type="video/mp4" />
     </video>
@@ -40,7 +40,7 @@ export default function Media({ type, url, name, cover }: MediaProps) {
       sizes="1000"
       loading="lazy"
       className={"w-full object-cover transition-all duration-700"}
-      style={{clipPath: isInView ? loaded : unloaded}}
+      // style={{clipPath: isInView ? loaded : unloaded}}
     /> : <Image
       ref={ref}
       src={`${url}`}
@@ -49,7 +49,7 @@ export default function Media({ type, url, name, cover }: MediaProps) {
       height={1000}
       loading="lazy"
       className={"w-full h-auto transition-all duration-700"}
-      style={{clipPath: isInView ? loaded : unloaded}}
+      // style={{clipPath: isInView ? loaded : unloaded}}
     />
   );
 }
