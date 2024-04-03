@@ -3,14 +3,14 @@ const nextConfig = {};
 const withVideos = require("next-videos");
 module.exports = withVideos({
   experimental: { serverMinification: false },
-  async rewrites() {
-    return [
-      {
-        source: "/:path*",
-        destination: "/",
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/:path*",
+  //       destination: "/",
+  //     },
+  //   ];
+  // },
   images: {
     unoptimized: true,
     remotePatterns: [
