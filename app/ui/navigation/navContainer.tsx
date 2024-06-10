@@ -12,7 +12,7 @@ export default function NavContainer({
   return (
     <motion.nav
       className={clsx(
-        "fixed top-0 left-0 z-50 grid w-full grid-cols-3 gap-6 px-6 py-6 lg:py-10 lg:px-20 transition-all duration-300 bg-white dark:bg-neutral-950",
+        "fixed top-0 left-0 z-40 grid w-full grid-cols-3 gap-6 px-6 py-6 lg:py-10 lg:px-20 transition-all duration-300 bg-white dark:bg-neutral-950",
         {
           "translate-y-0": isVisible,
           "-translate-y-full": !isVisible

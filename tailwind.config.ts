@@ -18,6 +18,9 @@ const config: Config = {
         '4/5': '4 / 5',
         '4/3': '4 / 3',
       },
+      transitionProperty: {
+        'size': 'width, height',
+      }
     },
   },
   plugins: [],

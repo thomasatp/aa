@@ -1,3 +1,9 @@
+import localFont from "next/font/local";
+
+const switzer = localFont({
+  src: "../public/fonts/Switzer-Variable.woff2",
+});
+
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
@@ -5,6 +11,7 @@ import { Providers } from "./lib/providers";
 import Nav from "./ui/navigation/nav";
 import Footer from "./ui/footer";
 const inter = Inter_Tight({ subsets: ["latin"], display: "swap" });
+import Cursor from "./ui/cursor";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,11 +25,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={switzer.className}>
         <Providers attribute="class">
-          <Nav/>
+          <Cursor />
+          <Nav />
           {children}
-          <Footer/>
+          <Footer />
         </Providers>
       </body>
     </html>

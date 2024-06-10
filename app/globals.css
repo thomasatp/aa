@@ -33,7 +33,7 @@ body {
 
 .skill {
   -webkit-text-stroke: 1px white;
-  -webkit-text-fill-color: red;
+  -webkit-text-fill-color: transparent;
 }
 
 .medias {
@@ -94,4 +94,31 @@ body {
   background: linear-gradient(64deg, #1D1E3D 8.51%, #FF015D 38.4%, #543A9D 63.24%, #00E0F1 89.34%);
   background-clip: text;
   color: transparent;
+}
+
+
+.cursor {
+  @apply max-md:hidden fixed pointer-events-none w-4 h-4 bg-white mix-blend-difference z-50 rounded-full -translate-x-1/2 -translate-y-1/2 transition-size duration-300;
+
+}
+
+.c--hidden {
+  @apply opacity-0;
+}
+
+.c--hover {
+  @apply w-16 h-16;
+}
+
+.c--hover-word {
+  @apply w-24 h-24;
+}
+
+.cursor::after {
+  content: var(--wordhover);
+  @apply absolute top-1/2 left-1/2 text-sm text-black font-bold -translate-x-1/2 -translate-y-1/2;
+}
+
+.c--click {
+ @apply w-4 h-4;
 }

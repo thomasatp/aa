@@ -8,23 +8,23 @@ type TileProps = {
   tags: ProjectProps["tags"];
   img: ProjectProps["img"];
   homepage?: boolean;
+  dragg?: boolean;
 };
 
 import clsx from "clsx";
 
-export default function Tile({ title, tags, img, slug, homepage }: TileProps) {
+export default function Tile({ title, tags, img, slug, homepage, dragg }: TileProps) {
   return (
     <Link
       href={`/projets/${slug}`}
-      className={clsx(
-        `relative col-span-12 sm:col-span-6 xl:col-span-4 2xl:col-span-3`,
-        {
-          "after-tile": homepage,
-        }
-      )}
+      className={clsx(`relative w-96 min-w-96 snap-start`, {
+        "after-tile": homepage,
+        "pointer-events-none": dragg,
+        "pointer-events-auto": !dragg,
+      })}
     >
       <div className="relative flex items-center justify-center transition-all duration-700 aspect-4/5">
-        <Media type={img.type} url={img.url} name={img.name} cover/>
+        <Media type={img.type} url={img.url} name={img.name} cover />
       </div>
       <div className="flex flex-col items-baseline mt-4">
         <h2 className="flex flex-1 text-base font-semibold uppercase">

@@ -7,7 +7,7 @@ import {
   useAnimationFrame,
 } from "framer-motion";
 
-export default function MovingText({ children }: { children: string }) {
+export default function MovingText({ children }: { children: any }) {
   const baseX = useMotionValue(0);
   const wrap = (min: number, max: number, v: number) => {
     const rangeSize = max - min;
@@ -17,9 +17,9 @@ export default function MovingText({ children }: { children: string }) {
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * (delta / 1000);
+    let moveBy = directionFactor.current * (delta / 3000);
     directionFactor.current = -1;
-    moveBy -= directionFactor.current * moveBy * 2;
+    moveBy -= directionFactor.current * moveBy * 0.01;
     baseX.set(baseX.get() + moveBy);
   });
 
@@ -31,13 +31,13 @@ export default function MovingText({ children }: { children: string }) {
    * dynamically generated number of children.
    */
   return (
-    <div className="absolute left-0 flex w-full overflow-hidden lg:-translate-y-1/2 top-1/2 whitespace-nowrap flex-nowrap">
+    <div className="absolute z-10 left-0 flex w-full overflow-hidden lg:-translate-y-1/2 top-1/2 whitespace-nowrap flex-nowrap">
       <motion.div className="text-[28vw] lg:text-[20vw] xl:text-[14vw] flex whitespace-nowrap flex-nowrap" style={{ x }}>
-        <span className="block mr-16 lg:mr-64">{children} </span>
-        <span className="block mr-16 lg:mr-64">{children} </span>
-        <span className="block mr-16 lg:mr-64">{children} </span>
-        <span className="block mr-16 lg:mr-64">{children} </span>
-        <span className="block mr-16 lg:mr-64">{children} </span>
+        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
+        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
+        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
+        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
+        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
       </motion.div>
     </div>
   );
