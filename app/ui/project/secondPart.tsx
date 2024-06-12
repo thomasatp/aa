@@ -1,14 +1,8 @@
 "use client";
-import { useRef } from "react";
-import Image from "next/image";
 import clsx from "clsx";
 import { ProjectProps } from "@/app/lib/types";
 import Media from "./media";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [0, distance]);
-}
 
 type secondPartProps = {
   secondMedias: ProjectProps["secondMedias"];
@@ -24,13 +18,6 @@ export default function SecondPart({
   templateB,
 }: secondPartProps) {
 
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll();
-
-  const translate = scrollYProgress;
-  const down = useParallax(scrollYProgress, 400);
-  const up = useParallax(scrollYProgress, -400);
 
   return (
     ((secondMedias && secondMedias?.length > 0) ||
@@ -41,14 +28,14 @@ export default function SecondPart({
       >
         <div className="relative grid grid-cols-12 px-6 gap-y-6 xl:gap-y-40 lg:px-20">
           {secondPartTitle && (
-            <motion.h2 style={{ y: up }} className="col-span-12 col-start-1 text-2xl font-semibold sm:text-4xl xl:col-span-4 xl:col-start-2">
+            <h2  className="col-span-12 col-start-1 text-2xl font-semibold sm:text-4xl xl:col-span-4 xl:col-start-2">
               {secondPartTitle}
-            </motion.h2>
+            </h2>
           )}
           {secondPartDescription && (
-            <motion.p style={{ y: down }} className="col-span-12 col-start-1 text-xl sm:text-2xl xl:col-span-5 xl:col-start-7 text-neutral-600 dark:text-neutral-400">
+            <p  className="col-span-12 col-start-1 text-xl sm:text-2xl xl:col-span-5 xl:col-start-7 text-neutral-600 dark:text-neutral-400">
               {secondPartDescription}
-            </motion.p>
+            </p>
           )}
         </div>
         {secondMedias?.length !== 0 &&

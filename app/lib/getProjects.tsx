@@ -14,7 +14,7 @@ export const getProjects = cache(
     const filterFormula = status ? `IF({status} = '${status}', 1, 0)` : "";
     const fields =
       preview === "preview"
-        ? ["title", "status", "slug", "image", "tags"]
+        ? ["title", "description", "status", "slug", "image", "tags"]
         : [
             "title",
             "status",

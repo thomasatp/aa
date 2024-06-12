@@ -72,7 +72,7 @@ const ToggleTheme = () => {
         {theme === "light" ? (
           <>
             <span className="text-sm lg:hidden">Light mode</span>
-            <Sun fill="fill-stone-950" />
+            <Sun fill="fill-neutral-950" />
           </>
         ) : (
           <>

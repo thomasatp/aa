@@ -4,6 +4,7 @@
 
 * {
   box-sizing: border-box;
+  @apply select-none
 }
 
 body {
@@ -121,4 +122,8 @@ body {
 
 .c--click {
  @apply w-4 h-4;
+}
+
+.discrete {
+  transition-behavior: allow-discrete;
 }

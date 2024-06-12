@@ -1,21 +1,44 @@
 "use client";
-import { motion } from "framer-motion";
-import { useScrollDirection } from "../../hooks/useScrollDirection";
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+  useVelocity,
+} from "framer-motion";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
 export default function NavContainer({
   children,
 }: {
   children: React.ReactNode;
 }) {
-    const [isVisible] = useScrollDirection()
+  const [currentScroll, setCurrentScroll] = useState(0);
+  const [isScrollDown, setIsScrollDown] = useState(false);
+  const [scrollVelocity, setScrollVelocity] = useState(0);
+
+  const { scrollY } = useScroll();
+  const velocity = useVelocity(scrollY);
+
+  useMotionValueEvent(scrollY, "change", (prev) => {
+    setCurrentScroll(prev);
+    prev < currentScroll && scrollVelocity > 500
+      ? setIsScrollDown(false)
+      : scrollVelocity > 500 && setIsScrollDown(true);
+    console.log("Velocity", scrollVelocity);
+  });
+  useEffect(() => {
+    return velocity.onChange((latestVelocity) => {
+      setScrollVelocity(Math.abs(latestVelocity));
+    });
+  }, [scrollY]);
 
   return (
     <motion.nav
       className={clsx(
-        "fixed top-0 left-0 z-40 grid w-full grid-cols-3 gap-6 px-6 py-6 lg:py-10 lg:px-20 transition-all duration-300 bg-white dark:bg-neutral-950",
+        "sticky left-0 z-40 w-full flex flex-row justify-between items-center gap-6 px-6 h-52 lg:px-20 transition-all ",
         {
-          "translate-y-0": isVisible,
-          "-translate-y-full": !isVisible
+          "top-0": !isScrollDown,
+          "-top-52": isScrollDown,
         }
       )}
     >

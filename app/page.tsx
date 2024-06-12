@@ -11,6 +11,7 @@ import MovingText from "./ui/project/movingText";
 import Media from "./ui/project/media";
 import HomeHero from "./ui/homepage/homeHero";
 import Slider from "./ui/homepage/slider";
+import SliderDrag from "./ui/homepage/sliderDrag";
 
 export const dynamic = "force-dynamic";
 
@@ -34,31 +35,16 @@ export default async function Page() {
   console.log(base[6]);
 
   return (
-    <main>
+    <main className="relative">
       {/* <Hero title={homePage.title} description={homePage.description} /> */}
       <HomeHero />
-      <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-20 mt-20">
-        <h1 className="col-start-2 col-span-8 text-xl font-bold dark:text-neutral-500 text-neutral-500">
-          {homePage.title}
-        </h1>
-        <p className="col-start-2 col-span-8 text-7xl leading-[1.2]">
+      <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-80 xl:my-48 my-24">
+        <h1 style={{fontSize: "clamp(1.875rem, 2.5vw, 4.5rem)"}} className="col-start-2 col-span-10 font-bold leading-[1.2]">
           {homePage.description}
-        </p>
+        </h1>
       </div>
-      <Slider projects={projects} />
-      {/* <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-20 mt-20 2xl:[&>*:nth-child(1)]:col-start-2 2xl:[&>*:nth-child(4)]:col-start-3 2xl:[&>*:nth-child(7)]:col-start-2">
-        {projects.map(({ title, tags, img, slug }, i) => (
-          <Tile
-            key={i}
-            title={title}
-            tags={tags}
-            img={img}
-            slug={slug}
-            homepage
-          />
-        ))}
-      </div> */}
-      {/* <Skills projects={projects} /> */}
+      <SliderDrag projects={projects} />
+      <Skills projects={projects} />
       <div className="relative grid grid-cols-12 gap-6 px-6 mt-20 lg:px-20">
         <p className="col-span-12 col-start-1 font-semibold text-l 2xl:col-span-2 2xl:col-start-2">
           our tools

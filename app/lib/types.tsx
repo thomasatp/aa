@@ -11,6 +11,7 @@ export type MediaProps = {
   name: string;
   type?: string;
   cover?: boolean
+  homepage?: boolean
 };
 
 export type HeroProps = {

@@ -11,17 +11,22 @@ export default function HomeHero() {
     offset: ["start center", "end end"],
   });
 
-  const scale = useTransform(scrollY, [0, 600], [1, 0.82]);
-  const border = useTransform(scrollY, [0, 600], [40, 80]);
+  const padding = useTransform(scrollY, [0, 600], ["clamp(0px, 0vw, 0px)", "clamp(16px, 5vw, 80px)"]);
+  const border = useTransform(scrollY, [0, 600], [0, 80]);
 
   return (
-    <section ref={ref} className="px-6 lg:px-20">
-      <motion.section
-        style={{ scale: scale, borderRadius: border }}
-        className="relative  w-full mt-[calc(120px)] h-[calc(100vh-240px)] overflow-hidden"
+    <section ref={ref} className="px-0 overflow-hidden">
+      <motion.div
+        style={{ paddingLeft: padding, paddingRight: padding }}
+        className="w-full"
       >
-        <Media type="video/mp4" url="/medias/real.mp4" name="hero" cover />
-      </motion.section>
+        <motion.div
+          style={{ borderRadius: border }}
+          className="relative w-full h-[calc(100vh-120px)] overflow-hidden"
+        >
+          <Media type="video/mp4" url="/medias/grafik.mp4" name="hero" cover />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

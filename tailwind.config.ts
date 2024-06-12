@@ -20,6 +20,10 @@ const config: Config = {
       },
       transitionProperty: {
         'size': 'width, height',
+        'scale': 'scale'
+      },
+      scale: {
+        "103": "1.03"
       }
     },
   },

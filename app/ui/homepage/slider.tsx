@@ -1,31 +1,58 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Tile from "../tile";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Slider({ projects }: { projects: any[] }) {
-  const [dragg, setDragg] = useState(false);
+  const container = useRef(null);
+  const sliderContainer = useRef<HTMLDivElement>(null);
+  const [sliderHeight, setSliderHeight] = useState(0);
+
+  useEffect(() => {
+    if (sliderContainer.current) {
+      setSliderHeight(sliderContainer.current.offsetHeight);
+    }
+    window.addEventListener("resize", () => {
+      if (sliderContainer.current) {
+        setSliderHeight(sliderContainer.current.offsetHeight);
+      }
+    });
+  });
+  const { scrollYProgress } = useScroll({
+    target: container,
+  });
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["calc(0% + 0vw)", "calc(-100% + 100vw)"]
+  );
   return (
-    <motion.div className="relative w-full grid gap-6 gap-y-16 px-6 lg:px-20 mt-20 2xl:col-start-2 grid-flow-col overflow-hidden">
-      <motion.div
-        className="flex flex-row gap-6"
-        drag="x"
-        onDrag={() => setDragg(true)}
-        onDragStart={() => setDragg(true)}
-        onDragEnd={() => setDragg(false)}
+    <div
+      ref={container}
+      className="relative w-full flex flex-col mt-20 2xl:col-start-2 h-[200vw]"
+    >
+      <div
+        style={{ top: `calc(50% - ${sliderHeight / 2}px)` }}
+        className="flex sticky h-min max-w-full overflow-x-clip"
       >
-        {projects.map(({ title, tags, img, slug }, i) => (
-          <Tile
-            key={i}
-            title={title}
-            tags={tags}
-            img={img}
-            slug={slug}
-            dragg={dragg}
-            // homepage
-          />
-        ))}
-      </motion.div>
-    </motion.div>
+        <motion.div
+          ref={sliderContainer}
+          style={{ x }}
+          className="flex gap-6 px-6 lg:px-20"
+        >
+          {projects.map(({ title, description, tags, img, slug }, i) => (
+            <Tile
+              key={i}
+              title={title}
+              description={description}
+              tags={tags}
+              img={img}
+              slug={slug}
+              homepage
+            />
+          ))}
+        </motion.div>
+      </div>
+    </div>
   );
 }
