@@ -24,6 +24,11 @@ const config: Config = {
       },
       scale: {
         "103": "1.03"
+      },
+      transitionDelay: {
+        '600': '600ms',
+        '650': '650ms',
+        '750': '750ms',
       }
     },
   },

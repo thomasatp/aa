@@ -25,7 +25,7 @@
 //       onClick={handleTheme}
 //       aria-label="Change Theme"
 //       className={clsx(
-//         "relative transition-all flex w-10 h-6 p-1 rounded-full shade"
+//         "flex relative p-1 w-10 h-6 rounded-full transition-all shade"
 //       )}
 //     >
 //       <span
@@ -47,7 +47,7 @@ import { useEffect } from "react";
 import Moon from "./moon";
 import Sun from "./sun";
 
-const ToggleTheme = () => {
+const ToggleTheme = ({ className }: { className: string }) => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -65,10 +65,7 @@ const ToggleTheme = () => {
 
   return (
     <>
-      <button
-        className="relative flex items-center justify-between max-lg:w-full right-O rounded-full bg-none outline-none focus:bg-none focus:outline-none lg:px-1 lg:py-1 gap-2 text-sm"
-        onClick={handleTheme}
-      >
+      <button className={className} onClick={handleTheme}>
         {theme === "light" ? (
           <>
             <span className="text-sm lg:hidden">Light mode</span>
@@ -80,9 +77,6 @@ const ToggleTheme = () => {
             <Moon fill="fill-white " />
           </>
         )}
-        {/* <span className="absolute inset-y-px left-px dark:right-px dark:left-1/2 transition-all w-1/2 bg-stone-500 rounded-full"></span>
-        <span className="z-10 flex">Light</span>
-        <span className="z-10 flex">Dark</span> */}
       </button>
     </>
   );
