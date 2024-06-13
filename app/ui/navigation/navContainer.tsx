@@ -35,7 +35,7 @@ export default function NavContainer({
   return (
     <motion.nav
       className={clsx(
-        "flex sticky left-0 z-40 flex-row gap-6 justify-between items-center px-6 w-full h-32 transition-all lg:h-52 lg:px-20",
+        "flex sticky left-0 z-40 flex-row gap-6 justify-between items-center px-6 pb-6 w-full h-32 transition-all lg:pb-0 lg:h-52 lg:px-20",
         {
           "top-0": !isScrollDown,
           "-top-32 lg:-top-52": isScrollDown,

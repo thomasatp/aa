@@ -53,8 +53,8 @@ export default function InnerNav({ nav }: { nav: any }) {
           className={clsx(
             "absolute top-1/2 w-6 h-px transition-all duration-300 translate-y-1 bg-neutral-950 dark-bg-white",
             {
-              "left-2": !displayCat,
-              "left-0": displayCat,
+              "left-2": !navOpen,
+              "left-0": navOpen,
             }
           )}
         />
@@ -62,15 +62,15 @@ export default function InnerNav({ nav }: { nav: any }) {
           className={clsx(
             "absolute left-2 top-1/2 w-6 h-px transition-all duration-300 -translate-y-1 bg-neutral-950 dark-bg-white",
             {
-              "left-2": !displayCat,
-              "left-4": displayCat,
+              "left-2": !navOpen,
+              "left-4": navOpen,
             }
           )}
         />
       </div>
       <div
         className={clsx(
-          "flex gap-3 items-center text-base font-semibold transition-all duration-300 max-lg:items-start max-lg:pt-64 max-lg:fixed lg:gap-4 max-lg:absolute max-lg:left-0 max-lg:top-0 max-lg:bottom-0 max-lg:right-0 max-lg:px-6 max-lg:z:30 max-lg:flex-col max-lg:w-full max-lg:h-lvh max-lg:bg-white max-lg:dark:bg-neutral-950",
+          "flex gap-3 items-center text-base font-semibold transition-all duration-300 lg:mt-2 max-lg:items-start max-lg:pt-64 max-lg:fixed lg:gap-4 max-lg:absolute max-lg:left-0 max-lg:top-0 max-lg:bottom-0 max-lg:right-0 max-lg:px-6 max-lg:z:30 max-lg:flex-col max-lg:w-full max-lg:h-lvh max-lg:bg-white max-lg:dark:bg-neutral-950",
           {
             "max-lg:translate-y-0": navOpen,
             "max-lg:-translate-y-full": !navOpen,
