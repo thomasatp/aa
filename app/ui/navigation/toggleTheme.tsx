@@ -25,12 +25,12 @@
 //       onClick={handleTheme}
 //       aria-label="Change Theme"
 //       className={clsx(
-//         "flex relative p-1 w-10 h-6 rounded-full transition-all shade"
+//         "flex relative p-1 w-10 h-6 rounded-full transition-hop shade"
 //       )}
 //     >
 //       <span
 //         className={clsx(
-//           "absolute transition-all w-5 h-5 inset-0.5 rounded-full",
+//           "absolute transition-hop w-5 h-5 inset-0.5 rounded-full",
 //           {
 //             "bg-neutral-950 translate-x-4": theme === "dark",
 //             "bg-white": theme === "light",
@@ -69,12 +69,12 @@ const ToggleTheme = ({ className }: { className: string }) => {
         {theme === "light" ? (
           <>
             <span className="text-sm lg:hidden">Light mode</span>
-            <Sun fill="fill-neutral-950" />
+            <Sun fill="fill-neutral-950 transition-color duration-300" />
           </>
         ) : (
           <>
             <span className="text-sm lg:hidden">Dark mode</span>
-            <Moon fill="fill-white " />
+            <Moon fill="fill-white transition-color duration-300" />
           </>
         )}
       </button>

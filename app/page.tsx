@@ -43,7 +43,7 @@ export default async function Page() {
           {homePage.description}
         </h1>
       </div>
-      <Slider projects={projects} />
+      <SliderDrag projects={projects} />
       <Skills projects={projects} />
       <div className="grid relative grid-cols-12 gap-6 px-6 mt-20 lg:px-20">
         <p className="col-span-12 col-start-1 font-semibold text-l 2xl:col-span-2 2xl:col-start-2">

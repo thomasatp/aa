@@ -20,7 +20,8 @@ const config: Config = {
       },
       transitionProperty: {
         'size': 'width, height',
-        'scale': 'scale'
+        'scale': 'scale',
+        'hop': "transform, opacity"
       },
       scale: {
         "103": "1.03"
