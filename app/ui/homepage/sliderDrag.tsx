@@ -46,7 +46,7 @@ export default function SliderDrag({ projects }: { projects: any[] }) {
   return (
     <div
       ref={container}
-      className="flex relative flex-col py-4 mt-20 w-full lg:overflow-x-hidden"
+      className="flex relative flex-col py-4 mt-20 w-full lg:overflow-hidden"
       
     >
       <motion.div
