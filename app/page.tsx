@@ -38,21 +38,21 @@ export default async function Page() {
     <main className="relative">
       {/* <Hero title={homePage.title} description={homePage.description} /> */}
       <HomeHero />
-      <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-80 xl:my-48 my-24">
-        <h1 style={{fontSize: "clamp(1.875rem, 2.5vw, 4.5rem)"}} className="col-start-2 col-span-10 font-bold leading-[1.2]">
+      <div className="grid relative grid-cols-12 gap-6 gap-y-16 px-6 my-24 lg:px-80 xl:my-48">
+        <h1 style={{fontSize: "clamp(1.5rem, 2.5vw, 4.5rem)"}} className="col-start-1 col-span-12 leading-[1.3]">
           {homePage.description}
         </h1>
       </div>
-      <SliderDrag projects={projects} />
+      <Slider projects={projects} />
       <Skills projects={projects} />
-      <div className="relative grid grid-cols-12 gap-6 px-6 mt-20 lg:px-20">
+      <div className="grid relative grid-cols-12 gap-6 px-6 mt-20 lg:px-20">
         <p className="col-span-12 col-start-1 font-semibold text-l 2xl:col-span-2 2xl:col-start-2">
           our tools
         </p>
-        <div className="grid flex-wrap grid-cols-2 col-span-12 col-start-1 gap-2 lg:gap-6 xl:grid-cols-4 lg:grid-cols-3 2xl:col-span-7 2xl:col-start-4 opacity-40">
+        <div className="grid flex-wrap grid-cols-2 col-span-12 col-start-1 gap-2 opacity-40 lg:gap-6 xl:grid-cols-4 lg:grid-cols-3 2xl:col-span-7 2xl:col-start-4">
           {brandImages.map((image, i) => (
             <div
-              className="flex items-center justify-center col-span-1 bg-neutral-800 aspect-square"
+              className="flex col-span-1 justify-center items-center bg-neutral-800 aspect-square"
               key={i}
             >
               <Image

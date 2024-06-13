@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={switzer.className}>
+      <body className={inter.className}>
         <Providers attribute="class">
           <Cursor />
           <Nav />

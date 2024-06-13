@@ -9,7 +9,7 @@ export default async function Nav() {
   const nav = await getNavigation();
   return (
     <NavContainer>
-      <div className="flex justify-between items-start mt-7 w-full lg:items-baseline">
+      <div className="flex justify-between items-start mt-2 w-full lg:mt-7 lg:items-baseline">
         <Link href="/" aria-label="Homepage" className="flex z-40 flex-col">
           <div className="flex flex-col gap-x-4 text-xl font-bold lg:text-3xl lg:flex-row text-neutral-950 dark:text-white">
             <p>Design UX/UI</p>

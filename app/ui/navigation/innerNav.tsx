@@ -16,15 +16,22 @@ export default function InnerNav({ nav }: { nav: any }) {
     setNavOpen(true);
     setTimeout(() => {
       setDisplayCat(true);
-    }, 700);
+    }, 200);
   }
 
   function closeNav() {
     setDisplayCat(false);
     setTimeout(() => {
       setNavOpen(false);
-    }, 700);
+    }, 900);
   }
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setNavOpen(false);
+      setDisplayCat(false);
+    });
+  });
 
   useEffect(() => {
     if (navOpen) {
@@ -73,7 +80,7 @@ export default function InnerNav({ nav }: { nav: any }) {
         <Link
           onClick={closeNav}
           className={clsx(
-            "px-2 py-2 transition-transform duration-700 delay-600 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
+            "px-2 py-2 transition-all duration-700 delay-50 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
             {
               "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
               "max-lg:opacity-100 max-lg:translate-y-0": displayCat,
@@ -86,7 +93,7 @@ export default function InnerNav({ nav }: { nav: any }) {
         <Link
           onClick={closeNav}
           className={clsx(
-            "px-2 py-2 transition-transform duration-700 delay-650 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
+            "px-2 py-2 transition-all duration-700 delay-100 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
             {
               "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
               "max-lg:opacity-100 max-lg:translate-y-0": displayCat,
@@ -99,7 +106,7 @@ export default function InnerNav({ nav }: { nav: any }) {
         <a
           onClick={closeNav}
           className={clsx(
-            "px-2 py-2 transition-transform duration-700 delay-700 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
+            "px-2 py-2 transition-all duration-700 delay-150 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
             {
               "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
               "max-lg:opacity-100 max-lg:translate-y-0": displayCat,
@@ -111,7 +118,7 @@ export default function InnerNav({ nav }: { nav: any }) {
         </a>
         <ToggleTheme
           className={clsx(
-            "flex relative gap-2 justify-between items-center text-sm bg-none rounded-full transition-transform duration-700 outline-none delay-750 max-lg:mt-32 right-O focus:bg-none focus:outline-none lg:px-1 lg:py-1",
+            "flex relative gap-2 justify-between items-center text-sm bg-none rounded-full transition-all duration-700 delay-200 outline-none max-lg:mt-32 right-O focus:bg-none focus:outline-none lg:px-1 lg:py-1",
             {
               "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
               "max-lg:opacity-100 max-lg:translate-y-0": displayCat,

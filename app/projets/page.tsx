@@ -44,8 +44,8 @@ export default async function Page({ searchParams }: { searchParams: any }) {
       <Hero title={workPage.title} description={workPage.description} />
       <FilterBar allTags={allTags} filter={filter} />
 
-      <div className="relative grid grid-cols-12 px-6 mt-20 lg:px-20">
-        <div className="grid grid-cols-12 col-span-12 col-start-1 gap-6 2xl:col-span-12 2xl:col-start-1 gap-y-16">
+      <div className="grid relative grid-cols-12 px-6 mt-20 lg:px-20">
+        <div className="grid grid-cols-12 col-span-12 col-start-1 gap-6 2xl:col-span-12 2xl:col-start-1">
           {/* {!filter && (
             <p className={`block row-start-2 col-start-1 col-end-13 xl:col-start-5 xl:col-end-9 2xl:col-start-4 2xl:col-end-7 text-3xl xl:text-[2.9vw] 2xl:text-[1.9vw] leading-tight font-semibold text-nowrap`}>
               {rupture}
