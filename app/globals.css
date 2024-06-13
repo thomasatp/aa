@@ -4,7 +4,8 @@
 
 * {
   box-sizing: border-box;
-  @apply antialiased select-none -webkit-font-smoothing;
+  -webkit-font-smoothing: antialiased;
+  @apply antialiased select-none
 }
 html {
   -webkit-font-smoothing: antialiased;
