@@ -49,17 +49,17 @@ export default function Skills({ projects }: { projects: DataPropsType }) {
 
 
   return (
-    <div className="grid grid-cols-12 gap-6 px-6 mb-0 lg:px-20 xl:my-64 my-24">
-      <div className="relative grid col-start-1 col-span-12 gap-6 2xl:col-start-3 2xl:col-span-8">
+    <div className="grid grid-cols-12 gap-6 px-6 my-24 mb-0 lg:px-20 xl:my-64">
+      <div className="grid relative col-span-12 col-start-1 gap-6 2xl:col-start-3 2xl:col-span-8">
         {skills.map(
           (skill, i) =>
             filteredProjects(skill) !== undefined && (
               <div
-                className="relative flex items-baseline w-full group"
+                className="flex relative items-baseline w-full group"
                 key={i}
               >
                 <Link href={`/projets?filter=${skill}`}>
-                  <h2 className=" whitespace-nowrap text-white mix-blend-difference relative text-[12vw] 2xl:text-[7vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-bold leading-[0.8] group-hover:z-20 group-hover:skill">
+                  <h2 className=" whitespace-nowrap text-white mix-blend-difference relative text-[10vw] 2xl:text-[7vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-bold leading-[0.8] group-hover:z-20 group-hover:skill">
                     {skill}
                   </h2>
                 </Link>

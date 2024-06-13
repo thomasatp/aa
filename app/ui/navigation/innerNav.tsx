@@ -65,8 +65,8 @@ export default function InnerNav({ nav }: { nav: any }) {
         className={clsx(
           "flex gap-3 items-center text-base font-semibold transition-all duration-300 max-lg:items-start max-lg:pt-64 max-lg:fixed lg:gap-4 max-lg:absolute max-lg:left-0 max-lg:top-0 max-lg:bottom-0 max-lg:right-0 max-lg:px-6 max-lg:z:30 max-lg:flex-col max-lg:w-full max-lg:h-lvh max-lg:bg-white max-lg:dark:bg-neutral-950",
           {
-            "translate-y-0": navOpen,
-            "-translate-y-full": !navOpen,
+            "max-lg:translate-y-0": navOpen,
+            "max-lg:-translate-y-full": !navOpen,
           }
         )}
       >
@@ -75,8 +75,8 @@ export default function InnerNav({ nav }: { nav: any }) {
           className={clsx(
             "px-2 py-2 transition-transform duration-700 delay-600 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
             {
-              "opacity-0 translate-y-1": !displayCat,
-              "opacity-100 translate-y-0": displayCat,
+              "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
+              "max-lg:opacity-100 max-lg:translate-y-0": displayCat,
             }
           )}
           href={`/${nav[0].url}`}
@@ -88,8 +88,8 @@ export default function InnerNav({ nav }: { nav: any }) {
           className={clsx(
             "px-2 py-2 transition-transform duration-700 delay-650 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
             {
-              "opacity-0 translate-y-1": !displayCat,
-              "opacity-100 translate-y-0": displayCat,
+              "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
+              "max-lg:opacity-100 max-lg:translate-y-0": displayCat,
             }
           )}
           href={`/${nav[1].url}`}
@@ -101,8 +101,8 @@ export default function InnerNav({ nav }: { nav: any }) {
           className={clsx(
             "px-2 py-2 transition-transform duration-700 delay-700 max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
             {
-              "opacity-0 translate-y-1": !displayCat,
-              "opacity-100 translate-y-0": displayCat,
+              "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
+              "max-lg:opacity-100 max-lg:translate-y-0": displayCat,
             }
           )}
           href={`mailto:${nav[2].url}`}
@@ -113,8 +113,8 @@ export default function InnerNav({ nav }: { nav: any }) {
           className={clsx(
             "flex relative gap-2 justify-between items-center text-sm bg-none rounded-full transition-transform duration-700 outline-none delay-750 max-lg:mt-32 right-O focus:bg-none focus:outline-none lg:px-1 lg:py-1",
             {
-              "opacity-0 translate-y-1": !displayCat,
-              "opacity-100 translate-y-0": displayCat,
+              "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
+              "max-lg:opacity-100 max-lg:translate-y-0": displayCat,
             }
           )}
         />

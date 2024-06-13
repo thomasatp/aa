@@ -4,11 +4,14 @@
 
 * {
   box-sizing: border-box;
-  @apply select-none
+  @apply antialiased select-none -webkit-font-smoothing:;
+}
+html {
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  @apply transition-all duration-300 bg-white dark:bg-neutral-950 dark:text-white text-neutral-950;
+  @apply bg-white transition-all duration-300 dark:bg-neutral-950 dark:text-white text-neutral-950;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -99,7 +102,7 @@ body {
 
 
 .cursor {
-  @apply max-md:hidden fixed pointer-events-none w-4 h-4 bg-white mix-blend-difference z-50 rounded-full -translate-x-1/2 -translate-y-1/2 transition-size duration-300;
+  @apply fixed z-50 w-4 h-4 bg-white rounded-full mix-blend-difference duration-300 -translate-x-1/2 -translate-y-1/2 pointer-events-none max-md:hidden transition-size;
 
 }
 
@@ -117,7 +120,7 @@ body {
 
 .cursor::after {
   content: var(--wordhover);
-  @apply absolute top-1/2 left-1/2 text-sm text-black font-bold -translate-x-1/2 -translate-y-1/2;
+  @apply absolute top-1/2 left-1/2 text-sm font-bold text-black -translate-x-1/2 -translate-y-1/2;
 }
 
 .c--click {
