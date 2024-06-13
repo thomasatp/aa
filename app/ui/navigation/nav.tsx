@@ -10,7 +10,7 @@ export default async function Nav() {
   const nav = await getNavigation();
   return (
     <NavContainer>
-      <div className="flex justify-between items-center w-full">
+      <div className="flex justify-between items-center w-full max-w-full">
         <Link
           href="/"
           aria-label="Homepage"

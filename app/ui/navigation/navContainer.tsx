@@ -24,7 +24,6 @@ export default function NavContainer({
     prev < currentScroll && scrollVelocity > 500
       ? setIsScrollDown(false)
       : scrollVelocity > 500 && setIsScrollDown(true);
-    console.log("Velocity", scrollVelocity);
   });
   useEffect(() => {
     return velocity.onChange((latestVelocity) => {

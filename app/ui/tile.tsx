@@ -26,7 +26,7 @@ export default function Tile({
     <div
       className={clsx(`relative transition-all duration-700 group aspect-4/5`, {
         "col-span-12 sm:col-span-6 xl:col-span-4 2xl:col-span-3": !homepage,
-        "w-[300px] min-w-[300px] xl:w-[500px] xl:min-w-[500px]": homepage,
+        "w-[320px] min-w-[320px] xl:w-[500px] xl:min-w-[500px]": homepage,
       })}
     >
       <div className="overflow-hidden w-full h-full rounded-3xl transition-all duration-700 scale-100 group-hover:scale-103">
