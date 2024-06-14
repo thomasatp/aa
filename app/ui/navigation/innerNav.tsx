@@ -8,9 +8,6 @@ export default function InnerNav({ nav }: { nav: any }) {
   const [navOpen, setNavOpen] = useState(false);
   const [displayCat, setDisplayCat] = useState(false);
 
-  function toogleNav() {
-    setNavOpen((nav) => !nav);
-  }
 
   function openNav() {
     setNavOpen(true);

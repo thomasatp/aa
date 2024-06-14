@@ -31,6 +31,9 @@ const config: Config = {
         '100': '100ms',
         '150': '150ms',
         '200': '200ms',
+      },
+      colors: {
+        'coral': "#FF6A5F"
       }
     },
   },
