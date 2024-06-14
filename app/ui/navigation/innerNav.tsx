@@ -4,9 +4,7 @@ import ToggleTheme from "./toggleTheme";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 
-export default function InnerNav({ nav }: { nav: any }) {
-  const [navOpen, setNavOpen] = useState(false);
-  const [displayCat, setDisplayCat] = useState(false);
+export default function InnerNav({ nav, navOpen, setNavOpen, displayCat, setDisplayCat }: { nav: any, navOpen: any, setNavOpen: any, displayCat: any, setDisplayCat: any }) {
 
 
   function openNav() {
@@ -100,7 +98,20 @@ export default function InnerNav({ nav }: { nav: any }) {
         >
           {nav[1].category}
         </Link>
-        <a
+        <Link
+          onClick={closeNav}
+          className={clsx(
+            "px-2 py-2 duration-300 transition-hop max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
+            {
+              "max-lg:opacity-0 max-lg:translate-y-1": !displayCat,
+              "delay-100 max-lg:opacity-100 max-lg:translate-y-0": displayCat,
+            }
+          )}
+          href={`/${nav[2].url}`}
+        >
+          {nav[2].category}
+        </Link>
+        {/* <a
           onClick={closeNav}
           className={clsx(
             "px-2 py-2 duration-300 transition-hop max-lg:px-0 max-lg:py-1 max-lg:w-full max-lg:text-3xl",
@@ -112,7 +123,7 @@ export default function InnerNav({ nav }: { nav: any }) {
           href={`mailto:${nav[2].url}`}
         >
           {nav[2].category}
-        </a>
+        </a> */}
         <ToggleTheme
           className={clsx(
             "flex relative gap-2 justify-between items-center text-sm bg-none rounded-full duration-300 outline-none transition-hop max-lg:mt-32 right-O focus:bg-none focus:outline-none lg:px-1 lg:py-1",

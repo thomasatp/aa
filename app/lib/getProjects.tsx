@@ -41,6 +41,7 @@ export const getProjects = cache(
           filterByFormula: filterFormula,
           maxRecords: resultsNumber,
           fields: fields,
+          sort: [{field: "status", direction: "asc"}]
         })
         .firstPage();
 

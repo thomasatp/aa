@@ -17,7 +17,7 @@ export default function Media({
 }: MediaProps) {
   return type === "video/mp4" ? (
     <video
-      className={clsx("w-full transition-all duration-700", {
+      className={clsx("w-full rounded-3xl transition-all duration-700", {
         "object-cover h-full": cover,
         "h-auto": !cover,
         "rounded-3xl": homepage,
@@ -38,7 +38,7 @@ export default function Media({
       fill
       sizes="1000"
       loading="lazy"
-      className={clsx("w-full object-cover transition-all duration-700", {
+      className={clsx("object-cover w-full rounded-3xl transition-all duration-700", {
         "rounded-3xl": homepage,
       })}
     />
@@ -50,7 +50,7 @@ export default function Media({
       width={1000}
       height={1000}
       loading="lazy"
-      className={clsx("w-full h-auto transition-all duration-700", {
+      className={clsx("w-full h-auto rounded-3xl transition-all duration-700", {
         "rounded-3xl": homepage,
       })}
     />

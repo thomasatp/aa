@@ -12,6 +12,7 @@ export type MediaProps = {
   type?: string;
   cover?: boolean
   homepage?: boolean
+  draft?: boolean
 };
 
 export type HeroProps = {

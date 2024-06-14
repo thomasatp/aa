@@ -33,7 +33,8 @@ const config: Config = {
         '200': '200ms',
       },
       colors: {
-        'coral': "#FF6A5F"
+        'coral': "#FF6A5F",
+        'bkg': "#f5f5f2"
       }
     },
   },

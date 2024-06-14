@@ -10,6 +10,7 @@ type TileProps = {
   tags: ProjectProps["tags"];
   img: ProjectProps["img"];
   homepage?: boolean;
+  status?: string;
 };
 
 import clsx from "clsx";
@@ -21,17 +22,40 @@ export default function Tile({
   img,
   slug,
   homepage,
+  status,
 }: TileProps) {
-  return (
+  return status === "Draft" ? (
+    <div className="relative col-span-12 transition-all duration-700 aspect-4/5 sm:col-span-6 xl:col-span-4 2xl:col-span-3">
+      <div className="overflow-hidden w-full h-full rounded-3xl opacity-30 grayscale transition-all duration-700">
+        <Media type={img.type} url={img.url} name={img.name} cover />
+        <div className="flex absolute top-0 left-0 z-10 flex-col justify-between items-end p-6 w-full h-full backdrop-brightness-90 transition-all duration-700 lg:p-8 group-hover:backdrop-brightness-75">
+          <div className="flex flex-col w-full">
+            <div className="flex flex-wrap gap-y-0 gap-x-4 mb-4">
+              {tags.map((tag, index) => (
+                <p
+                  className="text-base font-medium text-white transition-all duration-300"
+                  key={index}
+                >
+                  {tag}
+                </p>
+              ))}
+            </div>
+            <h2 className="flex mb-4 text-3xl font-bold text-white">{title}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
     <Link
-    href={`/projets/${slug}`}
+      href={`/projets/${slug}`}
       className={clsx(`relative transition-all duration-700 group aspect-4/5`, {
         "col-span-12 sm:col-span-6 xl:col-span-4 2xl:col-span-3": !homepage,
         "w-[320px] min-w-[320px] xl:w-[500px] xl:min-w-[500px]": homepage,
+        
       })}
     >
       <div className="overflow-hidden w-full h-full rounded-3xl transition-all duration-700 scale-100 group-hover:scale-103">
-        <Media type={img.type} url={img.url} name={img.name} cover homepage/>
+        <Media type={img.type} url={img.url} name={img.name} cover />
         <div className="flex absolute top-0 left-0 z-10 flex-col justify-between items-end p-6 w-full h-full backdrop-brightness-90 transition-all duration-700 lg:p-8 group-hover:backdrop-brightness-75">
           <div className="flex flex-col w-full">
             <div className="flex flex-wrap gap-y-0 gap-x-4 mb-4">

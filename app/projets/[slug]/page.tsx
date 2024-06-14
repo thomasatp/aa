@@ -83,9 +83,9 @@ export default async function Page({
         thirdMedia={thirdMedia}
       />
       <Link href={`/projets/${nextProject.url}`}>
-        <section className="relative flex justify-center gap-6 px-6 py-24 pointer-events-none lg:py-32 xl:py-48 bg-zinc-300 text-neutral-950">
+        <section className="flex relative gap-6 justify-center px-6 py-24 pointer-events-none lg:py-32 xl:py-48 bg-neutral-950 dark:bg-white text-neutral-950">
           <div className="relative w-full lg:w-1/2 lg:z-10 aspect-square lg:aspect-4/3">
-            <p className="absolute text-lg uppercase -translate-x-1/2 lg:text-2xl -top-16 left-1/2">
+            <p className="absolute -top-16 left-1/2 text-lg text-white uppercase -translate-x-1/2 dark:text-neutral-950 lg:text-2xl">
               Next
             </p>
             <Media

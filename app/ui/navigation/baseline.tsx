@@ -35,7 +35,7 @@ export default function Baseline() {
     return () => animation.stop();
   });
   return (
-    <motion.div style={{opacity}} className="flex overflow-hidden absolute top-10 w-96 max-w-full h-7 text-lg font-medium lg:top-12 lg:flex-row text-coral">
+    <motion.div style={{opacity}} className="flex overflow-hidden absolute top-10 w-96 max-w-full h-7 text-lg font-medium lg:flex-row text-neutral-400">
       <motion.div style={{ translateY: translate }} className="flex flex-col">
         <p>Design UX/UI</p>
         <p>Développement web/mobile</p>

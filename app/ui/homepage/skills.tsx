@@ -31,7 +31,7 @@ export default function Skills({ projects }: { projects: DataPropsType }) {
     if (skill === "Motion Design") {
       return (
         projects.find((p) => p.slug === "revol")?.img ||
-        projects.filter((p) => p.tags.find((tag) => tag === "Motion"))[0]?.img
+        projects.filter((p) => p.tags.find((tag) => tag === "Motion Design"))[0]?.img
       );
     }
     if (skill === "Développement") {

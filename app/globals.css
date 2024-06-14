@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  @apply bg-white transition-all duration-300 dark:bg-neutral-950 dark:text-white text-neutral-950;
+  @apply transition-all duration-300 bg-bkg dark:bg-neutral-950 dark:text-white text-neutral-950;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -141,5 +141,17 @@ body {
   .no-scrollbar {
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
+}
+input:not(:placeholder-shown) ~ label {
+    @apply -top-4 text-sm dark:text-neutral-500 text-neutral-400
+}
+textarea:not(:placeholder-shown) ~ label {
+  @apply -top-4 text-sm dark:text-neutral-500 text-neutral-400
+}
+input:-webkit-autofill {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+textarea:-webkit-autofill {
+  transition: background-color 600000s 0s, color 600000s 0s;
 }
 }

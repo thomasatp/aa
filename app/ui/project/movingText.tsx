@@ -6,6 +6,7 @@ import {
   useMotionValue,
   useAnimationFrame,
 } from "framer-motion";
+import { useSkew } from "@/app/hooks/useSkew";
 
 export default function MovingText({ children }: { children: any }) {
   const baseX = useMotionValue(0);
@@ -14,6 +15,7 @@ export default function MovingText({ children }: { children: any }) {
     return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
   };
   const x = useTransform(baseX, (v) => `${wrap(-20, -40, v)}%`);
+  const skew = useSkew()
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
@@ -31,13 +33,13 @@ export default function MovingText({ children }: { children: any }) {
    * dynamically generated number of children.
    */
   return (
-    <div className="absolute z-10 left-0 flex w-full overflow-hidden lg:-translate-y-1/2 top-1/2 whitespace-nowrap flex-nowrap">
-      <motion.div className="text-[28vw] lg:text-[20vw] xl:text-[14vw] flex whitespace-nowrap flex-nowrap" style={{ x }}>
-        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
-        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
-        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
-        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
-        <div className="flex"><span className="block font-bold mr-16">{children}</span><span className="block font-bold skill text-red-500 mr-16">{children}</span></div>
+    <div className="flex overflow-hidden absolute left-0 top-1/2 z-10 flex-nowrap w-full whitespace-nowrap lg:-translate-y-1/2">
+      <motion.div style={{skewY: skew, x:x}} className="text-[28vw] lg:text-[20vw] xl:text-[14vw] flex whitespace-nowrap flex-nowrap">
+        <div className="flex"><span className="block mr-16 font-bold text-white opacity-80 dark:text-neutral-950">{children}</span><span className="block mr-16 font-bold text-red-500 opacity-80 text-coral">{children}</span></div>
+        <div className="flex"><span className="block mr-16 font-bold text-white opacity-80 dark:text-neutral-950">{children}</span><span className="block mr-16 font-bold text-red-500 opacity-80 text-coral">{children}</span></div>
+        <div className="flex"><span className="block mr-16 font-bold text-white opacity-80 dark:text-neutral-950">{children}</span><span className="block mr-16 font-bold text-red-500 opacity-80 text-coral">{children}</span></div>
+        <div className="flex"><span className="block mr-16 font-bold text-white opacity-80 dark:text-neutral-950">{children}</span><span className="block mr-16 font-bold text-red-500 opacity-80 text-coral">{children}</span></div>
+        <div className="flex"><span className="block mr-16 font-bold text-white opacity-80 dark:text-neutral-950">{children}</span><span className="block mr-16 font-bold text-red-500 opacity-80 text-coral">{children}</span></div>
       </motion.div>
     </div>
   );
