@@ -10,13 +10,16 @@ export default function HomeHero() {
     target: ref,
     offset: ["start center", "end end"],
   });
+const container = useRef<HTMLDivElement>(null)
+  const containerHeight = container.current ? container.current.offsetHeight : 600
 
-  const padding = useTransform(scrollY, [0, 600], ["clamp(0px, 0vw, 0px)", "clamp(16px, 5vw, 80px)"]);
-  const border = useTransform(scrollY, [0, 600], [0, 80]);
+  const padding = useTransform(scrollY, [0, containerHeight/2], ["clamp(0px, 0vw, 0px)", "clamp(16px, 5vw, 80px)"]);
+  const border = useTransform(scrollY, [0, containerHeight/2], ["clamp(0px, 0vw, 0px)", "clamp(24px, 5vw, 80px)"]);
 
   return (
-    <section ref={ref} className="px-0 overflow-hidden">
+    <section ref={ref} className="overflow-hidden px-0">
       <motion.div
+      ref={container}
         style={{ paddingLeft: padding, paddingRight: padding }}
         className="w-full"
       >

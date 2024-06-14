@@ -2,6 +2,8 @@
 import clsx from "clsx";
 import { ProjectProps } from "@/app/lib/types";
 import Media from "./media";
+import { motion } from "framer-motion";
+import { useSkew } from "@/app/hooks/useSkew";
 
 
 type secondPartProps = {
@@ -17,7 +19,7 @@ export default function SecondPart({
   secondPartDescription,
   templateB,
 }: secondPartProps) {
-
+  const skew = useSkew();
 
   return (
     ((secondMedias && secondMedias?.length > 0) ||
@@ -26,7 +28,7 @@ export default function SecondPart({
       <section
         className="flex flex-col gap-10 pt-24 xl:gap-48 bg-neutral-100 dark:bg-neutral-900 lg:pt-32 xl:pt-48"
       >
-        <div className="relative grid grid-cols-12 px-6 gap-y-6 xl:gap-y-40 lg:px-20">
+        <div className="grid relative grid-cols-12 gap-y-6 px-6 xl:gap-y-40 lg:px-20">
           {secondPartTitle && (
             <h2  className="col-span-12 col-start-1 text-2xl font-semibold sm:text-4xl xl:col-span-4 xl:col-start-2">
               {secondPartTitle}
@@ -40,19 +42,19 @@ export default function SecondPart({
         </div>
         {secondMedias?.length !== 0 &&
           (templateB ? (
-            <div className="relative grid items-start grid-cols-12 px-0 pb-24 mb-0 xl:mb-48 gap-y-6 xl:gap-y-40 lg:pb-32 xl:pb-48">
+            <div className="grid relative grid-cols-12 gap-y-6 items-start px-0 pb-24 mb-0 xl:mb-48 xl:gap-y-40 lg:pb-32 xl:pb-48">
               {secondMedias?.map(({ url, name, type }, i: number) => (
-                <div key={i} className="second-medias-b">
+                <motion.div style={{skewY: skew}} key={i} className="second-medias-b">
                   <Media type={type} url={url} name={name} />
-                </div>
+                </motion.div>
               ))}
             </div>
           ) : (
-            <div className="relative grid items-center grid-cols-12 px-6 pb-24 gap-y-6 xl:gap-y-40 lg:px-20 lg:pb-32 xl:pb-48">
+            <div className="grid relative grid-cols-12 gap-y-6 items-center px-6 pb-24 xl:gap-y-40 lg:px-20 lg:pb-32 xl:pb-48">
               {secondMedias?.map(({ url, name, type }, i: number) => (
-                <div key={i} className="medias second-medias">
+                <motion.div style={{skewY: skew}} key={i} className="medias second-medias">
                   <Media type={type} url={url} name={name} />
-                </div>
+                </motion.div>
               ))}
             </div>
           ))}

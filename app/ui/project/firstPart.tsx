@@ -1,19 +1,24 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import clsx from "clsx";
 import { MediaTypes } from "@/app/lib/types";
 import Media from "./media";
+import { motion } from "framer-motion";
+import { useSkew } from "@/app/hooks/useSkew";
 
 export default function FirstPart({
   firstMedias,
 }: {
   firstMedias: MediaTypes[] | undefined;
 }) {
+  const skew = useSkew();
+
   return (
     firstMedias?.length !== 0 && (
-      <section className="relative grid items-center grid-cols-12 px-6 mb-24 lg:mb-32 xl:mb-48 gap-y-6 xl:gap-y-40">
+      <section className="grid relative grid-cols-12 gap-y-6 items-center px-6 mb-24 lg:mb-32 xl:mb-48 xl:gap-y-40">
         {firstMedias?.map(({ url, name, type }, i: number) => (
-          <div
+          <motion.div
+            style={{ skewY: skew }}
             key={i}
             className={clsx("", {
               "medias first-medias": firstMedias.length > 1,
@@ -22,7 +27,7 @@ export default function FirstPart({
             })}
           >
             <Media type={type} url={url} name={name} />
-          </div>
+          </motion.div>
         ))}
       </section>
     )
