@@ -29,7 +29,7 @@ const Contact: FC = () => {
   const labelClassName =
     "absolute top-3 block mb-1 peer-focus:-top-4 peer-focus:text-neutral-400 dark:peer-focus:text-neutral-500  transition-all duration-300 text-base peer-focus:text-sm pointer-events-none font-medium text-neutral-950 dark:text-white";
   const inputClassName =
-    "py-3 w-full text-base font-medium peer text-neutral-700 bg-transparent border-b border-neutral-300 dark:border-neutral-700 outline-none focus:border-neutral-950 dark:focus:border-white text-neutral-950 dark:text-white";
+    "py-3 w-full text-base font-medium rounded-none peer text-neutral-700 bg-transparent border-b border-neutral-300 dark:border-neutral-700 outline-none focus:border-neutral-950 dark:focus:border-white text-neutral-950 dark:text-white";
 
   return (
     <form

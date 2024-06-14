@@ -13,6 +13,6 @@ export function sendEmail(data: FormData) {
       toast.success(response.message)
     })
     .catch((err) => {
-      toast.error('Event has not been created')
+      toast.error(err);
     });
 }

@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       https://github.com/nodemailer/nodemailer/blob/master/lib/well-known/services.json
   */
     auth: {
-      user: process.env.EMAIL0,
+      user: process.env.EMAIL,
       pass: process.env.PASSWORD,
     },
   });
