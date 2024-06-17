@@ -22,8 +22,10 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  modal
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
 
   const nav = await getNavigation();
@@ -33,6 +35,7 @@ export default async function RootLayout({
         <Providers attribute="class">
           <Cursor />
           <Nav nav={nav}/>
+          {modal}
           {children}
           <Footer />
         </Providers>

@@ -19,7 +19,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
-  const projects = await getProjects("Published");
+  const projects = await getProjects("");
   const singleProject = projects.filter((p) => p.slug === slug)[0];
 
   return {

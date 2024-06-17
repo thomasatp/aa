@@ -1,10 +1,11 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
-import { sendEmail } from "./sendEmail";
 import Arrow from "../ui/navigation/arrow";
-import { Toaster, toast } from 'sonner'
+import Load from "../ui/navigation/load";
+import { Toaster, toast } from "sonner";
+import { Form } from "react-hook-form";
 
 export type FormData = {
   company: string;
@@ -17,30 +18,40 @@ export type FormData = {
 };
 
 const Contact: FC = () => {
-  const { register, handleSubmit } = useForm<FormData>();
+  const { register, control } = useForm<FormData>();
 
-  function onSubmit(data: FormData) {
-    sendEmail(data);
-  }
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fieldClassName = "relative col-span-2 md:col-span-1 mb-5";
   const textAreaFieldClassName = "relative group col-span-2 mb-5";
 
   const labelClassName =
-    "absolute top-3 block mb-1 peer-focus:-top-4 peer-focus:text-neutral-400 dark:peer-focus:text-neutral-500  transition-all duration-300 text-base peer-focus:text-sm pointer-events-none font-medium text-neutral-950 dark:text-white";
+    "absolute block mb-1 transition-all duration-300 pointer-events-none font-medium ";
   const inputClassName =
-    "py-3 w-full text-base font-medium rounded-none peer text-neutral-700 bg-transparent border-b border-neutral-300 dark:border-neutral-700 outline-none focus:border-neutral-950 dark:focus:border-white text-neutral-950 dark:text-white";
+    "field py-3 w-full text-base font-medium rounded-none text-neutral-700 bg-transparent border-b border-neutral-300 dark:border-neutral-700 outline-none focus:border-neutral-950 dark:focus:border-white text-neutral-950 dark:text-white";
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
+    <Form
+      action="/api/send" // Send post request with the FormData
+      encType={"application/json"}
+      onSuccess={() => {
+        setIsLoading(false);
+        toast.success("Votre email a bien été envoyé");
+      }}
+      onError={() => {
+        setIsLoading(false);
+        toast.error("Votre email n'a pas pu être envoyé");
+      }}
+      onSubmit={() => {
+        setIsLoading(true);
+      }}
+      control={control}
       className="container grid grid-cols-2 gap-12 max-w-screen-md lg:grid-cols-2 max-lg:px-6"
     >
-      
       <div className={fieldClassName}>
         <input
           type="text"
-          placeholder=""
+          placeholder=" "
           className={inputClassName}
           {...register("company", { required: true })}
         />
@@ -49,10 +60,9 @@ const Contact: FC = () => {
         </label>
       </div>
       <div className={fieldClassName}>
-        
         <input
           type="text"
-          placeholder=""
+          placeholder=" "
           className={inputClassName}
           {...register("jobposition", { required: true })}
         />
@@ -63,7 +73,7 @@ const Contact: FC = () => {
       <div className={fieldClassName}>
         <input
           type="text"
-          placeholder=""
+          placeholder=" "
           className={inputClassName}
           {...register("firstname", { required: true })}
         />
@@ -72,10 +82,9 @@ const Contact: FC = () => {
         </label>
       </div>
       <div className={fieldClassName}>
-        
         <input
           type="text"
-          placeholder=""
+          placeholder=" "
           className={inputClassName}
           {...register("lastname", { required: true })}
         />
@@ -84,10 +93,9 @@ const Contact: FC = () => {
         </label>
       </div>
       <div className={fieldClassName}>
-        
         <input
           type="email"
-          placeholder=""
+          placeholder=" "
           className={inputClassName}
           {...register("email", { required: true })}
         />
@@ -96,10 +104,9 @@ const Contact: FC = () => {
         </label>
       </div>
       <div className={fieldClassName}>
-        
         <input
           type="tel"
-          placeholder=""
+          placeholder=" "
           className={inputClassName}
           {...register("telephone", { required: true })}
         />
@@ -108,10 +115,9 @@ const Contact: FC = () => {
         </label>
       </div>
       <div className={textAreaFieldClassName}>
-        
         <textarea
           rows={4}
-          placeholder=""
+          placeholder=" "
           className={`resize-none ${inputClassName}`}
           {...register("message", { required: true })}
         ></textarea>
@@ -120,15 +126,21 @@ const Contact: FC = () => {
         </label>
       </div>
       <div className="flex col-span-2 justify-center">
-        <button className="flex gap-x-0 justify-center items-center px-6 py-2 h-12 text-base font-medium text-white whitespace-nowrap rounded-full transition-all duration-300 translate-y-2 bg-neutral-950 dark:bg-white group/button hover:gap-x-2 group-hover:translate-y-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-950">
+        <button className="flex gap-x-0 justify-center items-center px-6 py-2 h-12 text-base font-medium text-white whitespace-nowrap rounded-full transition-all duration-300 translate-y-2 bg-neutral-950 dark:bg-white group/button group-hover:translate-y-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-950">
           Envoyer
-          <div className="w-0 transition-all duration-300 group-hover/button:w-4">
-            <Arrow className="opacity-0 transition-all duration-300 group-hover/button:opacity-100 stroke-white dark:stroke-neutral-950" />
-          </div>
+          {isLoading ? (
+            <div className="w-4 ml-2 transition-all duration-300">
+              <Load className="animate-spin transition-all duration-1000 group-hover/button:opacity-100 stroke-white dark:stroke-neutral-950" />
+            </div>
+          ) : (
+            <div className="w-0 ml-0 group-hover/button:ml-2 transition-all duration-300 group-hover/button:w-4">
+              <Arrow className="opacity-0 transition-all duration-300 group-hover/button:opacity-100 stroke-white dark:stroke-neutral-950" />
+            </div>
+          )}
         </button>
       </div>
-      <Toaster richColors/>
-    </form>
+      <Toaster richColors />
+    </Form>
   );
 };
 

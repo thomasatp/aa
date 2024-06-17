@@ -20,7 +20,7 @@ export default function Media({
       className={clsx("w-full rounded-3xl transition-all duration-700", {
         "object-cover h-full": cover,
         "h-auto": !cover,
-        "rounded-3xl": homepage,
+        "rounded-none": homepage,
       })}
       preload="auto"
       autoPlay

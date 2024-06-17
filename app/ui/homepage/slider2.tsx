@@ -37,7 +37,7 @@ export default function SliderNormal({ projects }: { projects: any[] }) {
 
 
   return (
-    <div className="flex relative flex-col mt-20 w-full 2xl:col-start-2">
+    <div className="flex relative flex-col mt-6 w-full 2xl:col-start-2">
       <div
         ref={container}
         onMouseDown={(e) => mouseIsDown(e)}

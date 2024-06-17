@@ -40,10 +40,13 @@ export default async function Page() {
       {/* <Hero title={homePage.title} description={homePage.description} /> */}
       <HomeHero />
       <div className="grid relative grid-cols-12 gap-6 gap-y-16 px-6 my-24 lg:px-80 xl:my-48">
-        <h1 style={{fontSize: "clamp(1.5rem, 2.5vw, 4.5rem)"}} className="col-start-1 col-span-12 leading-[1.3]">
+        <h1 style={{fontSize: "clamp(1.5rem, 2.5vw, 4.5rem)"}} className="col-start-1 col-span-12 col-start-6 col-span-7 font-medium leading-[1.1]">
           {homePage.description}
         </h1>
       </div>
+      {/* <h2  className="text-4xl px-6 lg:px-20 col-start-1 col-span-12  font-semibold leading-[1.1]">
+          Nos projets
+        </h2> */}
       <SliderNormal projects={projects} />
       <Skills projects={projects} />
       <div className="grid relative grid-cols-12 gap-6 px-6 mt-20 lg:px-20">
