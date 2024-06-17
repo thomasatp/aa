@@ -59,7 +59,7 @@ export default function Skills({ projects }: { projects: DataPropsType }) {
                 key={i}
               >
                 <Link href={`/projets?filter=${skill}`}>
-                  <h2 className=" whitespace-nowrap text-white mix-blend-difference relative text-[10vw] 2xl:text-[7vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-bold leading-[0.8] group-hover:z-20 group-hover:skill">
+                  <h2 className=" whitespace-nowrap text-white mix-blend-difference relative text-[10vw] 2xl:text-[7vw] translate-0 group-hover:-translate-x-10 max-lg:group-hover:translate-x-0 will-change-auto transition-all duration-300 font-bold leading-[0.8] group-hover:z-20">
                     {skill}
                   </h2>
                 </Link>
