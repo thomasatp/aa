@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -17,6 +17,10 @@ const config = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      sans: ["GeneralSans", "sans-serif"],
+    },
+
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -52,8 +56,8 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        'coral': "#FF6A5F",
-        'bkg': "#f5f5f2"
+        coral: "#FF6A5F",
+        bkg: "#f5f5f2",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -75,26 +79,29 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       aspectRatio: {
-        '4/5': '4 / 5',
-        '4/3': '4 / 3',
-      },transitionProperty: {
-        'size': 'width, height',
-        'scale': 'scale',
-        'hop': "transform, opacity"
-      },scale: {
-        "103": "1.03"
+        "4/5": "4 / 5",
+        "4/3": "4 / 3",
+      },
+      transitionProperty: {
+        size: "width, height",
+        scale: "scale",
+        hop: "transform, opacity",
+      },
+      scale: {
+        "103": "1.03",
       },
       transitionDelay: {
-        '50': '50ms',
-        '100': '100ms',
-        '150': '150ms',
-        '200': '200ms',
+        "50": "50ms",
+        "100": "100ms",
+        "150": "150ms",
+        "200": "200ms",
       },
-      
-      
+      fontWeight: {
+        semibold: "599",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+} satisfies Config;
 
-export default config
+export default config;

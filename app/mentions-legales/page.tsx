@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { getLegalPage } from "../lib/getLegalPage";
-import { getLegalNotices } from "../lib/getLegalNotices";
-import Hero from "../ui/homepage/hero";
+import { getLegalPage } from "@/lib/getLegalPage";
+import { getLegalNotices } from "@/lib/getLegalNotices";
+import Hero from "../_components/hero";
 
 export const dynamic = "force-dynamic";
 
@@ -28,7 +28,13 @@ export default async function Page() {
           <h2 className="col-span-12 col-start-1 mb-6 text-base font-normal uppercase xl:mb-12 dark:text-neutral-400 text-neutral-600 xl:col-start-2 xl:col-span-3">
             {title}
           </h2>
-          <p className="col-span-12 text-xl font-semibold sm:text-4xl xl:col-span-7">{description?.split("\n").map((not, key) => <span className="block" key={key}>{not}</span>)}</p>
+          <p className="col-span-12 text-xl font-semibold sm:text-4xl xl:col-span-7">
+            {description?.split("\n").map((not, key) => (
+              <span className="block" key={key}>
+                {not}
+              </span>
+            ))}
+          </p>
         </div>
       ))}
     </main>

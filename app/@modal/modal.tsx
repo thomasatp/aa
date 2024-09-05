@@ -39,7 +39,15 @@ export function Modal({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <Sheet defaultOpen={true} open={true} onOpenChange={handleOpenChange}>
+    <Sheet
+      defaultOpen={true}
+      open={true}
+      onOpenChange={(open) => {
+        if (!open) {
+          router.back();
+        }
+      }}
+    >
       <SheetContent
         side={isDesktop ? "right" : "bottom"}
         className={clsx(

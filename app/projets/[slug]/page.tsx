@@ -1,15 +1,16 @@
 import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
-import MovingText from "@/app/ui/project/movingText";
-import Header from "@/app/ui/project/header";
-import Intro from "@/app/ui/project/intro";
-import FirstPart from "@/app/ui/project/firstPart";
-import SecondPart from "@/app/ui/project/secondPart";
-import WideMedia from "@/app/ui/project/wideMedia";
-import ThirdPart from "@/app/ui/project/thirdPart";
-import { ProjectProps } from "@/app/lib/types";
-import { getProjects } from "@/app/lib/getProjects";
-import Media from "@/app/ui/project/media";
+import MovingText from "../_components/movingText";
+import Header from "../_components/header";
+import Intro from "../_components/intro";
+import FirstPart from "../_components/firstPart";
+import SecondPart from "../_components/secondPart";
+import WideMedia from "../_components/wideMedia";
+import ThirdPart from "../_components/thirdPart";
+import { ProjectProps } from "@/lib/types";
+import { getProjects } from "@/lib/getProjects";
+import Media from "../_components/media";
+import HomeHero from "../../_components/homeHero";
 
 type Props = {
   params: { slug: string };
@@ -39,6 +40,10 @@ export default async function Page({
   // 2 - preview: preview ou rien pour charger toutes les données
   // 3 - maxRecords : rien ou nombre de projets à afficher
   const projects = await getProjects("Published");
+  const project = projects.filter((p) => p.slug === slug)[0];
+  if (!project) {
+    throw new Error("The page you are looking for doesn't exist");
+  }
   const {
     title,
     img,
@@ -54,7 +59,7 @@ export default async function Page({
     thirdPartTitle,
     thirdPartDescription,
     thirdMedia,
-  } = projects.filter((p) => p.slug === slug)[0];
+  } = project;
 
   const projectPosition = projects.findIndex((p) => p.slug === slug);
   const nextProjectIndex =
@@ -66,9 +71,10 @@ export default async function Page({
   };
 
   return (
-    <main>
-      <Header title={title} img={img} />
-      <Intro tags={tags} description={description} link={link} />
+    <main className="relative">
+      {/* <Header title={title} img={img} /> */}
+      <Intro title={title} tags={tags} description={description} link={link} />
+      <HomeHero media={img} />
       <FirstPart firstMedias={firstMedias} />
       <SecondPart
         secondPartTitle={secondPartTitle}
@@ -88,14 +94,20 @@ export default async function Page({
             <p className="absolute -top-16 left-1/2 text-lg text-white uppercase -translate-x-1/2 dark:text-neutral-950 lg:text-2xl">
               Next
             </p>
-            <Media
+            {/* <Media
               type={nextProject.img.type}
               url={nextProject.img.url}
               name={nextProject.title}
               cover
-            />
+            /> */}
           </div>
-          <MovingText>{nextProject.title}</MovingText>
+          <MovingText
+            type={nextProject.img.type}
+            url={nextProject.img.url}
+            name={nextProject.title}
+          >
+            {nextProject.title}
+          </MovingText>
         </section>
       </Link>
     </main>

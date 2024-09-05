@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { Metadata } from "next";
-import Hero from "@/app/ui/homepage/hero";
-import Tile from "@/app/ui/tile";
-import FilterBar from "../ui/filterBar";
-import { SkillsType } from "../lib/types";
-import { getProjects } from "../lib/getProjects";
-import { getWorkPage } from "../lib/getWorkPage";
+import Hero from "../_components/hero";
+import Tile from "@/components/tile";
+import FilterBar from "@/components/filterBar";
+import { SkillsType } from "@/lib/types";
+import { getProjects } from "@/lib/getProjects";
+import { getWorkPage } from "@/lib/getWorkPage";
+import Intro from "./_components/intro";
 
 export const dynamic = "force-dynamic";
 
@@ -42,6 +43,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   return (
     <main>
       <Hero title={workPage.title} description={workPage.description} />
+      {/* <Intro title={workPage?.title} description={workPage.description} /> */}
       <FilterBar allTags={allTags} filter={filter} />
 
       <div className="grid relative grid-cols-12 px-6 mt-12 lg:px-20">
@@ -59,7 +61,15 @@ export default async function Page({ searchParams }: { searchParams: any }) {
               img &&
               slug &&
               status && (
-                <Tile key={i} title={title} description={description} tags={tags} img={img} slug={slug} status={status} />
+                <Tile
+                  key={i}
+                  title={title}
+                  description={description}
+                  tags={tags}
+                  img={img}
+                  slug={slug}
+                  status={status}
+                />
               )
           )}
         </div>

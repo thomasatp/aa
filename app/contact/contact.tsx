@@ -2,8 +2,8 @@
 
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
-import Arrow from "../ui/navigation/arrow";
-import Load from "../ui/navigation/load";
+import Arrow from "../../src/components/navigation/arrow";
+import Load from "../../src/components/navigation/load";
 import { Toaster, toast } from "sonner";
 import { Form } from "react-hook-form";
 

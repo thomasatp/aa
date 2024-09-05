@@ -1,19 +1,31 @@
 import localFont from "next/font/local";
+import { GeistSans } from "geist/font/sans";
+import clsx from "clsx";
 
 const switzer = localFont({
   src: "../public/fonts/Switzer-Variable.woff2",
+  variable: "--font-switzer",
+});
+const anton = localFont({
+  src: "../public/fonts/Anton-Regular.woff2",
+  variable: "--font-anton",
+});
+
+const general = localFont({
+  src: "../public/fonts/GeneralSans-Variable.woff",
+  variable: "--font-general",
 });
 
 import type { Metadata } from "next";
-import { Inter_Tight } from "next/font/google";
+import { Inter_Tight, Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./lib/providers";
-import Nav from "./ui/navigation/nav";
-import Footer from "./ui/footer";
-const inter = Inter_Tight({ subsets: ["latin"], display: "swap" });
-import Cursor from "./ui/cursor";
+import { Providers } from "@/lib/providers";
+import Nav from "../src/components/navigation/nav";
+import Footer from "@/components/footer";
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+import Cursor from "@/components/cursor";
 
-import { getNavigation } from "@/app/lib/getNavigation";
+import { getNavigation } from "@/lib/getNavigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,19 +34,18 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  modal
+  modal,
 }: {
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
-
   const nav = await getNavigation();
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={clsx(`${general.variable} ${anton.variable}`)}>
         <Providers attribute="class">
           <Cursor />
-          <Nav nav={nav}/>
+          <Nav nav={nav} />
           {modal}
           {children}
           <Footer />

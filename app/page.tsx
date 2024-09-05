@@ -1,18 +1,15 @@
 import { Metadata } from "next";
-import Hero from "@/app/ui/homepage/hero";
-import Tile from "@/app/ui/tile";
-import { brandImages } from "./lib/notion";
-import Skills from "./ui/homepage/skills";
+import Hero from "./_components/hero";
+import Tile from "@/components/tile";
+import { brandImages } from "@/lib/getBrandImages";
+import Skills from "./_components/skills";
 import Image from "next/image";
-import { getHomePage } from "./lib/getHomePage";
-import { getProjects } from "./lib/getProjects";
-import { getAllProjects } from "./lib/notion/getProjects";
-import MovingText from "./ui/project/movingText";
-import Media from "./ui/project/media";
-import HomeHero from "./ui/homepage/homeHero";
-import Slider from "./ui/homepage/slider";
-import SliderDrag from "./ui/homepage/sliderDrag";
-import SliderNormal from "./ui/homepage/slider2";
+import { getHomePage } from "@/lib/getHomePage";
+import { getProjects } from "@/lib/getProjects";
+import MovingText from "./projets/_components/movingText";
+import Media from "./projets/_components/media";
+import HomeHero from "./_components/homeHero";
+import Slider from "./_components/slider";
 
 export const dynamic = "force-dynamic";
 
@@ -32,22 +29,23 @@ export default async function Page() {
   // 3 - maxRecords : rien ou nombre de projets à afficher
   const projects = await getProjects("Published", "preview", 9);
   const homePage = await getHomePage();
-  const base = await getAllProjects("Published");
-  console.log(base[6]);
 
   return (
     <main className="relative">
       {/* <Hero title={homePage.title} description={homePage.description} /> */}
       <HomeHero />
-      <div className="grid relative grid-cols-12 gap-6 gap-y-16 px-6 my-24 lg:px-80 xl:my-48">
-        <h1 style={{fontSize: "clamp(1.5rem, 2.5vw, 4.5rem)"}} className="col-start-1 col-span-12 col-start-6 col-span-7 font-medium leading-[1.1]">
+      <div className="container max-w-screen-xl flex relative px-6 my-24 lg:px-20 xl:my-48">
+        <h1
+          // style={{ fontSize: "clamp(1.5rem, 2.5vw, 4.5rem)" }}
+          className="w-full font-medium leading-normal text-2xl lg:text-3xl xl:text-5xl "
+        >
           {homePage.description}
         </h1>
       </div>
       {/* <h2  className="text-4xl px-6 lg:px-20 col-start-1 col-span-12  font-semibold leading-[1.1]">
           Nos projets
         </h2> */}
-      <SliderNormal projects={projects} />
+      <Slider projects={projects} />
       <Skills projects={projects} />
       <div className="grid relative grid-cols-12 gap-6 px-6 mt-20 lg:px-20">
         <p className="col-span-12 col-start-1 font-semibold text-l 2xl:col-span-2 2xl:col-start-2">

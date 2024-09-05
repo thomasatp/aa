@@ -1,17 +1,16 @@
 import { Metadata } from "next";
-import { getAboutPage } from "../lib/getAboutPage";
-import { getAboutSkills } from "../lib/getAboutSkills";
-import { getPeople } from "../lib/getPeople";
-import Hero from "../ui/homepage/hero";
-import PeopleTile from "../ui/peopleTile";
-import LottieBlock from "../ui/lottie";
+import { getAboutPage } from "@/lib/getAboutPage";
+import { getAboutSkills } from "@/lib/getAboutSkills";
+import { getPeople } from "@/lib/getPeople";
+import Hero from "../_components/hero";
+import PeopleTile from "./_components/peopleTile";
+import LottieBlock from "@/components/lottie";
 import clsx from "clsx";
-import AboutFilterBar from "../ui/aboutFilterBar";
+import AboutFilterBar from "./_components/aboutFilterBar";
 export const dynamic = "force-dynamic";
-import Media from "../ui/project/media";
-import { brandImages } from "../lib/notion";
+import Media from "../projets/_components/media";
+import { brandImages } from "@/lib/getBrandImages";
 import Image from "next/image";
-
 
 export async function generateMetadata(): Promise<Metadata> {
   const aboutPage = await getAboutPage();
@@ -39,8 +38,12 @@ export default async function Page({ searchParams }: { searchParams: any }) {
       <div className="relative grid grid-cols-12 px-6 mt-20 mb-20 lg:px-20">
         {aboutPage.media && (
           <section className="relative col-span-12 aspect-square xl:aspect-video">
-            <Media type={aboutPage.media.type} url={aboutPage.media.url} name={aboutPage.media.name} cover />
-            
+            <Media
+              type={aboutPage.media.type}
+              url={aboutPage.media.url}
+              name={aboutPage.media.name}
+              cover
+            />
           </section>
         )}
       </div>
@@ -66,7 +69,8 @@ export default async function Page({ searchParams }: { searchParams: any }) {
         </div>
         <div
           className={clsx("col-span-12 lg:col-span-6", {
-            "filter-none lg:blur max-lg:hidden": filter === concatSkills[0] || filter === undefined,
+            "filter-none lg:blur max-lg:hidden":
+              filter === concatSkills[0] || filter === undefined,
           })}
         >
           {aboutSkills
@@ -106,12 +110,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
       </div>
       <div className="relative grid grid-cols-12 gap-6 gap-y-16 px-6 lg:px-20 mt-20 2xl:[&>*:nth-child(1)]:col-start-2 2xl:[&>*:nth-child(4)]:col-start-3 2xl:[&>*:nth-child(7)]:col-start-2 2xl:[&>*:nth-child(10)]:col-start-3 2xl:[&>*:nth-child(13)]:col-start-2">
         {people.map(({ name, job, media }, i) => (
-          <PeopleTile
-            key={i}
-            name={name}
-            job={job}
-            media={media}
-          />
+          <PeopleTile key={i} name={name} job={job} media={media} />
         ))}
       </div>
     </main>
